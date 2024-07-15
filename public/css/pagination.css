@@ -1,0 +1,85 @@
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+  
+  .winners__list--main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style-type: none;
+  }
+  
+  .winners__list--main  {   
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .winners__item {
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-bottom: 1px solid white;
+    width: 100%;
+  }
+
+  .btn-container, .pagination__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 0;
+  }
+  
+  .btn {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+  
+  .page-index {
+    padding: 0;
+  }
+
+  .page-index li {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .page-index li.hide {
+    display: none;
+  }
+  
+  .page-index li.active {
+    background-color: #ddd;
+  }
+  
+  .page-index li:focus,
+  .page-index li:hover {
+    background-color: #ddd;
+  }
+  
+  /* .page-index li:focus,
+  .page-index li:active,
+  .page-index li.active:focus,
+  .page-index li.active:active {
+    transform: scale(0.95);
+  } */

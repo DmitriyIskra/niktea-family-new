@@ -1,0 +1,288 @@
+ 
+ .back-buttons__wrap {    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 54px;
+    margin-top: 40px;
+ }
+
+ .back-button {
+    position: relative;
+    text-align: center;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+    color: white;
+    cursor: pointer;
+    width: 300px;
+    height: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 20px;
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;  
+ }
+
+ .back-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
+ }
+
+ .back-button:hover {
+    box-shadow: 0px 0px 15px 5px #FFF;
+    transition: box-shadow 0.3s ease;  
+ }
+
+ .warning__error {
+    display: flex;
+     color: #FFF;
+     text-align: center;
+     font-family: Arsenal;
+     font-size: 64px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: normal;
+     text-align: center;
+ }
+
+ .warning__oi {
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    width: 100%;
+ }
+
+.error-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;       
+    width: 100%;
+    max-height: 706px;
+    aspect-ratio: 1288/706;
+    border-radius: 30px;       
+    background: url(../img/icons/rules-bg.png), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+    background-repeat: no-repeat;
+    background-size: 100% 100%;    
+    background-position-x:center;
+    background-position-y:center;
+    padding-left: 140px;
+    padding-right: 140px;
+    box-shadow: 0px 0px 20px 8px #FFF;
+}
+
+.error-page__container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 27%;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;            
+    margin-top: 65px;
+    max-width: 137.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.error__page__section {
+    max-width: 1350px;
+    /* width: 100%; */
+    margin-left: 150px;
+    margin-right: 150px;
+    /* margin-bottom: 5%; */
+}
+
+.error__head {
+    color: #FFF;
+text-align: center;
+font-family: Arsenal;
+font-size: 200px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.rules-article {
+
+    margin: auto;
+
+}
+
+.rules-body h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    text-transform: capitalize;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.rules-body--text {
+  color: #FFF;
+    font-family: Arsenal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+
+.rules__head {
+    margin-bottom: 88px;
+    color: #FFF;
+    font-size: 150px;    
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rules__head h1{  
+    color: #FFF;
+    font-family: 'Snell Roundhand';
+    font-size: 150px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-transform: none;
+    text-shadow: 0px 0px 0px rgba(23, 56, 59, 0.10), -3px 3px 10px rgba(23, 56, 59, 0.10), -13px 14px 19px rgba(23, 56, 59, 0.09), -30px 31px 26px rgba(23, 56, 59, 0.05), -53px 55px 30px rgba(23, 56, 59, 0.01), -82px 86px 33px rgba(23, 56, 59, 0.00), 0px 0px 10px #FFF;
+    margin: 0;
+}
+
+.rules-docs {
+    margin-top: 120px;
+}
+
+.docs_links__wrap {
+    margin-top: 45px;
+    gap: 10px;    
+    display: flex;
+    justify-content: center;
+}
+
+.rules-docs h2 {
+    text-transform: none;
+}
+
+@media (max-width: 1280px) {
+    .rules-body--text{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rules__head h1{
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .rules__container {
+        padding-top: 25%;
+        margin-top: 0px;
+        margin-bottom: 95%;
+    }
+    
+    .rules {      
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rules-body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;       
+        width: 307px;
+        height: 624px;
+        aspect-ratio: 624/307;
+        border-radius: 30px;       
+        background: url(../img/icons/rules-bg-mobile.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+        background-repeat: no-repeat;
+        background-size: 100% 100%;    
+        background-position-x:center;
+        background-position-y:center;
+        padding-left: 30px;
+        padding-right: 30px;
+        box-shadow: 0px 0px 20px 8px #FFF;
+    }
+
+    body[data-variant=rules]::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;    
+        background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/rules-flovers-bg-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+        background-position-x: center, left; 
+        background-position-y: bottom, 0;
+        background-repeat: no-repeat no-repeat;
+        background-size: contain, 100% auto;
+        z-index: -10;  
+      }
+
+      .rules-docs {
+        margin-top: 60px;
+      }
+
+      .rules__head {
+        margin-bottom: 44px;
+      }
+
+      .rules__head h1{
+        font-size: 48px;
+        margin: 0;
+      }
+
+    .rules-body h2 {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 24px;
+    }
+
+    .rules-body--text {        
+        font-family: Arsenal;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+    .docs_links__wrap {
+        justify-content: flex-start;
+    }
+
+}

@@ -1,0 +1,33 @@
+.copyright__wrapper {
+    display: flex;
+    height: 2.60vw;
+
+    border-top: 1px solid #fff;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright__wrapper p {
+    margin-bottom: 0;
+
+    font-family: 'Arsenal';
+    font-size: 1.04vw;
+    font-weight: 400;
+    
+    color: #FFF;
+}
+
+
+
+@media(max-width:996px) {
+    .copyright__wrapper {
+        height: 16vw;
+    }
+}
+
+@media(max-width:996px) {
+    .copyright__wrapper p {
+        font-size: 5.87vw;
+    }
+}

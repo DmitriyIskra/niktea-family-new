@@ -1,0 +1,101 @@
+.search__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  position: absolute;
+  right: 60px;
+  order: -1;
+  max-height: 3vw;
+  opacity: 1;
+  width: 0;
+  height: 2.6vw;
+  overflow: hidden;
+  margin-bottom: 0px;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+
+#toggle {
+  width: 0;
+  display: none;
+}
+#toggle + label:after {
+  text-align: start;
+  display: inline-block;  
+  border-radius: 10px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.header-wrapper--main #toggle + label:after {
+  content: url("../img/icons/icon-search.svg");  
+  height: 2.6vw;
+}
+
+ #toggle + label:after {
+  content: url("../img/icons/search-white.svg");  
+  height: 2.6vw;
+}
+
+
+.header-wrapper--main #toggle + label:hover {
+  filter: drop-shadow(3px 2px 3px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(3px 2px 3px rgba(0, 0, 0, 0.7));
+}
+
+.header-wrapper--main #toggle:checked + label:after {
+  content: url("../img/icons/close.svg");  
+  height: 2.6vw;      
+}
+
+ #toggle:checked + label:after {
+  content: url("../img/icons/modal-close.svg");  
+  height: 2.6vw;      
+}
+
+ #toggle + label:hover {
+  filter: drop-shadow(3px 2px 3px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(3px 2px 3px rgb(255, 255, 255));
+}
+
+.marnifier {
+  stroke: blue;
+}
+
+#toggle:checked ~ .box {
+  width: 53vw;
+  /* margin-right: 25px; */
+  margin-right: 50px;
+  box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.7);
+  opacity: 1;
+  transition: width 0.5s ease-in-out;
+  border-radius: 2.6vw 0px 2.6vw 2.6vw;
+  -webkit-transition: width 0.5s ease-in;
+  -moz-transition: width 0.5s ease-in;
+  -ms-transition: width 0.5s ease-in;
+  -o-transition: width 0.5s ease-in;
+}
+
+.header-wrapper--main #toggle:checked ~ .box {
+  box-shadow: 0px 0px 6px 2px rgba(24, 23, 23, 0.41);
+}
+
+.input__field {
+width: 100%;
+height: 100%;
+padding-left: 25px;
+border: none;
+}
+
+.input__group {
+  height: 2.6vw;
+}
+
+.search-item {
+  height: 2.6vw;
+}

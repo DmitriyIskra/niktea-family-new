@@ -1,0 +1,609 @@
+.more-detailed *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-size: initial;
+    text-align: initial;
+
+    color: #000;
+
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.more-detailed__wr-button {
+    display: flex;
+    margin: 0 auto;
+
+    justify-content: center;
+}
+
+.more-detailed__button-back-modal-on {
+    display: flex;
+    width: 15.63vw;
+    height: 3.13vw;
+    padding: 0.10vw;
+
+    transition: all 0.25s linear;
+
+    border-radius: 2.60vw;
+    background: linear-gradient(180deg, #00BD8D, #00392D);
+}
+
+.more-detailed__button-back-modal-on:hover {
+    box-shadow: 0 0 1vw #fff;
+}
+
+.more-detailed__button-back-modal-on span {
+    display: flex;
+    width: 100%;
+   
+    font-family: 'Arsenal';
+    font-size: 1.04vw;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    color: #FFF;
+    background: #61A29B;
+    border-radius: 2.60vw;
+
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.more-detailed__modal {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+
+    display: none;
+    width: 76.46vw;
+    padding-top: 1.56vw;
+    padding-bottom: 3.85vw;
+
+    border-radius: 0.63vw;
+    background: #535D60;
+
+    transform: translateX(-50%);
+}
+
+.more-detailed__modal_active {
+    display: block;
+}
+
+.more-detailed__wr-close {
+    display: flex;
+    padding-right: 1.56vw;
+
+    justify-content: flex-end;
+}
+
+.more-detailed__close {
+    height: 1.56vw;
+    width: 1.56vw;
+
+    cursor: pointer;
+}
+
+.more-detailed__close:hover {
+    filter: drop-shadow(0 0 3px #fff);
+}
+
+.more-detailed__tabs-list {
+    display: flex;
+    gap: 3.39vw;
+
+    justify-content: center;
+}
+
+.more-detailed__tabs-item {
+    font-family: 'Arsenal';
+    font-size: 1.67vw;
+    font-weight: 700;
+
+    color: #E7EAEA;
+
+    transition: filter 0.08s linear;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.more-detailed__tabs-item:hover {
+    filter: drop-shadow(0 0 0.1vw rgba(255, 255, 255, 0.4));
+}
+
+.more-detailed__tabs_active {
+    filter: drop-shadow(0 0 0.21vw #fff);
+    pointer-events: none;
+
+    cursor: default;
+}
+
+.more-detailed__wr-content {
+    display: none;
+    width: 65.10vw;
+    margin: 3.23vw auto 0;
+}
+
+.more-detailed__wr-content_active {
+    display: block;
+}
+
+.more-detailed__content-list {
+    display: flex;
+    gap: 2.08vw;
+
+    flex-direction: column;
+}
+
+.more-detailed__content-item {
+    padding-top: .89vw;
+    padding-bottom: 3.91vw;
+
+    border-radius: 2.60vw;
+    background: #494694;
+    box-shadow: .26vw .78vw 1.04vw rgba(0, 0, 0, 0.32);
+}
+
+.more-detailed__wr-title {
+    padding-left: 2.19vw;
+    padding-right: 2.19vw;
+}
+
+.more-detailed__title {
+    padding-bottom: .78vw;
+    
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 700;
+    text-align: center;
+    
+    border-bottom: 1px solid #fff;
+    color: #FFF500;
+}
+
+.more-detailed__bonus-prog-list {
+    padding-left: 2.19vw;
+    padding-right: 2.19vw;
+}
+
+.more-detailed__bonus-prog-item {
+    display: flex;
+    padding-top: .47vw;
+    padding-bottom: .47vw;
+    gap: .63vw;
+
+    border-bottom: 1px solid #fff;
+    align-items: center;
+}
+
+.more-detailed__bonus-prog-wr-image {
+    width: 8.85vw;
+    height: 5.21vw;
+}
+
+.more-detailed__bonus-prog-wr-image img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+.more-detailed__bonus-prog-amount-balls {
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 700;
+
+    color: #FFF500;
+}
+
+.more-detailed__bonus-prog-desc {
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 400;
+
+    color: #fff;
+}
+
+.more-detailed__bonus-prog-desc-dop {
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 400;
+
+    color: #fff;
+}
+
+.more-detailed__bonus-prog-desc-dop-color {
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 400;
+    font-style: italic;
+    
+    color: #FFF500;
+}
+
+.more-detailed__bonus-prog-text_dop {
+    font-family: 'Arsenal';
+    font-size: 0.83vw;
+    font-weight: 400;
+    color: #FFF500;
+}
+
+.more-detailed__buttons-list {
+    display: flex;
+    margin-top: 5.10vw;
+    gap: 1.82vw;
+
+    justify-content: center;
+}
+
+.more-detailed__button-back {
+    display: flex;
+    width: 20.52vw;
+    height: 3.07vw;
+    padding: 0.10vw;
+
+    border-radius: 2.60vw;
+    background: linear-gradient(180deg, #00BD8D, #00392D);
+
+    transition: all 0.25s linear;
+}
+
+.more-detailed__button-back:hover {
+    box-shadow: 0 0 1vw #fff;
+}
+
+.more-detailed__button-back a {
+    display: flex;
+    width: 100%;
+   
+    font-family: 'Arsenal';
+    font-size: 1.04vw;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    color: #FFF;
+    background: #7A8688;
+    border-radius: 2.60vw;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.more-detailed__lottery-list {
+    padding-left: 2.19vw;
+    padding-right: 2.19vw;
+}
+
+.more-detailed__lottery-item {
+    display: flex;
+    padding-top: 1.04vw;
+    padding-bottom: 1.04vw;
+    gap: .63vw;
+
+    border-bottom: 1px solid #fff;
+    align-items: center;
+}
+
+.more-detailed__lottery-wr-image {
+    width: 10.73vw;
+    height: 8.13vw;
+}
+
+.more-detailed__lottery-wr-image img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+.more-detailed__lottery-wr-image_watch {
+    height: 10.52vw;
+}
+
+.more-detailed__lottery-text {
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-weight: 700;
+
+    color: #FFF500;
+}
+
+
+@media(min-width: 997px) {
+    .more-detailed__tabs_active:hover {
+        filter: none;
+    }
+}
+
+
+@media (max-width: 996px) {
+    .more-detailed__modal {
+        top: 5vw;
+        width: 82%;
+
+        padding-top: 5.33vw;
+        padding-bottom: 11.33vw;
+
+        border-radius: 6vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__wr-close {
+        padding-right: 5.33vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__close {
+        width: 5.33vw;
+        height: 5.33vw;
+    } 
+}
+
+@media (max-width: 996px) {
+    .more-detailed__tabs-list {
+        margin-top: 7.47vw;
+        gap: 4vw;
+
+        flex-direction: column;
+        justify-content: initial;
+        align-items: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__tabs-item {
+        font-size: 3.73vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__wr-content {
+        width: 93.3%;
+        margin-top: 8vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__content-list {
+        gap: 5.5vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__content-item {
+        padding-top: 5.60vw;
+        padding-bottom: 8.60vw;
+
+        border-radius: 3.6vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__wr-title {
+        padding-left: 2.67;
+        padding-right: 2.67;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__title {
+        padding-bottom: 6.3vw;
+
+        font-size: 6.40vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-list {
+        padding-left: 2.67;
+        padding-right: 2.67;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-item {
+        padding-top: 1.33vw;
+        padding-bottom: 1.87vw;
+        gap: 0;
+
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-wr-image {
+        width: 29.33vw;
+        height: 17.33vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-text {
+        display: flex;
+
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-amount-balls {
+        font-size: 3.73vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-desc {
+        font-size: 3.73vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-desc-dop {
+        font-size: 3.73vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-desc-dop-color {
+        font-size: 3.73vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__bonus-prog-text_dop {
+        font-size: 3.73vw;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 996px) {
+    .more-detailed__lottery-item {
+        padding-top: 3.04vw;
+        padding-bottom: 3.04vw;
+        gap: 1.5vw;
+
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__lottery-wr-image {
+        width: 29.33vw;
+        height: 17.33vw;
+    }
+
+    .more-detailed__lottery-wr-image_watch {
+        height: 25.52vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__lottery-text {
+        font-size: 3.73vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__buttons-list {
+        gap: 4.80vw;
+
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__button-back {
+        width: 61.87vw;
+        height: 13.33vw;
+        padding: 0.53vw;
+
+        border-radius: 13.33vw;
+    }
+
+    .more-detailed__button-back a {
+        font-size: 3.73vw;
+
+        border-radius: 13.33vw;
+    }
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+@media (max-width: 996px) {
+    
+}
+
+
+
+@media (max-width: 996px) {
+    .more-detailed__wr-button {
+        margin-top: 11vw;
+        gap: 3.82vw;
+
+        flex-direction: column;
+        justify-content: initial;
+        align-items: center;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__button-back-modal-on {
+        width: 59.50vw;
+        height: 14.53vw;
+        padding: 0.53vw;
+
+        border-radius: 8vw;
+    }
+}
+
+@media (max-width: 996px) {
+    .more-detailed__button-back-modal-on span {
+        font-size: 3.73vw;
+
+        border-radius: 8vw;
+    }
+}
+
+
+
+
+
+

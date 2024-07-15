@@ -1,0 +1,654 @@
+.winners__container {
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-top: 15%; */
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    /* margin-top: 110px; */
+    max-width: 137.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.winners {
+    max-width: 1350px;
+    width: 100%;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 50%;
+}
+.my td {
+    color: #fef85c;
+}
+
+.winners-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: url(../img/icons/form-flowers-top.svg),
+        url(../img/icons/winners-bottom-bg.svg),
+        linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-position-y: top, bottom;
+    padding-left: 86px;
+    padding-right: 86px;
+    padding-top: 110px;
+    padding-bottom: 150px;
+    box-shadow: 0px 0px 20px 8px #fff;
+}
+
+.winners__item span {
+    color: #fff;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.winners__head {
+    margin-bottom: 88px;
+    color: #fff;
+    font-size: 150px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.winners__head h1 {
+    color: #fff;
+    font-family: "Snell Roundhand";
+    font-size: 150px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-shadow: 0px 0px 0px rgba(23, 56, 59, 0.1),
+        -3px 3px 10px rgba(23, 56, 59, 0.1),
+        -13px 14px 19px rgba(23, 56, 59, 0.09),
+        -30px 31px 26px rgba(23, 56, 59, 0.05),
+        -53px 55px 30px rgba(23, 56, 59, 0.01),
+        -82px 86px 33px rgba(23, 56, 59, 0), 0px 0px 10px #fff;
+}
+
+th {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 15px;
+    text-align: center;
+    color: #fff;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+tr {
+    border-bottom: 0.5px solid #fff;
+}
+
+td {
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+    font-family: Arsenal;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+td {
+    width: 30%;
+}
+
+td:last-child {
+    width: 30%;
+    text-align: center;
+}
+
+.winner__contacts {
+    text-align: left;
+}
+
+.winners__table__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 21px;
+}
+
+fieldset {
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    border-radius: 50px 50px 50px 50px;
+
+    border-radius: 30px;
+    height: 60px;
+
+    box-sizing: border-box;
+}
+
+.tea-prizes:hover {
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+}
+
+/* legend,
+  input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  } */
+
+/* label {
+    display: inline-block;
+    width: 300px;
+    padding-top: 11px;
+    padding-bottom: 14px;
+    box-sizing: border-box;
+    
+    font-family: sans-serif;
+    font-family: Arsenal;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    color: #FFF;
+
+    z-index: 10;
+    cursor: pointer;
+  } */
+
+.label-back {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00bd8d 32.29%, #00392d 100%),
+        linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.27),
+            rgba(255, 255, 255, 0.27)
+        );
+    z-index: -1;
+}
+
+/* label {
+    position: relative;
+    z-index: 1;
+  } */
+
+/* label:first-of-type::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 300px;
+    border-radius: 50px;
+    background: var(--unnamed, linear-gradient(180deg, #7775B6 0%, #494694 69.79%));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    right: 80%;
+    transform: translateX(102%);
+    transition: all .2s ease-in-out;
+  } */
+
+label:first-of-type:hover::after {
+    box-shadow: 0px 0px 15px 5px #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+input:checked + label:first-of-type::after {
+    transform: translateX(0);
+    right: 0%;
+    width: 100%;
+}
+
+.winners__button--wrap {
+    width: 246px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+    margin-bottom: 130px;
+}
+
+.button__return {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #8b89bd;
+    color: white;
+    cursor: pointer;
+    width: 99%;
+    height: 41px;
+    color: #fff;
+    font-family: "Arsenal";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+    z-index: 2;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.button__return:hover {
+    box-shadow: 0px 0px 15px 5px #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.button__return--back {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00bd8d 32.29%, #00392d 100%),
+        linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.27),
+            rgba(255, 255, 255, 0.27)
+        );
+}
+
+.prize-button {
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 60px;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+    border: none;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+    /* transition: all  0.5s linear; */
+}
+
+.prize-button--mobile {
+    display: none;
+}
+
+.prize-button--mobile--selected {
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.2) 100%
+        ),
+        linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+}
+
+.prize-button--right {
+    /* transition: all 0.5s linear; */
+    margin-left: 50%;
+}
+
+.prize-button--bottom {
+    margin-bottom: 50%;
+}
+
+.prize-button::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00bd8d 32.29%, #00392d 100%),
+        linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.27),
+            rgba(255, 255, 255, 0.27)
+        );
+}
+
+.prize-button:hover {
+    box-shadow: 0px 0px 15px 5px #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.prize-button--mobile::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00bd8d 32.29%, #00392d 100%),
+        linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.27),
+            rgba(255, 255, 255, 0.27)
+        );
+}
+
+.prize-button--mobile:hover {
+    box-shadow: 0px 0px 15px 5px #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+button.tablinks {
+    position: relative;
+
+    width: 50%;
+    height: 60px;
+    margin-top: 0;
+    margin-left: 0;
+
+    font-family: "Arsenal";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+
+    background: transparent;
+    border-radius: 50px;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+
+    transition: filter 0.3s ease;
+}
+
+button.tablinks:hover {
+    filter: drop-shadow(2px 2px 6px rgba(255, 255, 255, 0.3))
+        drop-shadow(-2px -2px 6px rgba(255, 255, 255, 0.3))
+        drop-shadow(2px -2px 6px rgba(255, 255, 255, 0.3))
+        drop-shadow(-2px 2px 6px rgba(255, 255, 255, 0.3));
+}
+
+button.tablinks.active {
+    border: solid #00bd8d 0.5px;
+    background: linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+}
+.tabcontent {
+    width: 100%;
+    text-align: -webkit-center;
+}
+.prize-button--wrap {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    background-color: #8b89bd;
+    color: white;
+    cursor: pointer;
+    width: 600px;
+    height: 60px;
+    margin-bottom: 47px;
+    margin-top: 15px;
+    color: #fff;
+    font-family: "Arsenal";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+    z-index: 2;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+    outline: none;
+    float: left;
+}
+
+.prize-button--back {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00bd8d 32.29%, #00392d 100%),
+        linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.27),
+            rgba(255, 255, 255, 0.27)
+        );
+}
+
+.prize__span--group {
+    pointer-events: none;
+    width: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.prize__main {
+    cursor: pointer;
+}
+
+.prize__tea {
+    cursor: pointer;
+}
+
+@media (max-width: 870px) {
+    .prize-button--wrap {
+        width: 100%;
+    }
+
+    .prize__span--group {
+        width: 100%;
+    }
+}
+@media (max-width: 540px) {
+    .winners {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .winners__container {
+        padding-top: 15%;
+        margin-bottom: 90%;
+    }
+
+    .winners-body {
+        padding-top: 71px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .winners-body {
+        background: url(../img/icons/form-flowers-top-mobile.svg),
+            url(../img/icons/form-flowers-bottom-mobile.svg),
+            linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+        background-repeat: no-repeat, no-repeat;
+        background-size: contain, contain;
+        background-position-y: top, bottom;
+    }
+
+    .winners__head {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .winners__head h1 {
+        font-size: 48px;
+        font-weight: normal;
+    }
+
+    button.tablinks {
+        height: 50px;
+        width: 99%;
+    }
+
+    
+
+    button.tablinks.active {
+        filter: drop-shadow(2px 2px 6px rgba(255, 255, 255, 0.3))
+            drop-shadow(-2px -2px 6px rgba(255, 255, 255, 0.3))
+            drop-shadow(2px -2px 6px rgba(255, 255, 255, 0.3))
+            drop-shadow(-2px 2px 6px rgba(255, 255, 255, 0.3));
+    }
+
+    .prize-button--wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        background: none;
+    }
+
+    .prize__span--group {
+        display: none;
+    }
+
+    .prize-button {
+        display: none;
+    }
+
+    .prize-button--mobile {
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 50px;
+        background: linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+        border: none;
+        box-shadow: none;
+        transition: box-shadow 0.3s ease;
+        /* transition: all  0.5s linear; */
+    }
+
+    .prize-button--mobile {
+        color: #fff;
+        font-family: Arsenal;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+
+    .prize-button--mobile--active {
+        background: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.2) 100%
+            ),
+            linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+    }
+
+    .prize-button--mobile:hover {
+        background: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.2) 100%
+            ),
+            linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+    }
+
+    .winners__button--wrap {
+        width: 100%;
+    }
+
+    .button__return {
+        width: 99%;
+        height: 50px;
+    }
+
+    .button__return--back {
+        height: 50px;
+    }
+
+    .winners__tabe__head > tr > th {
+        color: #fff;
+        text-align: center;
+        font-family: Arsenal;
+        font-size: 3.20vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .winners__list > tr > td {
+        color: #fff;
+        text-align: center;
+        font-family: Arsenal;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+    }
+
+    .winners__list td {
+        color: #fff;
+        text-align: center;
+        font-family: Arsenal;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .tabcontent td {
+      font-size: 2.67vw;
+      font-weight: 400;
+      text-transform: lowercase;
+      text-align: center;
+    }
+
+    .tabcontent td::first-letter {
+      text-transform: uppercase;
+    }
+}

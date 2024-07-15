@@ -1,0 +1,243 @@
+
+.cards {
+    width: 100%;
+    display: flex;   
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 100px;
+}
+
+.card-container {
+    position: relative;
+    padding: 2px 2px;
+}
+
+
+@media (max-width: 540px) {
+    .cards {
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+
+    .card-container {
+     margin-bottom: 25px;     
+    }   
+
+}
+
+.recepies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.recepies h2 {
+  margin-bottom: 10vh;
+}
+
+.recept__card {
+    position: relative;
+    text-align: center;
+    width: 20vw;
+    height: 26vw;    
+    flex-shrink: 0;
+    border-radius: 2.5vw;
+    overflow: hidden;      
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);   
+     
+}
+
+@media (max-width: 540px) {
+  .recept__card {    
+    width: 100%;
+    height: 510px;    
+    border-radius: 50px;
+  }
+
+  .recept__card--back {
+    border-radius: 50px;
+  }
+
+  .recept__card--back::after {
+  border-radius: 50px !important;
+  }
+
+}
+
+.recept__card--img {    
+    height: auto;
+    width: 90%;
+    z-index: 1;
+    object-fit: scale-down;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;  
+}
+
+.recept__description {
+    position: absolute;
+    top: 82%;
+    left: 5%;    
+    width: 90%;
+    height: 40%;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: height 1s;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #587cb4f0 54.47%, rgba(43, 81, 107, 0.00) 100%);
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 0px 0px rgba(8, 43, 34, 0.10), -1px -4px 9px 0px rgba(8, 43, 34, 0.10), -4px -16px 17px 0px rgba(8, 43, 34, 0.09), -9px -37px 23px 0px rgba(8, 43, 34, 0.05), -16px -66px 27px 0px rgba(8, 43, 34, 0.01), -26px -102px 30px 0px rgba(8, 43, 34, 0.00);
+}
+
+.recept__description--opened {    
+    height: inherit;        
+    transition: height 1s;
+    margin-top: 35%;
+    top: 0;
+    border-radius: 16px;
+    border-radius: 16px;        
+    background: linear-gradient(-180deg, #5676adbd 25.01%, rgba(0, 0, 0, 0.3) 84.41%), linear-gradient(180deg, #587CB4 -64.47%, rgba(43, 81, 107, 0.6) 100%);
+    backdrop-filter: blur(3px);
+}
+
+.description-arrow {
+    margin-top: 0.5vw;
+    margin-bottom: 0;
+    height: 12.5%;
+    width: 12.5%;
+    cursor: pointer;
+}
+
+.arrowDown {    
+    transform: rotate(180deg);    
+}
+
+
+
+.recept__description {
+    border: #2A4A82;
+}
+
+.recept__description h3 {
+    color: #FFF;
+    font-family: 'Blogger Sans';
+    /* font-size: 36px; */
+    font-size: 1.875vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+    margin-top: 0px;      
+    margin-bottom: 0;
+}
+
+.recept__description--text {
+    display: none;
+    overflow: hidden;
+    color: #FFF;
+    font-family: 'Blogger Sans';
+    font-size: 14px;
+    /* font-size: 0.8vw; */
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-align: start;  
+    margin-top: 15px;  
+}
+
+.recept__description--text p {
+  font-size: 14px;
+  /* font-size: 0.9vw; */
+  margin-bottom: 0;
+}
+
+ .ingridients {
+    font-size: 14px;
+    /* font-size: 0.9vw; */
+    text-decoration: dotted;    
+    /* padding-left: 25px; */
+    padding-left: 1,3021;
+    margin-left: 0;
+ }
+
+ @media (max-width: 1400px) {
+    .ingridients {
+            font-size: 1.0vw;
+    }
+ }
+ 
+ .active_card .description-arrow {
+  transform: rotate(180deg);  
+ }
+
+ .description-arrow:hover {
+    filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.514));
+ }
+
+
+
+
+@media (max-width: 540px) {
+    .recept__description--opened {
+        transform: translateY(-56%);
+        height: 100%;
+    }
+
+    .recept__description--text {
+        font-size: 14px;
+    }
+
+    .recept__description--text p {
+        font-size: 24px;
+    }
+
+    .recept__description h3 {
+        font-size: 36px;
+    }
+
+    .ingridients {
+        font-size: 14px;
+    }
+
+    .description-arrow {
+        height: 4.5vh;
+    }
+
+    .recepies__button {
+        width: 370px;
+        height: 69px;
+        font-size: 28px;
+    }
+
+}
+
+.recept__card--back {
+    text-align: center;
+      border-radius: 50px;
+      overflow: hidden;
+    
+  }
+  
+  .recept__card--back::after {  
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    /* border-radius: 50px; */
+    border-radius: 2.5vw;
+    border: 3px solid transparent; 
+    border-image-source: linear-gradient(#00BD8D 32.29%, #00392D 100%) border-box;
+    background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;  
+    box-shadow: 0px 0px 0px 0px rgba(8, 43, 34, 0.10), -1px -4px 9px 0px rgba(8, 43, 34, 0.10), -4px -16px 17px 0px rgba(8, 43, 34, 0.09), -9px -37px 23px 0px rgba(8, 43, 34, 0.05), -16px -66px 27px 0px rgba(8, 43, 34, 0.01), -26px -102px 30px 0px rgba(8, 43, 34, 0.00), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);    
+  }
+  

@@ -1,0 +1,269 @@
+ 
+.rules-body {
+    position: relative;
+
+    display: flex;
+    width: 100%;
+    padding-left: 140px;
+    padding-right: 140px;
+
+    border-radius: 30px;       
+    background: no-repeat url(../img/rules-card-leafs.webp), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+    background-size: 112% auto;    
+    background-position:center;
+    
+    box-shadow: 0px 0px 20px 8px #FFF;
+
+    flex-direction: column;
+    justify-content: center;
+
+    aspect-ratio: 1288/706;
+}
+
+.rules__main {
+    padding-bottom: 26vw; 
+}
+
+.rules__container {
+    display: flex;      
+    margin-top: 65px;
+    gap: 5vw;
+    
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.rules {
+    max-width: 1350px;
+    /* width: 100%; */
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.rules-article {
+
+    margin: auto;
+
+}
+
+.rules-body h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    text-transform: capitalize;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.rules-body--text {
+  color: #FFF;
+    font-family: Arsenal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+
+.rules__head {
+    margin-bottom: 56px;
+    color: #FFF;
+    font-size: 150px;    
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rules__head h1{  
+    font-family: 'Snell Roundhand';
+    font-size: 3.65vw;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-transform: none;
+    text-align: center;
+    
+    color: #FFF;
+    
+    margin: 0;
+}
+
+.rules-docs {
+    display: flex;
+    margin-top: 91px;
+    gap: 4.11vw;
+
+    justify-content: center;
+}
+
+.docs_links__wrap {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.docs_links__wrap p {
+    display: flex;
+    margin-bottom: 0.5vw;
+
+    font-family: 'Arsenal';
+    font-size: 1.04vw;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+
+    color: #fff;
+
+    flex-direction: column;
+}
+
+.docs_links__wrap a {
+    position: absolute;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.docs__wr-icon {
+    width: 5vw;
+    height: 6.35vw;
+}
+
+.docs__wr-icon img {
+    height: 100%;
+    width: 100%;
+
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 1280px) {
+    .rules-body--text{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rules__head h1{
+        font-size: 40px !important;
+        line-height: initial;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .rules__container {
+        padding-top: 25%;
+        margin-top: 0px;
+        margin-bottom: 0;
+    }
+    
+    .rules__item-card_second {
+        margin-top: 15vw;
+    }
+
+    .rules {      
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rules-body {
+        position: relative;
+
+        display: flex;
+        width: 307px;
+        height: 624px;
+        margin: 0 auto;
+        padding-left: 30px;
+        padding-right: 30px;
+        
+        border-radius: 30px;       
+        background: url('../img/icons/rules-bg-mobile.svg'), no-repeat linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+        background-repeat: no-repeat;
+        background-size: 126% auto;    
+        background-position-x:center;
+        background-position-y:center;
+        box-shadow: 0px 0px 20px 8px #FFF;
+        
+        flex-direction: column;
+        justify-content: center;       
+        aspect-ratio: 624/307;
+    }
+
+    body[data-variant=rules]::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;    
+        background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/rules-flovers-bg-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+        background-position-x: center, left; 
+        background-position-y: bottom, 0;
+        background-repeat: no-repeat no-repeat;
+        background-size: contain, 100% auto;
+        z-index: -10;  
+      }
+
+      .rules-docs {
+        margin-top: 60px;
+      }
+
+      .rules__head {
+        margin-bottom: 44px;
+      }
+
+      .rules__head h1{
+        width: 93%;
+        margin: 0 auto;
+
+        font-size: 48px;
+      }
+
+    .rules-body h2 {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 24px;
+    }
+
+    .rules-body--text {        
+        font-family: Arsenal;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+    .docs_links__wrap {
+        justify-content: flex-start;
+    }
+
+    .docs_links__wrap p {
+        margin-top: 2.7vw;
+
+        font-size: 3.73vw;
+
+        order: 2;
+    }
+
+    .docs__wr-icon {
+        height: 22.40vw;
+        width: 18.13vw;
+
+        order: 1;
+    }
+}

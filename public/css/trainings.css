@@ -1,0 +1,457 @@
+.trainings-page__container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-transform: initial;
+
+    color: initial;
+
+    list-style-type: none;
+}
+
+.trainings-page__main {
+    padding-bottom: 29.5vw;
+}
+
+.trainings-page__wr-title {
+    position: relative;
+
+    width: max-content;
+    margin: 6.25vw auto 0;
+}
+
+.trainings-page__title {
+    font-family: 'Snell Roundhand';
+    font-weight: 600;
+    font-size: 3.65vw;
+    font-style: normal;
+    text-align: center;
+
+    color: #fff;
+}
+
+.trainings-page__wr-title p {
+    position: absolute;
+    bottom: -30%;
+    right: 0;
+
+    font-family: 'Arsenal';
+    font-size: 1.88vw;
+    font-style: normal;
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.trainings-page__wr-description {
+    margin-top: 3.29vw;
+}
+
+.trainings-page__description {
+    width: 65.9%;
+    margin: 0 auto;
+    padding-top: 3.23vw;
+    padding-right: 2.66vw;
+    padding-bottom: 4.69vw;
+    padding-left: 2.66vw;
+
+    border-radius: 1.56vw;
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+    box-shadow: 0px 0px 20px 8px #FFF;
+}
+
+.trainings-page__description p {
+    font-family: 'Arsenal';
+    font-size: 1.67vw;
+    font-weight: 400;
+
+    color: #fff;
+}
+
+.trainings-page__img-list {
+    display: flex;
+    margin-top: 2.85vw;
+    gap: 2.60vw;
+
+    justify-content: center;
+}
+
+.trainings-page__img-item {
+    width: 29.43vw;
+    height: 21.93vw;
+
+    border-radius: 2.60vw;
+    box-shadow:
+     163px 189px 70px 0px rgba(0, 0, 0, 0.00),
+      105px 121px 64px 0px rgba(0, 0, 0, 0.01),
+       59px 68px 54px 0px rgba(0, 0, 0, 0.05),
+        26px 30px 40px 0px rgba(0, 0, 0, 0.09),
+         7px 8px 22px 0px rgba(0, 0, 0, 0.10)
+    ;
+
+    overflow: hidden;
+}
+
+.trainings-page__img-item img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.course-plan__wrapper {
+    display: flex;
+    margin-top: 2.6vw;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.course-plan__title {
+    font-family: 'Arsenal';
+    font-size: 2.60vw;
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.course-plan__about-tea {
+    width: 65.9%;
+    margin-top: 1.7vw;
+}
+
+.course-plan__wrapper-card {
+    width: 100%;
+    padding-top: 1.09vw;
+    padding-bottom: 1vw;
+
+    border-radius: 1.56vw;
+    background:
+     linear-gradient(180deg, #7775B6 0%, #494694 69.79%)
+    ;
+    box-shadow: 0px 0px 20px 8px #FFF;
+}
+
+.course-plan__card-title {
+    font-family: 'Arsenal';
+    font-size: 2.6vw;
+    font-weight: 700;
+    text-align: center;
+
+    color: #FFF500;
+}
+
+.course-plan__card-list {
+    display: flex;
+    margin-top: 1.47vw;
+    margin-left: 3.13vw;
+    padding-right: 9vw;
+    gap: 1vw;
+
+    flex-direction: column;
+}
+
+.course-plan__card-item {
+    display: flex;
+    gap: 0.73vw;
+}
+
+.course-plan__card-item::before {
+    content: "";
+
+    width: 1.04vw;
+    height: 1.04vw;
+    margin-top: 0.85vw;
+
+    border-radius: 50%;
+    background: #FFF500;
+
+    flex-shrink: 0;
+}
+
+.course-plan__card-item p {
+    font-family: 'Arsenal';
+    font-size: 1.67vw;
+    font-weight: 400;
+
+    color: #fff;
+}
+
+.course-plan__card-img-list {
+    display: flex;
+    margin-top: 2.86vw;
+    gap: 2.60vw;
+
+    justify-content: center;
+}
+
+.course-plan__card-img-item {
+    width: 29.43vw;
+    height: 21.93vw;
+
+    border-radius: 2.60vw;
+    box-shadow: 163px 189px 70px 0px rgba(0, 0, 0, 0.00), 105px 121px 64px 0px rgba(0, 0, 0, 0.01), 59px 68px 54px 0px rgba(0, 0, 0, 0.05), 26px 30px 40px 0px rgba(0, 0, 0, 0.09), 7px 8px 22px 0px rgba(0, 0, 0, 0.10);
+    
+    overflow: hidden;
+}
+
+.course-plan__card-img-item img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.course-plan__tasting {
+    width: 65.9%;
+    margin-top: 3.39vw;
+}
+
+.trainings-page__wr-nearest-date {
+    margin-top: 3.75vw;
+}
+
+.trainings-page__nearest-date {
+    display: flex;
+    width: 25.05vw;
+    height: 5.31vw;
+    margin: 0 auto;
+
+    border-radius: 1.04vw;
+    border: 0.16vw solid #FFF;
+    box-shadow: 0px 0px 20px 8px #FFF;
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+
+    align-items: center;
+}
+
+.trainings-page__nearest-date p {
+    width: 100%;
+    margin-bottom: 0;
+
+    font-family: 'Arsenal';
+    font-size: 1.25vw;
+    font-weight: 700;
+    text-align: center;
+
+    color: #fff;
+}
+
+
+
+@media(max-width: 996px) {
+    .trainings-page__main {
+        padding-bottom: 66.8vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__wr-title {
+        width: 100%;
+        margin-top: 14.25vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__title {
+        font-size: 10.67vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__wr-title p {
+        font-size: 4vw;
+        text-align: center;
+
+        position: static;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__wr-description {
+        margin-top: 9.33vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__description {
+        width: 89.3%;
+        padding-top: 7.47vw;
+        padding-right: 11.47vw;
+        padding-bottom: 12vw;
+        padding-left: 11.47vw;
+
+        border-radius: 8vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__description p {
+        font-size: 4.27vw;
+        text-align: center;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__img-list {
+        margin-top: 11.47vw;
+        gap: 5.33vw;
+
+        flex-direction: column;
+        justify-content: inherit;
+        align-items: center;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__img-item {
+        width: 89.3%;
+        height: 66.67vw;
+
+        border-radius: 11.47vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__wrapper {
+        width: 100%;
+        margin-top: 11.73vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__title {
+        font-size: 6.40vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__about-tea {
+        width: 89.3%;
+        margin-top: 6.40vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__wrapper-card {
+        padding-top: 3.47vw;
+        padding-bottom: 9.60vw;
+
+        border-radius: 8vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__card-title {
+        font-size: 6.40vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__card-list {
+        margin-top: 5.60vw;
+        margin-left: 4vw;
+        padding-right: 7.47vw;
+        gap: 4.27vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__card-item {
+        gap: 1.07vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__card-item::before {
+        width: 2.67vw;
+        height: 2.67vw;
+        margin-top: 1.4vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__card-item p {
+        font-size: 3.73vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__img-list {
+        margin-top: 10.67vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__img-item {
+        width: 100%;
+    }
+}
+
+@media(max-width: 996px) {
+    .course-plan__tasting {
+        width: 89.3vw;
+        margin-top: 10.67vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__wr-nearest-date {
+        margin-top: 14.93vw;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__nearest-date {
+        width: 89.3vw;
+        height: 31.47vw;
+
+        border-radius: 5.33vw;
+        border: 0.80vw solid #FFF;
+    }
+}
+
+@media(max-width: 996px) {
+    .trainings-page__nearest-date p {
+        width: 87%;
+        margin: 0 auto;
+
+        font-size: 5.33vw;
+    }
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
+@media(max-width: 996px) {
+
+}
+
