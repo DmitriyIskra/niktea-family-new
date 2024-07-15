@@ -13,6 +13,9 @@
 
 .chequebook__cheque-list {
     display: flex;
+    min-height: 25.16vw;
+    width: 79.8%;
+    margin: 0 auto;
     row-gap: 1.88vw;
     column-gap: 1.56vw;
 
@@ -28,6 +31,7 @@
     border-radius: 1.56vw;
     border: 1px solid #00BD8D;
 
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -137,6 +141,8 @@
      left var(--duration) linear, 
      border-radius var(--duration) linear,
      transform var(--duration) linear;
+
+    overflow: hidden;
 }
 
 .chequebook__wr-image-zoom_animate {
@@ -161,6 +167,7 @@
 @media(max-width: 1200px) {
     .chequebook__cheque-list {
         width: 90%;
+        min-height: 133.33vw;
         margin: 0 auto;
     }
 }

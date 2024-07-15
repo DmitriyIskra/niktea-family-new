@@ -1,4 +1,4 @@
-import ModalInfoExchange from "../modalInfoExchange/ModalInfoExchange.js";
+import ModalInfoExchange from "../InfoModals/ModalInfoExchange.js";
 
 export default class RedrawExchange extends ModalInfoExchange {
     constructor(el, state) {
@@ -20,7 +20,7 @@ export default class RedrawExchange extends ModalInfoExchange {
         this.costPoints = null;
         this.activeModal = null;
     }
-
+ 
     init() {
         this.parseAmountPoints();
     }

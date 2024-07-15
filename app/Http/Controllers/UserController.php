@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use PhpParser\Node\Stmt\TryCatch;
 
 class UserController extends Controller
 {
@@ -110,7 +110,10 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function check_user(Request $request) 
+    /***
+     * Проверка данных пользователя при входе 
+     */ 
+    public function check_user(Request $request)  
     {
         
         $validate = $request->validate([
@@ -123,6 +126,43 @@ class UserController extends Controller
         return response()->json(['result' => $attr]);
     }
 
+    /***
+     * Загрузка файлов с чеками из аккаунта 
+     */ 
+    public function upload_cheque_from_account(Request $request) 
+    {
+        try {
+            $user = Auth::user();
+
+            $files = $request->file('file');
+
+            foreach($files as $item) {      
+                $path = $item->storeAs($user->id, $item->getClientOriginalName(), 's3');
+                Cheque::query()->create([
+                    'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
+                    'user_id' => $user->id,
+                ]);
+            }
+
+            return response()->json(['result' => true]);
+        } catch (Exception $e) {
+            return response()->json(['result' => false]);
+        }
+        
+    }
+
+    public function get_cheques()
+    {
+        try {
+            $user = Auth::user();
+    
+            $cheques = Cheque::where('user_id', $user->id)->get();
+    
+            return response()->json(['cheques' => $cheques]);
+        } catch (Exception $e) {
+            return response()->json(['cheques' => false]);
+        }
+    }
     /**
      * Display the specified resource.
      */

@@ -15,3 +15,6 @@ Route::post('/registration-user', [UserController::class, 'store']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/logout', [UserController::class, 'logout']);
 
+Route::get('/get_cheques', [UserController::class, 'get_cheques']);
+Route::post('/upload_cheque_from_account', [UserController::class, 'upload_cheque_from_account']);
+

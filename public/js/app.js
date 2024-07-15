@@ -79,6 +79,7 @@ window.addEventListener('load', () => {
         // метод для обновления фото чеков в книге
         const update = redrawCh.update;
      
+        // Добавление чеков (кнопка и отправка файлов на сервер)
         // const sliderCheque = new RedrawVoucherSlider(voucherSlider, slidesWrapper, pagination);
         const pattern = new PatternNewCheque();
         const redraw = new RedrawAccNewCheque(cheque, pattern);

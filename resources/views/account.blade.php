@@ -94,9 +94,10 @@
                     <div class="up-cheque__notice up-cheque__notice_no-limit">За один раз Вы можете выбрать не более 6 чеков</div>
 
                     <form class="up-cheque__wr-form" name="form-cheque">
+                            @csrf
                             <div class="up-cheque__upload-cheque">
                                 <label>
-                                    <input type="file" name="file" id="up-cheque__upload-cheque" multiple accept="image/*">
+                                    <input type="file" name="file[]" id="up-cheque__upload-cheque" multiple accept="image/*">
                                 </label>
                                 <div class="up-cheque__button-back" for="#up-cheque__upload-cheque">
                                     <button type="button">загрузить фото чека</button>
@@ -108,6 +109,7 @@
                         <p>Убедитесь, что Ваш чек хорошо читается, а также он не должен превышать 10Мб и файл должен быть изображением.</p>
                         <p>Баллы будут начислены после проверки чека. В случае если ваш чек некорректен, баллы не будут начислены!</p>
                     </div>
+
                     <div class="up-cheque__back-wr-preview">
                         <div class="up-cheque__wr-preview">
                             <div class="up-cheque__preview-wr-close">
@@ -547,7 +549,9 @@
                                     </svg>
                                 </div>
                                 <div class="chequebook__wr-pagination-list">
-                                    <ul class="chequebook__pagination-list"></ul>
+                                    <ul class="chequebook__pagination-list">
+                                        <!-- фото чеков подгружаются сюды -->
+                                    </ul>
                                 </div>
 
                                 <div class="chequebook__arrow chequebook__arrow-next">

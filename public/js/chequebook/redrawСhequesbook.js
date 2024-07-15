@@ -13,7 +13,7 @@ export default class RedrawСhequesbook {
         this.wrImgZoom = this.book.querySelector('.chequebook__wr-image-zoom')
         this.imgZoom = this.book.querySelector('.chequebook__img-zoom')
 
-        this.cheques = [];
+        this.cheques = null;
 
         this.update = this.update.bind(this);
 
@@ -27,20 +27,28 @@ export default class RedrawСhequesbook {
     init(arr) {
         let counter = 1;
         let lastArr;
-        
+      
+        this.cheques = [];
+
         // создаем структуру массива массивов
         // напр. [ [..., ..., и т.д], [..., ..., и т.д],  и т.д] со ссылками
         // на изображения чеков 
+
         arr.forEach(item => {
             if(counter === 1) {
+                // добавляем пустой массив для добавления в него фото, если counter === 1
+                // т.е. у нас первое фото
+                // один массив, одна страница альбома с чеками
+                // создаем и находим последний массив для добавления в него чеков
                 this.cheques.push([])
                 lastArr =  this.cheques.length - 1;
             };
 
-            this.cheques[lastArr].push(item);
+            this.cheques[lastArr].push(item.path);
 
+            // в одном массиве 6 фото, counter считаем фото
             counter += 1;
-            
+
             if(counter > 6) counter = 1;
         });
 
@@ -61,7 +69,7 @@ export default class RedrawСhequesbook {
         }
     }
 
-    /** Отрисовка чеков по индексу активной пагинации **/
+    /** Отрисовка чеков по индексу активной пагинации (листаем альбом) **/
     renderCheque(index) {
         // перерисовка происходит полностью, для этого очищаем
         if(this.chequeList.children) this.chequeList.innerHTML = '';
@@ -76,6 +84,7 @@ export default class RedrawСhequesbook {
     }
 
     renderPagination(length) {
+        // перерисовка происходит полностью, для этого очищаем
         if(this.paginationList.children) this.paginationList.innerHTML = '';
 
         // заполняем пагинацию
@@ -94,9 +103,7 @@ export default class RedrawСhequesbook {
      * (без обращения на сервер)
      * **/
     update(data) {
-        console.log(data);
-        const arr  = Array.from(data);
-        console.log(arr)
+        this.init(data)
     }
 
     next() {

@@ -2,7 +2,7 @@ export default class RedrawAccNewCheque {
     constructor(cheque, pattern) {
         this.cheque = cheque;
         this.pattern = pattern;
-        this.form = this.cheque.querySelector('form');
+        this.form = this.cheque.querySelector('form'); 
         this.loadButton = this.cheque.querySelector('.up-cheque__upload-cheque input');
         this.previewsModal = this.cheque.querySelector('.up-cheque__back-wr-preview');
         this.previewList = this.cheque.querySelector('.up-cheque__preview-list');

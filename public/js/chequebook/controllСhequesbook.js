@@ -10,7 +10,7 @@ export default class ControllСhequesbook {
         const arr = await this.api.read();
         this.d.init(arr);
 
-        this.registerEvents();
+        this.registerEvents(); 
     }
 
     registerEvents() { 

@@ -1,4 +1,4 @@
-import ModalInfoExchange from "../modalInfoExchange/ModalInfoExchange.js";
+import ModalInfoExchange from "../InfoModals/ModalInfoExchange.js";
 
 export default class ControllAccNewCheque extends ModalInfoExchange {
     constructor(api, d, update, state) {
@@ -10,18 +10,13 @@ export default class ControllAccNewCheque extends ModalInfoExchange {
         this.dropZone = document.body;
 
         this.files = []; // Массив загруженных файлов
-
+ 
         this.click = this.click.bind(this);
         this.change = this.change.bind(this);
         this.drop = this.drop.bind(this);
     }
 
     init() { 
-        // (async () => {
-        //     const e = await this.api.a();
-        //     console.log('from control', e)
-        // })();
-
         this.registerEvents();
     }
 
@@ -35,33 +30,7 @@ export default class ControllAccNewCheque extends ModalInfoExchange {
         this.dropZone.addEventListener('drop', this.drop);
     }
     
-    /**
-     * при загрузке страницы инициализируем слайдер
-     * информация о пользователе заполняется при загрузке страницы из файла form.js
-     * поэтому нет необходимости делать это в данной функции
-     * в данной функции мы получаем данные и работаем только со слайдером чеков (картинок)
-     * указываем что функция асинхронна для того чтоб раньше времени не вызвать методы
-     * инициализации и отрисовки чеков
-     * **/ 
-    async startSliderCheque() {
-        // запрос за фото чеков
-        // const response = await this.api.read();
-        // this.accountInfo = await response.json();
-        
-        // --- START ДЛЯ ОТЛАДКИ ---
-        
-        // !!!!!!!! НУЖНО ФОРМИРОВАТЬ МАССИВ ТАКОГО ТИПА
-        let arr = [
-            {ticket_path: "./img/content/priz/fan-priz.png"},
-            {ticket_path: "./img/content/priz/alice.png"},
-            {ticket_path: "./img/content/priz/fan-priz.png"},
-            {ticket_path: "./img/content/priz/alice.png"},
-            {ticket_path: "./img/content/priz/fan-priz.png"},
-            {ticket_path: "./img/content/priz/alice.png"},
-        ];
 
-        // --- END ДЛЯ ОТЛАДКИ ---
-    }
 
     click(e) {
         if(e.target.closest('.exchange__extraction-button-back')) {
@@ -80,32 +49,26 @@ export default class ControllAccNewCheque extends ModalInfoExchange {
             // очищаем данные и отображения после отправки на сервер
             this.files = [];
             this.d.hidePreview();
-
-            // Обновляем книгу с фото чеков
-            this.update(formData);
         } 
     }
 
-    submit() {
+    async submit() {
         // если ни одного файла не выбрано
         if(!this.files.length) {
             this.d.resultAddCheque('fail');
             return;
         }
-        /**
-          * FormData для сбора прочитанных файлов,
-          * для последующей отправки на сервер
-          * и в альбом с чеками
-        **/ 
-        const formData = new FormData();
-        this.files.forEach(item => {
-            formData.append(`file`, item);       
-        });
 
-        // TO DO: this place for send file 
-        // super.openModalSuccess();
+        const formData = new FormData(this.d.form);
 
-        return formData;
+        // Отправляем файлы на сервер
+        const result = await this.api.create(formData);
+        if(result) super.openModalСhequeSuccess();
+
+        const cheques = await this.api.read();
+        
+        // Обновляем альбом с чеками
+        if(cheques) this.update(cheques);
     }
 
     change(e) { // РЕАЛИЗОВАТЬ drag and drop и показ превью

@@ -6,6 +6,7 @@ export default class PatternChequesbook {
     /**создает элемент с картинкой чека**/ 
     createCheque(paths) {
         const elements = paths.map(item => {
+        
             const li = this.element('li', ['chequebook__cheque-item']);
     
             const img = this.element('img', ['chequebook__cheque-img'], item);
@@ -23,9 +24,9 @@ export default class PatternChequesbook {
         let elements = [];
 
         for(let i = 0; i < length; i += 1) {
-            const div = this.element('div', ['chequebook__pagination-item'], null, i);
-            if(i === 0) div.classList.add('chequebook__pagination-item_active');
-            elements.push(div);
+            const li = this.element('li', ['chequebook__pagination-item'], null, i);
+            if(i === 0) li.classList.add('chequebook__pagination-item_active');
+            elements.push(li);
         }
 
         return elements;
@@ -36,7 +37,7 @@ export default class PatternChequesbook {
 
         if(classes.length) el.classList.add(...classes);
         
-        if(path) el.src = path.ticket_path;
+        if(path) el.src = path;
 
         if(index != null) {
             el.textContent = index + 1;
