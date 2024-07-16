@@ -87,7 +87,7 @@
                     </ul>
                 </div>
 
-                <div class="up-cheque">
+                <div class="up-cheque"> 
                     <div class="up-cheque__notice up-cheque__notice_success">Ваш чек успешно загружен</div>
                     <div class="up-cheque__notice up-cheque__notice_fail">Не удалось загрузить чек, попробуйте еще раз</div>
                     <div class="up-cheque__notice up-cheque__notice_no-valid">Файл должен быть изображением и не превышать 10мб</div>
@@ -158,7 +158,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-30-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text exchange__extraction-text_wr-dop">
-                                        <span>30 баллов - </span>тренинг по чаю <span class="exchange__extraction-text_color">“От любителя до профессионала”</span>
+                                        <span class="exchange__balls">30 баллов - </span><span class="exchange__name">тренинг по чаю</span> <span class="exchange__extraction-text_color">“От любителя до профессионала”</span>
                                         <span class="exchange__extraction-text-dop">(<span class="exchange__extraction-text-dop_color">проводится в Москве</span>)</span>
                                     </p>
                                 </div>
@@ -176,7 +176,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-57-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>57 баллов - </span> чайник для чая и сахарница
+                                        <span class="exchange__balls">57 баллов - </span> <span class="exchange__name">чайник для чая и сахарница</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -193,7 +193,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-68-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>68 баллов - </span> коллекция NIKTEA в пирамидках
+                                        <span class="exchange__balls">68 баллов - </span> <span class="exchange__name">коллекция NIKTEA в пирамидках</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -210,7 +210,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-73-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>73 баллов - </span> зонт автомат
+                                        <span class="exchange__balls">73 баллов - </span> <span class="exchange__name">зонт автомат</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -227,7 +227,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-77-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>77 баллов - </span> сумка-холодильник
+                                        <span class="exchange__balls">77 баллов - </span> <span class="exchange__name">сумка-холодильник</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -250,7 +250,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-85-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>85 баллов - </span> фирменная футболка Niktea
+                                        <span class="exchange__balls">85 баллов - </span> <span class="exchange__name">фирменная футболка Niktea</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -267,7 +267,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-94-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>94 баллов - </span> френч-пресс, 1 л
+                                        <span class="exchange__balls">94 баллов - </span> <span class="exchange__name">френч-пресс, 1 л</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -284,7 +284,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-146-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>146 баллов - </span> чайник заварочный, 600 мл
+                                        <span class="exchange__balls">146 баллов - </span> <span class="exchange__name">чайник заварочный, 600 мл</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -301,7 +301,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-159-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>159 баллов - </span> термос и 3 стаканчика
+                                        <span class="exchange__balls">159 баллов - </span> <span class="exchange__name">термос и 3 стаканчика</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -318,7 +318,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-228-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>228 баллов - </span> набор для чайной церемонии
+                                        <span class="exchange__balls">228 баллов - </span> <span class="exchange__name">набор для чайной церемонии</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -341,7 +341,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-364-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>364 баллов - </span> термокружка Bork HT600
+                                        <span class="exchange__balls">364 баллов - </span> <span class="exchange__name">термокружка Bork HT600</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -358,7 +358,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-591-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>591 баллов - </span> подарочная карта М.Видео или Технопарк на 10 000
+                                        <span class="exchange__balls">591 баллов - </span> <span class="exchange__name">подарочная карта М.Видео или Технопарк на 10 000</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -375,7 +375,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-789-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>789 баллов - </span> рюкзак UAG STD
+                                        <span class="exchange__balls">789 баллов - </span> <span class="exchange__name">рюкзак UAG STD</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -392,7 +392,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-1045-1-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>1045 баллов - </span> беспроводной мини-пылесос Bork V515
+                                        <span class="exchange__balls">1045 баллов - </span> <span class="exchange__name">беспроводной мини-пылесос Bork V515</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -409,7 +409,7 @@
                                         <img src="img/content/bonuses-for-balls/bonus-1045-2-balls.webp" alt="extraction">
                                     </div>
                                     <p class="exchange__extraction-text">
-                                        <span>1045 баллов - </span> яндекс станция 2, с Алисой
+                                        <span class="exchange__balls">1045 баллов - </span> <span class="exchange__name">яндекс станция 2, с Алисой</span>
                                     </p>
                                 </div>
                                 <div class="exchange__extraction-wr-button">
@@ -488,6 +488,7 @@
                             </div>
 
                             <form class="exchange__modal-change-address-list" name="changeAddress">
+                                @csrf
                                 <div class="exchange__modal-change-address-item">
                                     <div class="exchange__modal-change-address-wr">
                                         <input type="text" class="exchange__modal-change-index" name="index">

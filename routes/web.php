@@ -18,3 +18,4 @@ Route::get('/logout', [UserController::class, 'logout']);
 Route::get('/get_cheques', [UserController::class, 'get_cheques']);
 Route::post('/upload_cheque_from_account', [UserController::class, 'upload_cheque_from_account']);
 
+Route::post('/send_email_exchange', [UserController::class, 'send_email_exchange']);

@@ -1,13 +1,14 @@
 export default class ControllExchange {
-    constructor(d) {
+    constructor(d, api) {
         this.d = d;
+        this.api = api;
 
         this.click = this.click.bind(this);
     }
 
     init() {
         this.d.init();
-        this.registerEvents();
+        this.registerEvents(); 
     }
 
     registerEvents() {
@@ -16,9 +17,10 @@ export default class ControllExchange {
 
     click(e) {
         if(e.target.closest('.exchange__extraction-button-back')) {
+            // Сохраняем баллы выбранного подарка
             const el = e.target.closest('.exchange__extraction-button-back');
             const checkResult = this.d.checkPoints(el);
-console.log(el)
+
             // не хватает баллов
             if(!checkResult) {
                 this.d.openModalnoEnough();
@@ -31,12 +33,27 @@ console.log(el)
         }
 
         if(e.target.closest('.exchange__modal-confirm-submit')) {
-            // отправляем какой был выбран подарок (индекс) и адрес
-            console.log('адрес', this.d.addressConfirm.textContent);
-            console.log('баллы подарка', this.d.costPoints);
+            const arrAddress = this.d.buildStringAddress().split('\n')
+            const address = arrAddress.map(item => item.trim()).join(' ');
+            // отправляем какой был выбран подарок (индекс) и адрес  
+            const formData = new FormData();
+            formData.append('address', address);          
+            formData.append('index', this.d.bonusData.index);          
+            formData.append('points', this.d.bonusData.points);          
+            formData.append('name', this.d.bonusData.name);          
+            this.api.create(
+                {
+                    address,
+                    index : this.d.bonusData.index,
+                    points : this.d.bonusData.points,
+                    name : this.d.bonusData.name,
+                }, 
+                this.d.modalChangeForm._token.value
+            )
+
             // закрываем модалки
             this.d.hideCoverModal();
-            this.d.hideModal();
+            this.d.hideModal(); 
         }
 
         /**открываем модалку смены адреса, кнопка для модалки смены адреса**/ 

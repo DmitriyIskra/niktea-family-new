@@ -1,46 +1,54 @@
 import ModalInfoExchange from "../InfoModals/ModalInfoExchange.js";
 
 export default class RedrawExchange extends ModalInfoExchange {
-    constructor(el, state) {
+    constructor(el, userData, state) {
         super(state);
         this.el = el;
+        this.userData = userData;
         this.address = null;
 
         this.wrapperModal = this.el.querySelector('.exchange__modal-wrapper');
 
         // модальное окно подтвердить и поле для адреса
         this.modalConfirm = this.el.querySelector('.exchange__modal-confirm');
-        this.addressConfirm = this.el.querySelector('.exchange__modal-confirm-address');
+        this.addressConfirm = this.el.querySelector('.exchange__modal-confirm-address'); 
 
         // модальное окно изменить адрес
         this.modalChange = this.el.querySelector('.exchange__modal-change');
         this.modalChangeForm = this.modalChange.querySelector('form');
 
-        // баллы выбранного подарка
-        this.costPoints = null;
+        // инфа выбранного подарка
+        this.bonusData = {
+            index : null,
+            points : null,
+            name : null,
+        };
         this.activeModal = null;
     }
  
     init() {
         this.parseAmountPoints();
+
+        this.address = {
+            index : this.userData.querySelector('.user-data__data_index').textContent,
+            area : this.userData.querySelector('.user-data__data_area').textContent,
+            district : this.userData.querySelector('.user-data__data_district').textContent,
+            city : this.userData.querySelector('.user-data__data_city').textContent,
+            street : this.userData.querySelector('.user-data__data_street').textContent,
+            house : this.userData.querySelector('.user-data__data_house').textContent,
+            apartment : this.userData.querySelector('.user-data__data_apartment').textContent,
+        }
     }
     
     /**
      * активируем обертку модалок, оно же покрытие на страницу**/ 
     showCoverModal() {
         this.wrapperModal.classList.add('exchange__modal-wrapper_active');
-
-        // если модалку открываем первый раз и поле 
-        // не содержит объект с данными по адресу
-        // заполняем его из sessionStorage
-        if(!this.address) {
-            this.address = JSON.parse(sessionStorage.infoAccount);
-        }
     }
 
     hideCoverModal() {
         this.wrapperModal.classList.remove('exchange__modal-wrapper_active');
-        this.costPoints = null;
+        this.bonusData = null;
     }
 
     /**
@@ -52,11 +60,8 @@ export default class RedrawExchange extends ModalInfoExchange {
         this.activeModal = this.modalConfirm;
         this.activeModal.classList.add('exchange__modal_active');
 
-        this.addressConfirm.textContent = `
-        ${this.address.index}, ${this.address.area} обл, ${this.address.district} р-он,
-         ${this.address.city}, ул.${this.address.street}, д. ${this.address.house},
-          кв. ${this.address.apartment}
-        `;
+        // собираем строку с адресом
+        this.addressConfirm.textContent = this.buildStringAddress();
 
         /**адрес указанный при регистрации, при первом открытии модалки подтверждения адреса, 
          * будет сохранен в this.address если пользователь изменит адрес, то пока страница 
@@ -65,7 +70,7 @@ export default class RedrawExchange extends ModalInfoExchange {
          * 
          * При выходе из аккаунта sessionStorage очищается**/ 
     }
-
+ 
     showChangeModal() {
         // если другое окно открыто (смена адреса), оно закроется
         this.hideModal();
@@ -103,28 +108,41 @@ export default class RedrawExchange extends ModalInfoExchange {
     /**
      * Проверка хвататет ли баллов**/ 
     checkPoints(el) {
-        // получаем стоимость выбранного подарка
-        this.costPoints = +el.dataset.points;
+        // получаем информацию выбранного подарка
+        this.bonusData.index = +el.dataset.index;
+        this.bonusData.points = +el.dataset.points;
+        this.bonusData.name = el.dataset.name;
 
         // количество баллов у пользователя
         const elBalance = document.querySelector('.user__balance');
         const available = +elBalance.textContent; 
 
-        return available > this.costPoints ? true : false;
+        return available > this.bonusData.points ? true : false;
     }
 
     parseAmountPoints() {
         // прописываем кнопкам обменять сколько баллов по данному бонусу
-        // находим строки li с бонусами
+        // находим строки li с бонусами и индекс подарка
         const collItemsPoints  = this.el.querySelectorAll('.exchange__extraction-item');
         
-        [...collItemsPoints].forEach(item => {
+        [...collItemsPoints].forEach((item, index) => {
             // парсим цифру по бонусам
             const elWidthPoint = item.querySelector('.exchange__extraction-text span');
             const point = parseFloat(elWidthPoint.textContent);
+            // парсим название подарка 
+            const nameBonus = item.querySelector('.exchange__name').textContent;
             // добавляем количество бонусов к кнопке
             const button = item.querySelector('.exchange__extraction-button-back');
             button.dataset.points = point;
+            button.dataset.index = index;
+            button.dataset.name = nameBonus;
         })
+    }
+
+    // Собираем адрес в одну строку
+    buildStringAddress() {
+        return (`${this.address.index}, ${this.address.area} обл, ${this.address.district} р-он,
+         ${this.address.city}, ул.${this.address.street}, д. ${this.address.house}, кв. ${this.address.apartment}`
+        );
     }
 }

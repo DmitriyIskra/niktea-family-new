@@ -58,9 +58,10 @@ window.addEventListener('load', () => {
     // Блок с бонусами
     const exchange = document.querySelector('.exchange__wrapper');
     if(exchange) {
+        const userData = document.querySelector('.user__data')
         const apiExchange = new ApiExchange();
-        const redrawExchange = new RedrawExchange(exchange);
-        const controllExchange = new ControllExchange(redrawExchange);
+        const redrawExchange = new RedrawExchange(exchange, userData);
+        const controllExchange = new ControllExchange(redrawExchange, apiExchange);
         controllExchange.init();
     }
 

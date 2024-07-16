@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
+use App\Mail\SendMailExchange;
 use App\Models\Cheque;
 use App\Models\User;
 
@@ -126,7 +127,7 @@ class UserController extends Controller
         return response()->json(['result' => $attr]);
     }
 
-    /***
+    /**
      * Загрузка файлов с чеками из аккаунта 
      */ 
     public function upload_cheque_from_account(Request $request) 
@@ -151,6 +152,9 @@ class UserController extends Controller
         
     }
 
+    /**
+    * Получаем чеки по id пользователя
+    */ 
     public function get_cheques()
     {
         try {
@@ -163,6 +167,41 @@ class UserController extends Controller
             return response()->json(['cheques' => false]);
         }
     }
+
+    public function send_email_exchange(Request $request) {
+        $user = Auth::user();
+
+        Mail::to('dmitriyiskra@mail.ru')
+            ->send(new SendMailExchange('Niktea family, обмен подарков', [
+                'user_id' => $user->id,
+                'user_second_name' => $user->second_name,
+                'user_name' => $user->name,
+                'user_patronymic' => $user->patronymic,
+                'user_phone' => $user->phone,
+                'user_email' => $user->email,
+                'user_address' => $request->input('address'),
+                'index' => $request->index,
+                'name' => $request->name,
+                'points' => $request->points,
+            ]));
+
+        // $data = [
+        //     'user_id' => '$user->id',
+        //     'user_second_name' => '$user->second_name',
+        //     'user_name' => '$user->name',
+        //     'user_patronymic' => '$user->patronymic',
+        //     'user_phone' => '$user->phone',
+        //     'user_email' => '$user->email',
+        //     'user_address' => '$request->address',
+        //     'index' => '$request->index',
+        //     'name' => '$request->name',
+        //     'points' => '$request->points',
+        // ];
+
+        // Mail::to('dmitriyiskra@mail.ru')
+        //     ->send(new SendMailExchange('Niktea family, обмен подарков', $data));
+    }
+
     /**
      * Display the specified resource.
      */
