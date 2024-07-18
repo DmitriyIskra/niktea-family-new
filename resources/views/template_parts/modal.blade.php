@@ -87,34 +87,28 @@
                 <form class="reg__group modal-form-registry needs-validation" action="/registration-user" method="POST" id="registerprovider" name="form-registration" enctype="multipart/form-data">
                     @csrf
                     <div class="input__group has-validation">
-                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="name" id="firstName"
-                               required>
+                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="name" id="firstName">
                         <label for="firstName" class="reg-label ">ИМЯ</label>
                         <div class="invalid-feedback">
                             Заполните, пожалуйста, имя
                         </div>
                     </div>
                     <div class="input__group has-validation">
-                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="second_name"
-                               id="second_name"
-                               required>
+                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="second_name" id="second_name">
                         <label for="secondName" class="reg-label">ФАМИЛИЯ</label>
                         <div class="invalid-feedback">
                             Заполните, пожалуйста, фамилию
                         </div>
                     </div>
                     <div class="input__group">
-                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="patronymic" id="patronymic"
-                               required>
+                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="patronymic" id="patronymic">
                         <label for="fathersName" class="reg-label">ОТЧЕСТВО</label>
                         <div class="invalid-feedback">
                             Заполните, пожалуйста, отчество
                         </div>
                     </div>
                     <div class="input__group">
-                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="phone" data-phone-pattern
-                               id="phone"
-                               required>
+                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="phone" data-phone-pattern id="phone">
                         <label for="fathersName" class="reg-label">НОМЕР ТЕЛЕФОНА</label>
                         <div class="invalid-feedback">
                             Некорректный номер телефона
@@ -122,7 +116,7 @@
                     </div>
 
                     <div class="input__group">
-                        <input class="registry__input--field form-control modal-form-registry-required" type="text" name="email" id="email" required>
+                        <input class="registry__input--field  modal-form-registry-email form-control modal-form-registry-required" type="text" name="email" id="email">
                         <label for="email" class="reg-label">ПОЧТА</label>
                         <div class="invalid-feedback">
                             Некорректная электронная почта
@@ -185,7 +179,7 @@
                         </li>
                     </ul>
 
-                    <div class="file-upload__group file-upload__registry input__group" required>
+                    <div class="file-upload__group file-upload__registry input__group">
 
                         <p class="reg-label reg-label--check file-upload__title">
                             Чтобы закончить регистрацию, обязательно загрузите чек, он должен быть читабельным
@@ -194,7 +188,7 @@
                         <div class="file-upload__back">
                             <label class="file-upload__label" for="checkLoadLabel">
                                 загрузить чек
-                                <input class="form-reg__file-input file__upload--input form-control" id="checkLoadLabel" type="file" name="file[]" aria-label="file example" accept="image/*" required multiple>
+                                <input class="form-reg__file-input file__upload--input form-control" id="checkLoadLabel" type="file" name="file[]" aria-label="file example" accept="image/*" multiple>
                             </label>
                         </div>
                     
@@ -205,7 +199,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
                         <label class="form-check-label" for="invalidCheck">
                 <span>
                   Я прочитал и согласен с <a href="#">Правилами Акции и Пользовательским соглашением</a>,

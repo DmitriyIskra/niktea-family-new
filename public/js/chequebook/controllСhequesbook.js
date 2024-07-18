@@ -8,7 +8,7 @@ export default class ControllСhequesbook {
 
     async init() {
         const arr = await this.api.read();
-        this.d.init(arr);
+        if(arr) this.d.init(arr);
 
         this.registerEvents(); 
     }

@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendMailExchange extends Mailable
+class SendMailRegister_admin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +27,7 @@ class SendMailExchange extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Exchange balls',
+            subject: 'Niktie Family регистрация нового пользователя',
         );
     }
 
@@ -37,11 +37,11 @@ class SendMailExchange extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'exchange-email',
+            view: 'registration-email-admin',
             with: [
                 'title' => $this->title,
                 'data' => $this->data,
-            ],
+            ]
         );
     }
 

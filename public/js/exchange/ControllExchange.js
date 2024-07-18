@@ -1,7 +1,8 @@
 export default class ControllExchange {
-    constructor(d, api) {
+    constructor(d, api, loader) {
         this.d = d;
         this.api = api;
+        this.loader = loader;
 
         this.click = this.click.bind(this);
     }
@@ -35,25 +36,30 @@ export default class ControllExchange {
         if(e.target.closest('.exchange__modal-confirm-submit')) {
             const arrAddress = this.d.buildStringAddress().split('\n')
             const address = arrAddress.map(item => item.trim()).join(' ');
-            // отправляем какой был выбран подарок (индекс) и адрес  
-            const formData = new FormData();
-            formData.append('address', address);          
-            formData.append('index', this.d.bonusData.index);          
-            formData.append('points', this.d.bonusData.points);          
-            formData.append('name', this.d.bonusData.name);          
-            this.api.create(
-                {
-                    address,
-                    index : this.d.bonusData.index,
-                    points : this.d.bonusData.points,
-                    name : this.d.bonusData.name,
-                }, 
-                this.d.modalChangeForm._token.value
-            )
 
-            // закрываем модалки
-            this.d.hideCoverModal();
-            this.d.hideModal(); 
+            
+            
+            (async () => {
+                // закрываем модалки
+                this.d.hideCoverModal();
+                this.d.hideModal();
+                this.loader.show();
+                const result = await this.api.create(
+                    {
+                        address,
+                        index : this.d.bonusData.index,
+                        points : this.d.bonusData.points,
+                        name : this.d.bonusData.name,
+                    }, 
+                    this.d.modalChangeForm._token.value
+                )
+     
+                this.d.clearBonusData();
+                this.loader.hide();
+                // показываем модалку с результатом отправки
+                this.d.openModalResult(result);
+            })();
+            
         }
 
         /**открываем модалку смены адреса, кнопка для модалки смены адреса**/ 
@@ -72,9 +78,10 @@ export default class ControllExchange {
             this.d.showConfirmModal();
         }
 
-        /**закрыть модалку для подтверждения или корректировки адреса**/
+        /**скрыть модалки для подтверждения или корректировки адреса**/
         if(e.target.closest('.exchange__modal-close')) {
             this.d.hideCoverModal();
+            this.d.clearBonusData();
             this.d.hideModal();
         }
     }

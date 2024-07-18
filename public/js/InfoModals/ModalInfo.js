@@ -1,4 +1,4 @@
-export default class ModalInfoExchange {
+export default class ModalInfo {
     constructor() {
         this.state =  {
             activate: 'api-res__wrapper_active',
@@ -58,31 +58,31 @@ export default class ModalInfoExchange {
     }
 
     // ОКНА ( УКАЗАНИЕ ТИПА КОНТЕНТА )
-
+    /**Вы стали участником розыгрыша!*/ 
     openModalLottery() {
         this.activateModal();
         // указываем тип контента
         this.setModalType('lottery');
     }
-
+    /**Для этого заказа у Вас не хватает баллов.*/ 
     openModalnoEnough() {
         this.activateModal();
         // указываем тип контента
         this.setModalType('noEnough');
     }
-    
+    /**Ваш запрос успешно отправлен. Менеджер с Вами свяжется.*/ 
     openModalSuccess() {
         this.activateModal();
         // указываем тип контента
         this.setModalType('success');
     }
-    
+    /**Проблема с соединением, попробуйте еще.*/
     openModalFailSend() {
         this.activateModal();
         // указываем тип контента
         this.setModalType('failSend');
     }
-
+    /**Ваш чек успешно добавлен. Время проверки чека до 3 дней.*/
     openModalСhequeSuccess() {
         this.activateModal();
         // указываем тип контента

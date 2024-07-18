@@ -1,3 +1,5 @@
+// Информационные модалки
+import ModalInfo from "./InfoModals/ModalInfo.js";
 
 // Слайдер на главной
 import ControllSlHeaderMain from "./sliderHeaderMain/controllSlHeaderMain.js";
@@ -26,10 +28,17 @@ import RedrawСhequesbook from "./chequebook/redrawСhequesbook.js";
 import ApiСhequesbook from "./chequebook/apiСhequesbook.js";
 import PatternChequesbook from "./chequebook/patternChequesbook.js";
 
+// loader
+import ControllLoader from "./loader/ControllLoader.js";
+
 
 
 window.addEventListener('load', () => {
-
+    // LOADER
+    const loader = document.querySelector('.loader');
+    let controllLoader;
+    if(loader) controllLoader = new ControllLoader(loader);
+    window.controllLoader = controllLoader;
     // Слайдер для HEADER
     const sliderHead = document.querySelector('.slider-hm');
 
@@ -61,16 +70,13 @@ window.addEventListener('load', () => {
         const userData = document.querySelector('.user__data')
         const apiExchange = new ApiExchange();
         const redrawExchange = new RedrawExchange(exchange, userData);
-        const controllExchange = new ControllExchange(redrawExchange, apiExchange);
+        const controllExchange = new ControllExchange(redrawExchange, apiExchange, controllLoader);
         controllExchange.init();
     }
 
     // Добавление нового чека в аккаунте и управление книгой с чеками
     const cheque = document.querySelector('.up-cheque');
     if(cheque) {
-        // const voucherSlider = '.account__slider-check';
-        // const slidesWrapper = document.querySelector('.account__slider-check-wrapper');
-        // const pagination = document.querySelector('.pagination__container');
         const chequebook = document.querySelector('.chequebook');
         const patternCh = new PatternChequesbook();
         const apiCh = new ApiСhequesbook();
@@ -81,12 +87,22 @@ window.addEventListener('load', () => {
         const update = redrawCh.update;
      
         // Добавление чеков (кнопка и отправка файлов на сервер)
-        // const sliderCheque = new RedrawVoucherSlider(voucherSlider, slidesWrapper, pagination);
         const pattern = new PatternNewCheque();
         const redraw = new RedrawAccNewCheque(cheque, pattern);
         const api = new ApiAccNewCheque();
-        const controll = new ControllAccNewCheque(api, redraw, update); //sliderCheque
+        const controll = new ControllAccNewCheque(api, redraw, controllLoader, update); //sliderCheque
         controll.init();
+    }
+
+    // проверка участия в лотерее и если нужно показ модалки
+    const lottery = document.querySelector('.user_prezent-icon');
+    if(lottery) {
+        const result = lottery.dataset.lottery;
+        const modalInfo = new ModalInfo();
+
+        if(result && !sessionStorage?.lottery) modalInfo.openModalLottery();
+        
+        if(!sessionStorage?.lottery) sessionStorage.lottery = true;
     }
 })
  

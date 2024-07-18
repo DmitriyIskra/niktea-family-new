@@ -23,13 +23,13 @@ return new class extends Migration
             
             $table->string('phone');
             $table->string('email')->unique();
-            $table->string('index');
-            $table->string('area');
-            $table->string('district');
+            $table->string('index')->nullable();
+            $table->string('area')->nullable();
+            $table->string('district')->nullable();
             $table->string('settlement');
             $table->string('street');
             $table->string('house');
-            $table->string('appartment');
+            $table->string('appartment')->nullable();
 
             $table->json('gifts_for_points')->nullable();
             $table->json('gift_for_lottery')->nullable();

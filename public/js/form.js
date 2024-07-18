@@ -1,5 +1,6 @@
 function authorize() {
     const formSignIn = document.getElementById('signinForm');
+
     formSignIn.addEventListener('submit', SendAuth);
 
     async function SendAuth(event) { 
@@ -46,6 +47,7 @@ function authorize() {
 
         try {
           const form_data = new FormData(event.target);
+          controllLoader.show();
           const response = await fetch('/check-user', {
             method: "POST",
               headers: {
@@ -57,7 +59,7 @@ function authorize() {
           // проверяем правильность данных, при правильно 
           // пускаем работу формы дальше
           const json = await response.json();
-          console.log(json)
+          controllLoader.hide();
           json.result ? event.target.submit() : wrong_data.textContent = 'Введён неверный логин или пароль';
         } catch(e) {
           console.log(e);
@@ -68,14 +70,81 @@ function authorize() {
 
 
 function registration() {
+    // форма регистрации
     const formSignIn = document.getElementById('registerprovider');
-    const check = formSignIn.querySelector('.form-reg__file-input'); //получаем поле с файлами
-    // результат валидации
-    let validateVoucher = null;
-    // находим label для вывода результата загрузки
-    const el = formSignIn.querySelector('.file-upload__title');
+    
+    const name = formSignIn.querySelector('[name="name"]'), //получаем поле name
+      second_name = formSignIn.querySelector('[name="second_name"]'), //получаем поле name
+      patronymic = formSignIn.querySelector('[name="patronymic"]'), //получаем поле patronymic
+      phone = formSignIn.querySelector('[name="phone"]'), //получаем поле phone
+      email = formSignIn.querySelector('[name="email"]'), //получаем поле email
+      settlement = formSignIn.querySelector('[name="settlement"]'), //получаем поле населенный пункт
+      street = formSignIn.querySelector('[name="street"]'), //получаем поле улица
+      house = formSignIn.querySelector('[name="house"]'), //получаем поле дом
+      apartment = formSignIn.querySelector('[name="appartment"]'), //получаем поле квартира (офис)
+      check = formSignIn.querySelector('.form-reg__file-input'), //получаем поле с файлами
+
+      conditions = formSignIn.querySelector('.form-check-input');
+
+
+    // валидация на корректность ввода, проверка на уникальность вводимого email
+    let validateEmail = null;
+    let checkEmail = null; // проверка на уже зарегистрированный email
+    let tmId;
+    email.addEventListener('input', handlerCheckEmail);
+    function handlerCheckEmail(e) {
+      if(tmId) clearTimeout(tmId);
+
+      if(email.value) {
+        validateEmail = /^\S+@\S+\.\S+$/g.test(email.value);
+      }
+        
+      tmId = setTimeout(async () => {
+        const value = e.target.value
+        if(value && validateEmail) {
+          try {
+            const response  = await fetch('/check-email', {
+              method : "POST",
+              headers : {
+                "X-CSRF-Token" : formSignIn._token.value,
+                "Content-Type" : "application/json",
+              },
+              body : JSON.stringify({email : value})
+            });
+  
+            const json = await response.json();
+  
+            if(json.result) {
+              email.classList.add('invalid');
+              email.nextElementSibling.textContent = 'Пользователь с такой электронной почтой уже зарегистрирован';
+              email.nextElementSibling.style = 'color: #FFC0C0;';
+              email.style = 'border: 1px solid #FFC0C0;';
+              email.classList.add('modal-form-registry-no-valid');
+
+              checkEmail = false;
+            } else {
+              email.classList.remove('invalid');
+              email.nextElementSibling.textContent = 'почта';
+              email.nextElementSibling.style = 'color: #ffffff;';
+              email.style = 'border: 0;';
+              email.classList.remove('modal-form-registry-no-valid');
+
+              checkEmail = true;
+            }
+          } catch (error) {
+            console.log(error)
+          }
+          
+        }
+      }, 700);
+    }
+   
 
     // событие на загрузку чека
+    // для результатa валидации чека
+    let validateVoucher = null;
+    // label для вывода результата загрузки чека
+    const el = formSignIn.querySelector('.file-upload__title');
     check.addEventListener('change', (e) => {
 
         const files = e.target.files;
@@ -106,35 +175,16 @@ function registration() {
 
     })
 
+
+    // Валидация, показ ошибок и отправка
     formSignIn.addEventListener('submit', SendRegister);
-
     async function SendRegister(event) {
-        
-
-        const name = formSignIn.querySelector('[name="name"]'), //получаем поле name
-            second_name = formSignIn.querySelector('[name="second_name"]'), //получаем поле name
-            patronymic = formSignIn.querySelector('[name="patronymic"]'), //получаем поле patronymic
-            phone = formSignIn.querySelector('[name="phone"]'), //получаем поле phone
-            email = formSignIn.querySelector('[name="email"]'), //получаем поле email
-            settlement = formSignIn.querySelector('[name="settlement"]'), //получаем поле населенный пункт
-            street = formSignIn.querySelector('[name="street"]'), //получаем поле улица
-            house = formSignIn.querySelector('[name="house"]'), //получаем поле дом
-            apartment = formSignIn.querySelector('[name="appartment"]'), //получаем поле квартира (офис)
-
-            conditions = formSignIn.querySelector('.form-check-input')
-
-
-        let validateEmail = null;
-
-        if(email.value) {
-          validateEmail = /^\S+@\S+\.\S+$/g.test(email.value);
-        }
 
         // Проверяем все поля, если где то не заполненно или не соответствует условиям
         // показываем в этом поле ошибку
         if(!name.value || !second_name.value || !patronymic.value
           || !phone.value || !email.value || !settlement.value || !street.value || !house.value 
-          || !validateVoucher || !conditions.checked || !validateEmail) {
+          || !validateVoucher || !conditions.checked || !validateEmail || !checkEmail) {
             event.preventDefault();
             // если все верно то страница перезагрузится и ничего менять не надо,
             // все само сбросится, иначе если хоть одно условие не верно,
@@ -201,6 +251,13 @@ function registration() {
               email.nextElementSibling.style = 'color: #FFC0C0;';
               email.style = 'border: 1px solid #FFC0C0;';
               email.classList.add('modal-form-registry-no-valid');
+            } else if(email.value && validateEmail && !checkEmail) { 
+              // все норм, но не прошел проверку на наличие в базе
+              email.classList.add('invalid');
+              email.nextElementSibling.textContent = 'Пользователь с такой электронной почтой уже зарегистрирован';
+              email.nextElementSibling.style = 'color: #FFC0C0;';
+              email.style = 'border: 1px solid #FFC0C0;';
+              email.classList.add('modal-form-registry-no-valid');
             } else if (email.value && validateEmail) {
               email.classList.remove('invalid');
               email.nextElementSibling.textContent = 'почта';
@@ -210,17 +267,18 @@ function registration() {
             }
 
             if(!settlement.value) {
-                settlement.classList.add('invalid');
-                settlement.style = 'border: 1px solid #FFC0C0;';
-                settlement.classList.add('modal-form-registry-no-valid');
+              settlement.classList.add('invalid');
+              settlement.style = 'border: 1px solid #FFC0C0;';
+              settlement.classList.add('modal-form-registry-no-valid');
 
               const parent = settlement.parentElement;
               const elLabel = parent.previousElementSibling;
-              elLabel.textContent = 'Некорректное значение';
+              elLabel.textContent = 'Заполните пожалуйста, город';
+              elLabel.style = 'color: rgb(255, 192, 192); padding-left: 0.1vw;';
             } else if (settlement.value && settlement.matches('.invalid')) {
-                settlement.classList.remove('invalid');
-                settlement.style.border = '';
-                settlement.classList.remove('modal-form-registry-no-valid');
+              settlement.classList.remove('invalid');
+              settlement.style.border = '';
+              settlement.classList.remove('modal-form-registry-no-valid');
 
               const parent = settlement.parentElement;
               const elLabel = parent.previousElementSibling;
@@ -235,7 +293,8 @@ function registration() {
 
               const parent = street.parentElement;
               const elLabel = parent.previousElementSibling;
-              elLabel.textContent = 'Некорректное значение';
+              elLabel.textContent = 'Заполните пожалуйста, улица';
+              elLabel.style = 'color: rgb(255, 192, 192); padding-left: 0.1vw;';
             } else if (street.value && street.matches('.invalid')) {
               street.classList.remove('invalid');
               street.style.border = '';
@@ -254,7 +313,8 @@ function registration() {
 
               const parent = house.parentElement;
               const elLabel = parent.previousElementSibling;
-              elLabel.textContent = 'Некорректное значение';
+              elLabel.textContent = 'Заполните пожалуйста, дом';
+              elLabel.style = 'color: rgb(255, 192, 192); padding-left: 0.1vw;';
             } else if (house.value && house.matches('.invalid')) {
               house.classList.remove('invalid');
               house.style.border = '';
@@ -290,6 +350,8 @@ function registration() {
 
             return;
           }
+
+          controllLoader.show();
     }
 }
 

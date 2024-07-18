@@ -16,26 +16,6 @@
         @include('template_parts.header_menu')
     </div>
 </header> 
-<script>
-
-    
-    // если пользователь не авторизован, редирект на главную
-    // if (auther.is_auth === false) {
-    //     window.location.href = "/";
-    // }
-
-    // // каждый раз при загрузке страницы вызывается
-    // // для заполнения данных о пользователе
-    // (async () => {
-    //     const responce = await accountInfo()
-    //     const result = await responce.json()
-
-    //     // разделяем потому что иногда нужно получить данные
-    //     // без отрисовки данных на всей странице
-    //     document.addEventListener('DOMContentLoaded', fillAccountData(result))
-    // })()
-</script>
-
 
 @include('template_parts.modal')
 
@@ -55,8 +35,8 @@
                 </div>
                 <div class="user_wr-title">
                     <h1>Личный кабинет</h1>
-                    @if ( $data->lottery )
-                        <div class="user_prezent-icon"></div>
+                    @if ( $data->lottery && !$data->awarded)
+                        <div class="user_prezent-icon" data-lottery={{ $data->lottery  && !$data->awarded ? "true" : "false" }}></div>
                     @endif
                 </div>
                 <div class="user__wr-balance">
@@ -619,7 +599,7 @@
                 </div>
                 <div class="api-res__content-wr-button">
                     <div class="api-res__content-button-back">
-                        <a href="#0" title="Вы стали участником розыгрыша!">подробнее</a>
+                        <a href="/rules" title="Вы стали участником розыгрыша!">подробнее</a>
                     </div>
                 </div>
             </div> 
@@ -635,6 +615,7 @@
 
 @include('template_parts.footer')
 @include('template_parts.copyright')
+@include('template_parts.loader')
 <!-- событие на кнопку выход -->
 <script>
     // logout()

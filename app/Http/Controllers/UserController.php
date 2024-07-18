@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendMail;
-use App\Mail\SendMailExchange;
+use App\Mail\SendMailExchenge_admin;
+use App\Mail\SendMailNewCheque_admin;
+use App\Mail\SendMailRegister_admin;
+use App\Mail\SendMailUserRegister;
 use App\Models\Cheque;
 use App\Models\User;
 
@@ -57,7 +59,7 @@ class UserController extends Controller
                     'appartment' => $request->appartment,
                     'password' => $pass,
             ]);
-
+            
             $user_id = $dataUser->id;
             
             foreach($files as $item) {      
@@ -74,12 +76,22 @@ class UserController extends Controller
             $request->session()->regenerate();
 
             Mail::to($request->email)
-                ->send(new SendMail('Niktea family', $request->email, $pass));
+                ->send(new SendMailUserRegister('Niktea family', $request->email, $pass));
+
+            Mail::to('dmitriyiskra@mail.ru')
+                ->send(new SendMailRegister_admin('Niktea family', [
+                    'user_id' => $dataUser->id,
+                    'user_second_name' => $dataUser->second_name,
+                    'user_name' => $dataUser->name,
+                    'user_patronymic' => $dataUser->patronymic,
+                    'user_phone' => $dataUser->phone,
+                    'user_email' => $dataUser->email,
+                ]));
    
             return redirect()->intended('/account');
 
         } catch ( Exception $e ) {
-            return response()->json(['result' => $e]);
+            return redirect('/');
         }
     }
 
@@ -127,6 +139,17 @@ class UserController extends Controller
         return response()->json(['result' => $attr]);
     }
 
+    public function check_email(Request $request)
+    {
+        $email = $request->email;
+
+        $result = User::where('email', $email)->first();
+
+        if($result) return response()->json(['result' => true]);
+
+        return response()->json(['result' => false]);
+    }
+
     /**
      * Загрузка файлов с чеками из аккаунта 
      */ 
@@ -144,6 +167,16 @@ class UserController extends Controller
                     'user_id' => $user->id,
                 ]);
             }
+
+            Mail::to('dmitriyiskra@mail.ru')
+                ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
+                    'user_id' => $user->id,
+                    'user_second_name' => $user->second_name,
+                    'user_name' => $user->name,
+                    'user_patronymic' => $user->patronymic,
+                    'user_phone' => $user->phone,
+                    'user_email' => $user->email,
+                ]));
 
             return response()->json(['result' => true]);
         } catch (Exception $e) {
@@ -169,37 +202,27 @@ class UserController extends Controller
     }
 
     public function send_email_exchange(Request $request) {
-        $user = Auth::user();
+        try {
+            $user = Auth::user();
+            // yesokolova@alephtrade.com
+            Mail::to('dmitriyiskra@mail.ru')
+                ->send(new SendMailExchenge_admin('Niktea family, обмен подарков', [
+                    'user_id' => $user->id,
+                    'user_second_name' => $user->second_name,
+                    'user_name' => $user->name,
+                    'user_patronymic' => $user->patronymic,
+                    'user_phone' => $user->phone,
+                    'user_email' => $user->email,
+                    'user_address' => $request->input('address'),
+                    'index' => $request->index,
+                    'name' => $request->name,
+                    'points' => $request->points,
+                ]));
 
-        Mail::to('dmitriyiskra@mail.ru')
-            ->send(new SendMailExchange('Niktea family, обмен подарков', [
-                'user_id' => $user->id,
-                'user_second_name' => $user->second_name,
-                'user_name' => $user->name,
-                'user_patronymic' => $user->patronymic,
-                'user_phone' => $user->phone,
-                'user_email' => $user->email,
-                'user_address' => $request->input('address'),
-                'index' => $request->index,
-                'name' => $request->name,
-                'points' => $request->points,
-            ]));
-
-        // $data = [
-        //     'user_id' => '$user->id',
-        //     'user_second_name' => '$user->second_name',
-        //     'user_name' => '$user->name',
-        //     'user_patronymic' => '$user->patronymic',
-        //     'user_phone' => '$user->phone',
-        //     'user_email' => '$user->email',
-        //     'user_address' => '$request->address',
-        //     'index' => '$request->index',
-        //     'name' => '$request->name',
-        //     'points' => '$request->points',
-        // ];
-
-        // Mail::to('dmitriyiskra@mail.ru')
-        //     ->send(new SendMailExchange('Niktea family, обмен подарков', $data));
+            return response()->json(['result' => true]);
+        } catch (Exception $e) {
+            return response()->json(['result' => false]);
+        }
     }
 
     /**

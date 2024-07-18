@@ -24,7 +24,7 @@ class PagesController extends Controller
                 'data' => $user,
             ]);
         } else {
-            to_route('welcome');
+            return to_route('welcome');
         }
     }
 

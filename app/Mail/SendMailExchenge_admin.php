@@ -9,14 +9,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class SendMailExchenge_admin extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $title, private string  $login, private string  $password)
+    public function __construct(private string $title, private array $data)
     {
         //
     }
@@ -27,7 +27,7 @@ class SendMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Niktea family',
+            subject: 'Обмен баллов с сайта Niktea Family',
         );
     }
 
@@ -37,11 +37,10 @@ class SendMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'user-email',
+            view: 'exchange-email-admin',
             with: [
                 'title' => $this->title,
-                'login' => $this->login,
-                'password' => $this->password,
+                'data' => $this->data,
             ],
         );
     }

@@ -1,10 +1,11 @@
-import ModalInfoExchange from "../InfoModals/ModalInfoExchange.js";
+import ModalInfo from "../InfoModals/ModalInfo.js";
 
-export default class ControllAccNewCheque extends ModalInfoExchange {
-    constructor(api, d, update, state) {
+export default class ControllAccNewCheque extends ModalInfo {
+    constructor(api, d, loader, update, state) {
         super(state);
         this.api = api;
         this.d = d;
+        this.loader = loader;
         this.update = update;
 
         this.dropZone = document.body;
@@ -61,9 +62,13 @@ export default class ControllAccNewCheque extends ModalInfoExchange {
 
         const formData = new FormData(this.d.form);
 
+        this.loader.show();
+
         // Отправляем файлы на сервер
         const result = await this.api.create(formData);
+        this.loader.hide();
         if(result) super.openModalСhequeSuccess();
+        if(!result) super.openModalFailSend();
 
         const cheques = await this.api.read();
         

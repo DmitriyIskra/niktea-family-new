@@ -1,6 +1,6 @@
-import ModalInfoExchange from "../InfoModals/ModalInfoExchange.js";
+import ModalInfo from "../InfoModals/ModalInfo.js";
 
-export default class RedrawExchange extends ModalInfoExchange {
+export default class RedrawExchange extends ModalInfo {
     constructor(el, userData, state) {
         super(state);
         this.el = el;
@@ -48,7 +48,14 @@ export default class RedrawExchange extends ModalInfoExchange {
 
     hideCoverModal() {
         this.wrapperModal.classList.remove('exchange__modal-wrapper_active');
-        this.bonusData = null;
+    }
+
+    clearBonusData() {
+        this.bonusData = {
+            index : null,
+            points : null,
+            name : null,
+        };
     }
 
     /**
@@ -103,6 +110,16 @@ export default class RedrawExchange extends ModalInfoExchange {
             this.activeModal.classList.remove('exchange__modal_active');
             this.activeModal = null;
         };
+    }
+
+    // модалка с результаттом отправки email
+    openModalResult(result) {
+        if(!result) {
+            super.openModalFailSend();
+            return;
+        };
+        
+        super.openModalSuccess();
     }
 
     /**
