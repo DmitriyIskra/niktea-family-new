@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('appartment')->nullable();
 
             $table->json('gifts_for_points')->nullable();
-            $table->json('gift_for_lottery')->nullable();
+            $table->string('gift_for_lottery')->nullable();
             $table->boolean('awarded')->default(false);
             
             $table->timestamp('email_verified_at')->nullable();

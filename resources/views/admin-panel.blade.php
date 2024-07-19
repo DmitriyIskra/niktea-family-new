@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -33,8 +34,8 @@
                         <li class="panel__user-item">
                             <div class="panel__user-person">
                                 <div class="panel__user-name">
-                                    <span>{{ $item->second_name }}</span>
-                                    <span>{{ $item->name }} {{ $item->patronymic }} </span>
+                                    <span class="{{ !$item->user_active ? 'panel__user-name_red' : ''}}">{{ $item->second_name }}</span>
+                                    <span class="{{ !$item->user_active ? 'panel__user-name_red' : ''}}">{{ $item->name }} {{ $item->patronymic }} </span>
                                 </div>
 
                                 <div class="panel__user-phone">{{ $item->phone }}</div>
@@ -71,21 +72,21 @@
                                 <div class="panel__user-lottery {{ $item->lottery ? 'panel__user-lottery_yes' : 'panel__user-lottery_no' }}"></div>
                             </div>
 
-                            <div class="panel__user-wr-gifts-points">
+                            {{--<div class="panel__user-wr-gifts-points">
                                 <!-- здесь должно быть что-то чтоб добавлять подарок выбранный пользователем -->
                                 <ul class="panel__user-gifts-points-list">
-                                    @foreach ($item->gifts_p as $gift)
+                                    @foreach ($item->gifts_for_points as $gift)
                                         <li class="panel__user-gifts-points-item">
                                             <div class="panel__user-gifts-points-verified {{ $gift->verified ? 'panel__user-gifts-points-verified_green' : 'panel__user-gifts-points-verified_gray' }}"></div>
                                             <div class="panel__user-gifts-points-name">{{ $gift->name }}</div>
                                         </li>
                                     @endforeach
                                 </ul>
-                            </div>
+                            </div>--}}
 
                             <div class="panel__user-wr-gifts-lottery">
                                 <!-- здесь должно быть что-то чтоб добавлять подарок -->
-                                <div class="panel__user-gifts-lottery">{{ $item->gift_l }}</div>
+                                <div class="panel__user-gifts-lottery">{{ $item->gift_for_lottery }}</div>
                             </div>
 
                             <div class="panel__user-wr-lottery-awarded">
