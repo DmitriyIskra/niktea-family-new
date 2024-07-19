@@ -6,11 +6,257 @@
     list-style-type: none;
 }
 
+.wr-page-panel {
+    --fsz13: 0.68vw;
+    --fsz18: 0.94vw;
+    --fsz11: 0.57vw;
+}
+
+.wr-page-panel {
+    display: flex;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.panel__wr-search {
+    display: flex;
+    margin-top: 2.34vw;
+
+    justify-content: center;
+}
+
+.panel__search {
+    width: 47.86vw;
+    height: 2.60vw;
+    padding-left: 0.5vw;
+
+    font-family: Arial;
+    font-size: 0.83vw;
+    font-style: normal;
+    font-weight: 400;
+
+    border-radius: 0.63vw;
+    border: 1px solid #000;
+    outline: none;
+
+    background: #F5F5F5;
+}
+
+.panel__header {
+    margin-top: 2.34vw;
+}
 
 .panel__header-list {
     display: flex;
+    gap: 0.52vw;
+}
+
+.panel__header-item {
+    display: flex;
+    min-height: 3.23vw;
+
+    font-family: "Arial";
+    font-size: 0.73vw;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #fff;
+    background: no-repeat linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.panel__header-item_person,
+.panel__header-item_id,
+.panel__header-item_lottery {
+    width: 9.38vw;
+}
+
+.panel__header-item_cheque {
+    width: 13.49vw;
+}
+
+.panel__header-item_balls {
+    width: 6.25vw;
+}
+
+.panel__header-item_bonus-p,
+.panel__header-item_bonus-l {
+    width: 13.30vw;
+}
+
+.panel__header-item_awarded {
+    width: 10.26vw;
+}
+
+.panel__main {
+    margin-top: 0.83vw;
+}
+
+.panel__users-list {
+    display: flex;
+    gap: 0.83vw;
+
+    flex-direction: column;
 }
 
 .panel__user-item {
     display: flex;
+    gap: 0.52vw;
+}
+
+.panel__user-item-content {
+    max-height: 9.3vw;
+
+    border: 1px solid #D2D2D2;
+    background: #EEE;
+}
+
+.panel__user-person,
+.panel__user-id,
+.panel__user-wr-lottery {
+    width: 9.38vw;
+}
+
+.panel__user-cheques-list {
+    width: 13.49vw;
+}
+
+.panel__user-wr-balls {
+    width: 6.25vw;
+}
+
+.panel__user-wr-gifts-points,
+.panel__user-wr-gifts-lottery {
+    width: 13.30vw;
+}
+
+.panel__user-wr-lottery-awarded {
+    width: 10.26vw;
+}
+
+.panel__user-person {
+    position: relative;
+
+    padding-top: 0.94vw;
+    padding-left: 0.52vw;
+    padding-right: 0.92vw;
+    padding-bottom: 0.52vw;
+
+    scrollbar-width: thin;
+    scrollbar-color: #494694 #A5A5A5;
+
+    overflow: auto;
+}
+
+.panel__user-fio span {
+    font-family: "Arial";
+    font-size: var(--fsz18);
+    font-style: normal;
+    font-weight: 700;
+
+    color: #424242;
+}
+
+.panel__user-info {
+    font-family: "Arial";
+    font-size: var(--fsz13);
+    font-style: normal;
+    font-weight: 400;
+
+    color: #424242;
+}
+
+.panel__user-phone {
+    margin-top: 0.2vw;
+}
+
+.panel__user-address {
+    margin-top: 0.3vw;
+}
+
+.panel__user-item-edit {
+    position: absolute;
+    top: 0.2vw;
+    right: 0.2vw;
+
+    width: 1.25vw;
+    height: 1.25vw;
+
+    background: no-repeat url("../img/icons/admin-edit.png");
+    background-size: 100% 100%;
+    background-position: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+}
+
+.panel__user-id {
+    display: flex;
+
+    font-family: "Arial";
+    font-size: var(--fsz18);
+    font-style: normal;
+    font-weight: 700;
+
+    color: #424242;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.panel__user-cheques-list {
+    display: flex;
+    padding: 0.57vw;
+    gap: 0.26vw;
+  
+    flex-direction: column;
+    
+    scrollbar-width: thin;
+    scrollbar-color: #494694 #A5A5A5;
+
+    overflow: auto;
+}
+
+.panel__user-cheques-item {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.panel__user-cheques-content {
+    display: flex;
+    gap: 0.52vw;
+
+    align-items: center;
+}
+
+.panel__user-cheques-is-verified {
+    width: 0.57vw;
+    height: 0.57vw;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.panel__user-cheques_gray {
+    background-color: #9EA09F;
+}
+
+.panel__user-cheques_green {
+    background-color: #08D950;
+}
+
+.panel__user-cheques-link {
+    font-family: "Arial";
+    font-size: var(--fsz11);
+    font-style: normal;
+    font-weight: 400;
 }
