@@ -6,11 +6,52 @@
     list-style-type: none;
 }
 
+
+
 .wr-page-panel {
-    --fsz13: 0.68vw;
-    --fsz18: 0.94vw;
+    --fsz10: 0.52vw;
     --fsz11: 0.57vw;
+    --fsz14: 0.73vw;
+    --fsz16: 0.83vw;
+
+    --ffSegoe: 'Segoe';
 }
+
+
+
+.panel__scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #494694 #A5A5A5;
+    overflow: auto;
+}
+
+
+
+.panel_wr-checkmark {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.panel_checkmark {
+    width: 1.88vw;
+    height: 1.88vw;
+    cursor: pointer;
+}
+
+.panel_checkmark_yes {
+    background: no-repeat url(../img/icons/admin-icon-checked.png);
+    background-size: 100%;
+    background-position: center;
+}
+
+.panel__panel_checkmark_no {
+    background: no-repeat url(../img/icons/admin-icon-no-checked.png);
+    background-size: 100%;
+    background-position: center;
+}
+
 
 .wr-page-panel {
     display: flex;
@@ -32,11 +73,12 @@
     height: 2.60vw;
     padding-left: 0.5vw;
 
-    font-family: Arial;
+    font-family: var(--ffSegoe);
     font-size: 0.83vw;
     font-style: normal;
     font-weight: 400;
 
+    color: #424242;
     border-radius: 0.63vw;
     border: 1px solid #000;
     outline: none;
@@ -57,7 +99,7 @@
     display: flex;
     min-height: 3.23vw;
 
-    font-family: "Arial";
+    font-family: var(--ffSegoe);
     font-size: 0.73vw;
     font-style: normal;
     font-weight: 700;
@@ -147,25 +189,28 @@
     padding-left: 0.52vw;
     padding-right: 0.92vw;
     padding-bottom: 0.52vw;
-
-    scrollbar-width: thin;
-    scrollbar-color: #494694 #A5A5A5;
-
-    overflow: auto;
 }
 
 .panel__user-fio span {
-    font-family: "Arial";
-    font-size: var(--fsz18);
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz14);
     font-style: normal;
     font-weight: 700;
 
     color: #424242;
 }
 
+.panel__user-fio_red span {
+    color: rgba(217, 8, 8, 0.48);
+}
+
+/* span.panel__user-name_red {
+    color: rgba(217, 8, 8, 0.48);
+} */
+
 .panel__user-info {
-    font-family: "Arial";
-    font-size: var(--fsz13);
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz11);
     font-style: normal;
     font-weight: 400;
 
@@ -199,8 +244,8 @@
 .panel__user-id {
     display: flex;
 
-    font-family: "Arial";
-    font-size: var(--fsz18);
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz14);
     font-style: normal;
     font-weight: 700;
 
@@ -213,14 +258,9 @@
 .panel__user-cheques-list {
     display: flex;
     padding: 0.57vw;
-    gap: 0.26vw;
+    gap: 0.1vw;
   
     flex-direction: column;
-    
-    scrollbar-width: thin;
-    scrollbar-color: #494694 #A5A5A5;
-
-    overflow: auto;
 }
 
 .panel__user-cheques-item {
@@ -236,7 +276,7 @@
     align-items: center;
 }
 
-.panel__user-cheques-is-verified {
+.panel__circle-verified {
     width: 0.57vw;
     height: 0.57vw;
 
@@ -246,17 +286,406 @@
     cursor: pointer;
 }
 
-.panel__user-cheques_gray {
+.panel__circle-verified_gray {
     background-color: #9EA09F;
 }
 
-.panel__user-cheques_green {
+.panel__circle-verified_green {
     background-color: #08D950;
 }
 
 .panel__user-cheques-link {
-    font-family: "Arial";
-    font-size: var(--fsz11);
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz10);
     font-style: normal;
     font-weight: 400;
+
+    color: #424242;
+}
+
+.panel__user-cheques-basket {
+    width: 0.9vw;
+    height: 0.9vw;
+
+    background: no-repeat url(../img/icons/admin-delete-cheque.png);
+    background-position: center;
+    background-size: 100%;
+
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.panel__user-wr-balls {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.panel__user-balls {
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz14);
+    font-style: normal;
+    font-weight: 700;
+
+    color: #424242;
+}
+
+.panel__form-add-one-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+    width: 70%;
+    height: 1.5vw;
+
+    translate: -50% -50%;
+
+    > input {
+        width: 100%;
+        height: 100%;
+        
+        text-align: center;
+        
+        box-shadow: 0.1vw 0.1vw 0.1vw rgba(0, 0, 0, 0.4);
+        border: 0px solid black;
+    }
+}
+
+.panel__form-change-balls_active {
+    display: block;
+}
+
+.panel__user-wr-lottery {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.panel__user-lottery {
+    width: 1.88vw;
+    height: 1.88vw;
+
+    cursor: pointer;
+}
+
+.panel__user-lottery_yes {
+    background: no-repeat url(../img/icons/admin-icon-checked.png);
+    background-size: 100%;
+    background-position: center;
+}
+
+.panel__user-lottery_no {
+    background: no-repeat url(../img/icons/admin-icon-no-checked.png);
+    background-size: 100%;
+    background-position: center;
+}
+
+.panel__wr-add-gift-points {
+    display: flex;
+    width: 95%;
+    margin: 0.31vw auto 0;
+
+    justify-content: space-between;
+}
+
+.panel__form-gift-points {
+    width: 86%;
+
+    visibility: hidden;
+
+    > input {
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        
+        box-shadow: 0.1vw 0.1vw 0.1vw rgba(0, 0, 0, 0.4);
+        border: 0px solid black;
+    }
+}
+
+.panel__form-gift-points_active {
+    visibility: visible;
+}
+
+.panel__user-item-edit_gift-p {
+    position: initial;
+}
+
+.panel__user-gifts-points-list {
+    width: 84%;
+    height: 64%;
+    margin: 1.04vw auto 0;
+}
+
+.panel__user-gifts-points-item {
+    display: flex;
+    gap: 1.09vw;
+
+    align-items: center;
+}
+
+.panel__user-gifts-points-name {
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz14);
+    font-style: normal;
+    font-weight: 700;
+
+    color: #424242;
+}
+
+
+
+
+
+
+.panel__user-wr-gifts-lottery {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.panel__user-gifts-lottery {
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz14);
+    font-style: normal;
+    font-weight: 700;
+
+    color: #424242;
+}
+
+.panel__form-gifts-lottery_active {
+    display: block;
+}
+
+
+
+
+.modal-edit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    background: #FFF;
+    box-shadow:
+     1.72vw 13.70vw 3.85vw rgba(0, 0, 0, 0.00),
+      1.09vw 8.75vw 3.54vw rgba(0, 0, 0, 0.01),
+       0.63vw 4.95vw 2.97vw rgba(0, 0, 0, 0.05),
+        0.26vw 2.19vw 2.19vw rgba(0, 0, 0, 0.09),
+         0.05vw 0.57vw 1.20vw rgba(0, 0, 0, 0.10);
+
+    translate: -50% -50%;
+}
+
+.modal-edit_active {
+    display: block;
+}
+
+.modal-panel__wr-close {
+    display: flex;
+    margin-top: 1.04vw;
+    margin-right: 1.04vw;
+
+    justify-content: flex-end;
+}
+
+.modal-panel__close {
+    height: 1.56vw;
+    width: 1.56vw;
+
+    cursor: pointer;
+}
+
+.modal-edit__content {
+    padding-top: 0.57vw;
+    padding-left: 3.13vw;
+    padding-right: 3.13vw;
+    padding-bottom: 2.14vw;
+}
+
+.modal-edit__user-is-blocked {
+    visibility: hidden;
+
+    font-family: var(--ffSegoe);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+
+    color: #D90808;
+}
+
+.modal-edit__user-is-blocked_active {
+    visibility: visible;
+}
+
+.modal-edit__form {
+    margin-top: 0.68vw;
+}
+
+.modal-edit__contact-list {
+    display: grid;
+    column-gap: 2.03vw;
+    row-gap: 0.57vw;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, min-content);
+}
+
+.modal-edit__name {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.modal-edit__patronymic {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.modal-edit__phone {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.modal-edit__email {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+
+.modal-edit__address-list {
+    display: grid;
+    column-gap: 2.03vw;
+    row-gap: 0.57vw;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, min-content);
+}
+
+.modal-edit__area {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.modal-edit__district {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.modal-edit__settlement {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.modal-edit__street {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.modal-edit__house {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.modal-edit__appartment {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.modal-edit__input {
+    height: 1.82vw;
+    width: 14.53vw;
+    padding-top: 0.42vw;
+    padding-right: 0.83vw;
+    padding-bottom: 0.36vw;
+    padding-left: 0.83vw;
+
+    border: 0;
+    border-radius: 0.26vw;
+    background: rgba(216, 216, 216, 0.50);
+}
+
+.modal-edit__address-list {
+    margin-top: 2.03vw;
+}
+
+.modal-edit__wr-buttons {
+    display: flex;
+    margin-top: 3.39vw;
+
+    justify-content: space-between;
+}
+
+.modal-panel__button {
+    width: 9.32vw;
+    height: 2.34vw;
+
+    font-family: var(--ffSegoe);
+    font-size: var(--fsz16);
+
+    color: #fff;
+    border-radius: 8px;
+    background: #4C4997;
+    box-shadow: 0.10vw 0.10vw 0.16vw rgba(0, 0, 0, 0.25);
+    border: 0;
+
+    cursor: pointer;
+}
+
+.modal-confirmation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+    padding-bottom: 1.82vw;
+
+    background: #fff;
+    box-shadow:
+     1.72vw 13.70vw 3.85vw rgba(0, 0, 0, 0.00),
+      1.09vw 8.75vw 3.54vw rgba(0, 0, 0, 0.01),
+       0.63vw 4.95vw 2.97vw rgba(0, 0, 0, 0.05),
+        0.26vw 2.19vw 2.19vw rgba(0, 0, 0, 0.09),
+         0.05vw 0.57vw 1.20vw rgba(0, 0, 0, 0.10);
+
+    translate: -50% -50%;
+}
+
+.modal-confirmation_active {
+    display: block;
+}
+
+.modal-confirmation__content {
+    width: 70%;
+    margin: 2.40vw auto 0;
+
+    font-family: var(--ffSegoe);
+    font-size: 1.25vw;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+
+    color: #463E57;
+}
+
+.modal-confirmation__wr-buttons {
+    display: flex;
+    margin-top: 2.76vw;
+    gap: 0.83vw;
+
+    flex-direction: column;
+    align-items: center;
 }

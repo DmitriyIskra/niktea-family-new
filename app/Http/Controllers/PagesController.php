@@ -68,7 +68,7 @@ class PagesController extends Controller
                     "awarded",
                 ]
             );
-
+    
         $cheques = DB::table('cheques')->where('user_id','!=', true)->get();
        
         // перебираем пользователь и добавляем соответствующие чеки
@@ -76,6 +76,7 @@ class PagesController extends Controller
         // так сравниваем user_id чека c id пользователя item
         foreach($users as $item) {
             $item->cheques = [];
+            $item->gifts_for_points = json_decode($item->gifts_for_points);
             
             foreach($cheques as $check) {
                 if($check->user_id === $item->id) {

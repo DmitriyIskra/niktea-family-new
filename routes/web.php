@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,7 @@ Route::get('/get_cheques', [UserController::class, 'get_cheques']);
 Route::post('/upload_cheque_from_account', [UserController::class, 'upload_cheque_from_account']);
 
 Route::post('/send_email_exchange', [UserController::class, 'send_email_exchange']);
+
+// АДМИН
+
+Route::post('/blocking/{id}', [AdminController::class, 'update']);

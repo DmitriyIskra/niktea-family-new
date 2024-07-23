@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" href="{{ asset("img/icons/fav256.svg") }}" sizes="256x256">
 <link rel="stylesheet" href="{{ asset("css/bootstrap.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/swiper-bundle.min.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/fonts.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/account.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/slider.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/catalog.css?v=").time()}}">
@@ -17,6 +18,7 @@
 <link rel="stylesheet" href="{{ asset("css/recept.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/forms.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/style.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/loader.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/slider-header-main.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/chequebook.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/modal-more-detailed-bonuses.css?v=").time()}}">

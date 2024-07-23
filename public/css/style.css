@@ -4,59 +4,7 @@
 }
 
 
-@font-face {
-  font-family: 'Blogger Sans';
-  src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
-  font-weight: 200;     
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Blogger Sans';
-  src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
-  font-weight: 400;     
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Blogger Sans';
-  src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
-  font-weight: 500;     
-  font-style: normal;
-  font-display: swap; 
-}
-
-
-@font-face {
-  font-family: 'Arsenal';
-  src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
-  font-weight: 400;
-  font-display: 'swap';
-}
-
-@font-face {
-  font-family: 'Abel';
-  src: url(../fonts/Abel/Abel-Regular.ttf);
-  font-weight: 400;
-  font-display: 'swap';
-}
-
-@font-face {
-  font-family: 'Arsenal';
-  src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-font-family: 'Snell Roundhand';
-src:  url(../fonts/SnellRoundhand/SnellRoundhand.ttf);
-font-style: normal;
-font-display: swap;
-}
 
 body {        
     height: 100%;
@@ -1083,43 +1031,7 @@ text-transform: uppercase;
 }
 
 
-/* --------========= START LOADER ========------- */
 
-.loader {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-
-  display: none;
-  height: 100vh;
-
-  background-color: rgba(0, 0, 0, 0.4);
-
-  justify-content: center;
-  align-items: center;
-
-  z-index: 10000000000;
-}
-
-.loader__cover_active {
-  display: flex;
-}
-
-.loader__wrapper-image {
-  height: 6.60vw;
-  width: 6.60vw;
-}
-
-.loader__wrapper-image img {
-  height: 100%;
-  width: 100%;
-
-  object-fit: contain;
-  object-position: center;
-}
-
-/* --------========= END LOADER ========------- */
 
 
 @media (max-width: 1280px) {

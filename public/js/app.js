@@ -28,6 +28,20 @@ import RedrawСhequesbook from "./chequebook/redrawСhequesbook.js";
 import ApiСhequesbook from "./chequebook/apiСhequesbook.js";
 import PatternChequesbook from "./chequebook/patternChequesbook.js";
 
+// ADMIN
+import ControllAdmin from "./admin/ControllAdmin.js";
+import ApiAdmin from "./admin/apiAdmin.js";
+import RedrawGiftLottery from "./admin/RedrawGiftLottery.js";
+import RedrawUserAwardedLottery from "./admin/RedrawUserAwardedLottery.js";
+import RedrawUserBalls from "./admin/RedrawUserBalls.js";
+import RedrawUserCheques from "./admin/RedrawUserCheques.js";
+import RedrawUserData from "./admin/RedrawUserData.js";
+import RedrawUserGiftsPoints from "./admin/RedrawUserGiftsPoints.js";
+import RedrawUserId from "./admin/RedrawUserId.js";
+import RedrawUserLottery from "./admin/RedrawUserLottery.js";
+import PatternAdminUsers from "./admin/patternAdminUsers.js";
+import RerenderAllUsers from "./admin/RerenderAllUsers.js";
+
 // loader
 import ControllLoader from "./loader/ControllLoader.js";
 
@@ -103,6 +117,28 @@ window.addEventListener('load', () => {
         if(result && !sessionStorage?.lottery) modalInfo.openModalLottery();
         
         if(!sessionStorage?.lottery) sessionStorage.lottery = true;
+    }
+
+    const panel = document.querySelector('.panel');
+    if(panel) {
+        const api = new ApiAdmin(controllLoader);
+ 
+        const redraws = {
+            giftLottery : new RedrawGiftLottery(),
+            awardedLottery : new RedrawUserAwardedLottery(),
+            balls : new RedrawUserBalls(),
+            cheques : new RedrawUserCheques(),
+            userData : new RedrawUserData(),
+            giftsPoints : new RedrawUserGiftsPoints(),
+            id : new RedrawUserId(),
+            lottery : new RedrawUserLottery(),
+        }
+        
+        const pattern = new PatternAdminUsers();
+        const rerender = new RerenderAllUsers(pattern);
+        
+        const controll = new ControllAdmin(panel, api, redraws,rerender);
+        controll.init();
     }
 })
  
