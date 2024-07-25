@@ -11,13 +11,55 @@ export default class RedrawUserData {
         const content = el.querySelector('.panel__user-item-content');
 
         fio.classList.toggle('panel__user-fio_red');
-        content.dataset.is_active = +content.dataset.is_active ? 0 : 1;
+        el.dataset.is_active = +el.dataset.is_active ? 0 : 1;
+    }
+
+    changeUserData(el, data) {
+        const wrFio = el.querySelector('.panel__user-fio');
+        const secondName = el.querySelector('.panel__user-fio_second_name');
+        const namePatronymic = el.querySelector('.panel__user-fio_name-patronymic');
+        
+        const phone = el.querySelector('.panel__user-phone');
+        const email = el.querySelector('.panel__user-email');
+        const address = el.querySelector('.panel__user-address');
+
+        wrFio.dataset.second_name = data.second_name;
+        wrFio.dataset.name = data.name;
+        wrFio.dataset.patronymic = data.patronymic;
+
+        secondName.textContent = data.second_name;
+        namePatronymic.textContent = `${data.name} ${data.patronymic}`;
+
+        phone.textContent = data.phone;
+        email.textContent = data.email;
+        console.log(data.index === null)
+        address.dataset.index = data.index ? data.index : '';
+        address.dataset.area = data.area ? data.area : '';
+        address.dataset.district = data.district ? data.district : '';
+        address.dataset.settlement = data.settlement;
+        address.dataset.street = data.street;
+        address.dataset.house = data.house;
+        address.dataset.appartment = data.appartment ? data.appartment : '';
+
+        address.textContent = `
+            ${data.index ? `${$data.index},` : ''} 
+            ${data.area ? `${data.area} обл,` : ''} 
+            ${data.district ? `${data.district} р-он,` : ''}
+            г. ${data.settlement}, 
+            ул. ${data.street}, 
+            д. ${data.house}
+            ${data.appartment ? `, кв. ${data.appartment}` : ''}
+        `;
+    }
+
+    removeUser(user) {
+        user.remove();
     }
 
     /**Окно изменения данных пользователя*/ 
     openModalEdit(data) {
         // надпись - профиль заблокирован
-        if(!+data.is_active) {
+        if(!data.is_active) {
             this.modalIsBlocked.classList.add('modal-edit__user-is-blocked_active');
         }
 
@@ -50,16 +92,24 @@ export default class RedrawUserData {
     }
 
     /**Окно подтверждения блокировки пользователя*/ 
-    openModalConfirm(is_active) {
+    openModalConfirm(action, is_active) {
         this.modalConfirm.classList.add('modal-confirmation_active');
+        const text = this.modalConfirm.querySelector('.modal-confirmation__content');
+        const button = this.modalConfirm.querySelector('.modal-confirmation__button_agree');
 
-        this.modalConfirm
-            .querySelector('.modal-confirmation__content')
-            .textContent = is_active ? 'Заблокировать пользователя?' : 'Разблокировать пользователя?';
+        if(action === 'blocking') {
+            text.textContent = is_active ? 'Заблокировать пользователя?' : 'Разблокировать пользователя?';
+            button.textContent = is_active ? 'Заблокировать' : 'Разблокировать';
 
-        this.modalConfirm
-            .querySelector('.modal-confirmation__button_agree')
-            .textContent = is_active ? 'Заблокировать' : 'Разблокировать';
+            button.dataset.action = action;
+        }
+
+        if(action === 'remove') {
+            text.textContent = 'Удалить пользователя?';
+            button.textContent = 'Удалить';
+
+            button.dataset.action = action;
+        }
     }
 
     closeModalConfirm() {

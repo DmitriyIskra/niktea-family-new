@@ -14,8 +14,9 @@
 
         <div class="panel">
 
-            <div class="panel__wr-search">
+            <div class="panel__wr-search-logout">
                 <input class="panel__search" placeholder="Поиск">
+                <a class="panel__logout" type="button" href="/logout">Выход</a>
             </div>
 
             <header class="panel__header">
@@ -34,21 +35,21 @@
             <main class="panel__main">
                 <ul class="panel__users-list">
                     @foreach ($data as $item)
-                        <li class="panel__user-item" data-user_id="{{ $item->id }}">
-                            <div class="panel__user-item-content panel__user-person panel__scrollbar" data-is_active={{ $item->user_active }}>
+                        <li class="panel__user-item" data-user_id="{{ $item->id }}" data-is_active="{{ $item->user_active }}">
+                            <div class="panel__user-item-content panel__user-person panel__scrollbar">
                                 <div class="panel__user-fio {{ !$item->user_active ? 'panel__user-fio_red' : ''}}"
                                     data-second_name={{ $item->second_name }}
                                     data-name={{ $item->name }}
                                     data-patronymic={{ $item->patronymic }}
                                 >
-                                    <span>{{ $item->second_name }}</span>
-                                    <span>{{ $item->name }} {{ $item->patronymic }} </span>
+                                    <span class="panel__user-fio_second_name">{{ $item->second_name }}</span>
+                                    <span class="panel__user-fio_name-patronymic">{{ $item->name }} {{ $item->patronymic }} </span>
                                 </div>
 
                                 <div class="panel__user-info panel__user-phone">{{ $item->phone }}</div>
                                 <div class="panel__user-info panel__user-email">{{ $item->email }}</div>
                                 <div class="panel__user-info panel__user-address"
-                                    data-index="{{ $item->index }}"
+                                    data-index="{{ $item->index !== 'null' ? $item->index : '' }}"
                                     data-area="{{ $item->area }}"
                                     data-district="{{ $item->district }}"
                                     data-settlement="{{ $item->settlement }}"
@@ -68,7 +69,7 @@
                                      }}
                                 </div>
 
-                                <div class="panel__user-item-edit panel__user-item-edit_user-data" data-user_id="{{ $item->id }}"></div>
+                                <div class="panel__user-item-edit panel__user-item-edit_user-data"></div>
                             </div>
 
                             <div class="panel__user-item-content panel__user-id">{{ $item->id }}</div>
@@ -80,6 +81,7 @@
                                             <div
                                                 class="panel__circle-verified {{ $cheque->verified ? 'panel__circle-verified_green' : 'panel__circle-verified_gray' }}"
                                                 data-verified="{{ $cheque->verified }}"
+                                                data-id="{{ $cheque->id }}"
                                              ></div>
                                             <div class="panel__user-cheques-link">{{ $cheque->path }}</div>
                                             <div class="panel__user-cheques-basket" data-id="{{ $cheque->id }}"></div>
@@ -88,11 +90,11 @@
                                 @endforeach
                             </ul>
 
-                            <div class="panel__user-item-content panel__user-wr-balls">
+                            <div class="panel__user-item-content panel__user-wr-balls" data-is_active="0">
                                 <div class="panel__user-balls">{{ $item->balls }}</div>
                                 {{-- panel__form-change-balls_active --}}
                                 <form class="panel__form-change-balls panel__form-add-one-value" name="form-change-balls">
-                                    <input type="text" name="balls" value="{{ $item->balls }}">
+                                    <input type="text" name="balls">
                                     <input type="submit"  hidden>
                                 </form>
                             </div>

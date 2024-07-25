@@ -26,3 +26,9 @@ Route::post('/send_email_exchange', [UserController::class, 'send_email_exchange
 // АДМИН
 
 Route::post('/blocking/{id}', [AdminController::class, 'update']);
+Route::post('/edit_contacts/{id}', [AdminController::class, 'update']);
+Route::delete('/delete/{action}/{id}', [AdminController::class, 'destroy']);
+
+Route::post('/verified_cheque/{id}', [AdminController::class, 'update']); 
+
+Route::post('/balls/{id}', [AdminController::class, 'update']); 

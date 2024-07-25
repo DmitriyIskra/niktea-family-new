@@ -13,5 +13,6 @@ class Cheque extends Model
         'user_id',
         'verified',
         'path',
+        'name',
     ];
 }

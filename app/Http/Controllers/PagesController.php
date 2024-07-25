@@ -45,6 +45,7 @@ class PagesController extends Controller
     {
         $users = DB::table('users')
             ->where('admin', '!==', '1')
+            ->latest()
             ->get(
                 [
                     "id",
@@ -69,7 +70,7 @@ class PagesController extends Controller
                 ]
             );
     
-        $cheques = DB::table('cheques')->where('user_id','!=', true)->get();
+        $cheques = DB::table('cheques')->where('user_id','!=', true)->latest()->get();
        
         // перебираем пользователь и добавляем соответствующие чеки
         // в users нет админа, поэтому перебирая чеки не может быть выборки чека админа
@@ -84,6 +85,8 @@ class PagesController extends Controller
                 }
             }
         }
+
+        
       
         return view('admin-panel', [
             'title' => 'panel',

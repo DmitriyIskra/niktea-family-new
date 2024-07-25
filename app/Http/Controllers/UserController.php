@@ -39,7 +39,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         try {
             $pass = Str::password(8, true, true, true);
             $files = $request->file('file');
@@ -62,10 +61,12 @@ class UserController extends Controller
             
             $user_id = $dataUser->id;
             
-            foreach($files as $item) {      
-                $path = $item->storeAs($user_id, $item->getClientOriginalName(), 's3');
+            foreach($files as $item) {  
+                $name = $item->getClientOriginalName();     
+                $path = $item->storeAs($user_id, $name, 's3');
                 Cheque::query()->create([
                     'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
+                    'name' => $name,
                     'user_id' => $user_id,
                 ]);
             }
@@ -160,10 +161,12 @@ class UserController extends Controller
 
             $files = $request->file('file');
 
-            foreach($files as $item) {      
-                $path = $item->storeAs($user->id, $item->getClientOriginalName(), 's3');
+            foreach($files as $item) {  
+                $name = $item->getClientOriginalName(); 
+                $path = $item->storeAs($user->id, $name, 's3');
                 Cheque::query()->create([
                     'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
+                    'name' => $name,
                     'user_id' => $user->id,
                 ]);
             }
