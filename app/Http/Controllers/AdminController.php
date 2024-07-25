@@ -118,6 +118,32 @@ class AdminController extends Controller
 
             return response()->json(['is_changed' => $result, 'balls' => $balls]);
         }
+        
+        // участие в лотерее
+        if($request->action === 'lottery') {
+            $is_lottery = User::query()->where('id', $id)->first('lottery')->lottery;
+            $is_lottery_new = $is_lottery ? 0 : 1;
+            $result = User::query()->where('id', $id)->update(['lottery' => $is_lottery_new]);
+            
+            return response()->json(['ressponse' => $result]);
+        }
+
+        // редактирование приза по лотерее
+        if($request->action === 'gift_lottery') {
+            $result = User::query()->where('id', $id)->update(['gift_for_lottery' => $request->data]);
+            $gift = User::query()->where('id', $id)->first('gift_for_lottery')->gift_for_lottery;
+
+            return response()->json(['is_changed' => $result, 'gift' => $gift]);
+        }
+
+        // получил или не получил подарок по лотерее
+        if($request->action === 'awarded') {
+            $is_awarded = User::query()->where('id', $id)->first('awarded')->awarded;
+            $is_awarded_new = $is_awarded ? 0 : 1;
+            $result = User::query()->where('id', $id)->update(['awarded' => $is_awarded_new]);
+
+            return response()->json(['ressponse' => $result]);
+        }
     }
 
     /**

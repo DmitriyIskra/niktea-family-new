@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="panel__user-item-content panel__user-wr-lottery panel_wr-checkmark">
-                                <div class="panel_checkmark {{ $item->lottery ? 'panel_checkmark_yes' : 'panel__panel_checkmark_no' }}"></div>
+                                <div class="panel__checkmark panel__checkmark_lottery{{ $item->lottery ? ' panel__checkmark_yes' : '' }}"></div>
                             </div>
 
                             <div class="panel__user-item-content panel__user-wr-gifts-points">
@@ -125,17 +125,17 @@
                                 </ul>
                             </div>
 
-                            <div class="panel__user-item-content panel__user-wr-gifts-lottery">
+                            <div class="panel__user-item-content panel__user-wr-gifts-lottery" data-is_active="0">
                                 {{-- panel__form-gifts-lottery_active --}}
                                 <form class="panel__form-gifts-lottery panel__form-add-one-value" name="form-gifts-lottery">
-                                    <input type="text" name="gift-lottery" value="{{ $item->gift_for_lottery }}">
+                                    <input type="text" name="gift_lottery" value="{{ $item->gift_for_lottery }}">
                                     <input type="submit"  hidden>
                                 </form>
                                 <div class="panel__user-gifts-lottery">{{ $item->gift_for_lottery }}</div>
                             </div>
 
                             <div class="panel__user-item-content panel__user-wr-lottery-awarded panel_wr-checkmark">
-                                <div class="panel_checkmark {{ $item->awarded ? 'panel_checkmark_yes' : 'panel__panel_checkmark_no' }}"></div>
+                                <div class="panel__checkmark panel__checkmark_awarded {{ $item->awarded ? ' panel__checkmark_yes' : '' }}"></div>
                             </div>
                         </li>
                     @endforeach

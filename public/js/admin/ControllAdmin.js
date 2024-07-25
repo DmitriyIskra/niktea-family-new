@@ -20,6 +20,7 @@ export default class ControllAdmin {
 
         this.click = this.click.bind(this);
         this.handlerBalls = this.handlerBalls.bind(this);
+        this.handlerGiftLottery = this.handlerGiftLottery.bind(this);
     }
 
     init() {
@@ -142,10 +143,9 @@ export default class ControllAdmin {
             (async () => {
                 const result = await this.api.update('verified_cheque', chequeId, null);
 
-                if(result) {
-                    const target = e.target.closest('.panel__circle-verified') 
-                    this.cheques.changeVerified(target, result);
-                }
+                const target = e.target.closest('.panel__circle-verified') 
+                this.cheques.changeVerified(target, result);
+                this.clearDataUser();
             })()
         }
 
@@ -159,6 +159,7 @@ export default class ControllAdmin {
                 if(result) {
                     const cheque = e.target.closest('.panel__user-cheques-item')
                     this.cheques.delete(cheque);
+                    this.clearDataUser();
                 }
             })()
         }
@@ -183,10 +184,61 @@ export default class ControllAdmin {
                 
                 this.balls.openForm(target, form);
             };
-            // предидущая и актуальная форма активна - закрываем 
-            if(is_active) this.balls.closeForm(this.handler);
+            // предыдущая или актуальная форма активна - закрываем 
+            if(is_active) this.balls.closeForm();
             
             form.addEventListener('submit', this.handlerBalls, {once: true});
+        }
+
+        // ----------============ УЧАСТИЕ В ЛОТЕРЕЕ
+        if(e.target.closest('.panel__checkmark_lottery')) {
+            const target = e.target.closest('.panel__checkmark_lottery');
+            this.getUserIdandIs_Active(target);
+            (async () => {
+                const result = await this.api.update('lottery', null, this.activeUserID);
+
+                if(result) this.isLottery.changeState(target);
+
+                this.clearDataUser();
+            })()
+        }
+
+        // -----------============ ПРИЗ ПО ЛОТЕРЕЕ
+        if(e.target.closest('.panel__user-wr-gifts-lottery')
+        && !e.target.closest('input')) {
+            const target = e.target.closest('.panel__user-wr-gifts-lottery');
+            const is_active = +target.dataset.is_active;
+            const form = target.querySelector('form');
+
+            this.getUserIdandIs_Active(target);
+
+            // форма не активна 
+            if(!is_active) {
+                // если какая то форма уже была открыта
+                if(this.giftLottery.activeForm) {
+                    this.giftLottery.activeForm.removeEventListener('submit', this.handlerGiftLottery, {once: true});
+                }
+                
+                this.giftLottery.openForm(target, form);
+            };
+            // если предыдущая или актуальная форма активна - закрываем 
+            if(is_active) this.giftLottery.closeForm();
+            
+            form.addEventListener('submit', this.handlerGiftLottery, {once: true});
+        }
+
+
+        // ----------============= ПОЛУЧИЛ ПРИЗ ПО ЛОТЕРЕЕ (AWARDED)
+        if(e.target.closest('.panel__checkmark_awarded')) {
+            const target = e.target.closest('.panel__checkmark_awarded');
+            this.getUserIdandIs_Active(target);
+            (async () => {
+                const result = await this.api.update('awarded', null, this.activeUserID);
+
+                if(result) this.awardedLottery.changeState(target);
+
+                this.clearDataUser();
+            })()
         }
     }
 
@@ -200,6 +252,22 @@ export default class ControllAdmin {
         if(result.is_changed) this.balls.changeBalls(result.balls);
     
         this.balls.closeForm();
+
+        this.clearDataUser();
+    }
+
+    async handlerGiftLottery(e) {
+        e.preventDefault();
+
+        const data = e.target.gift_lottery.value;
+
+        const result = await this.api.update('gift_lottery', data, this.activeUserID);
+
+        if(result.is_changed) this.giftLottery.changeText(result.gift);
+    
+        this.giftLottery.closeForm();
+
+        this.clearDataUser();
     }
 
     /**получаем id и is_active пользователя с которым работаем*/ 

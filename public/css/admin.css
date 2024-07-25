@@ -34,24 +34,22 @@
     justify-content: center;
 }
 
-.panel_checkmark {
+.panel__checkmark {
     width: 1.88vw;
     height: 1.88vw;
+
+    background: no-repeat url(../img/icons/admin-icon-no-checked.png);
+    background-size: 100%;
+    background-position: center;
+
     cursor: pointer;
 }
 
-.panel_checkmark_yes {
+.panel__checkmark_yes {
     background: no-repeat url(../img/icons/admin-icon-checked.png);
     background-size: 100%;
     background-position: center;
 }
-
-.panel__panel_checkmark_no {
-    background: no-repeat url(../img/icons/admin-icon-no-checked.png);
-    background-size: 100%;
-    background-position: center;
-}
-
 
 .wr-page-panel {
     display: flex;
@@ -304,7 +302,7 @@
 .panel__user-cheques-content {
     display: flex;
     gap: 0.52vw;
-
+ 
     align-items: center;
 }
 

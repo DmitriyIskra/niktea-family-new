@@ -31,4 +31,12 @@ Route::delete('/delete/{action}/{id}', [AdminController::class, 'destroy']);
 
 Route::post('/verified_cheque/{id}', [AdminController::class, 'update']); 
 
-Route::post('/balls/{id}', [AdminController::class, 'update']); 
+Route::post('/balls/{id}', [AdminController::class, 'update']);
+
+Route::post('/lottery/{id}', [AdminController::class, 'update']); 
+
+Route::post('/gift_lottery/{id}', [AdminController::class, 'update']);
+
+
+
+Route::post('/awarded/{id}', [AdminController::class, 'update']); 

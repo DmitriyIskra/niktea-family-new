@@ -20,7 +20,7 @@ export default class RedrawUserBalls {
         this.activeTarget = target;
     }
 
-    closeForm(callback) {
+    closeForm() {
         this.activeForm.classList.remove('panel__form-change-balls_active');
         this.activeTarget.dataset.is_active = 0;
         this.activeForm.reset();
