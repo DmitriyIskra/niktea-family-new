@@ -25,6 +25,8 @@ Route::post('/send_email_exchange', [UserController::class, 'send_email_exchange
 
 // АДМИН
 
+Route::post('/search', [AdminController::class, 'search']);
+
 Route::post('/blocking/{id}', [AdminController::class, 'update']);
 Route::post('/edit_contacts/{id}', [AdminController::class, 'update']);
 Route::delete('/delete/{action}/{id}', [AdminController::class, 'destroy']);
@@ -35,8 +37,9 @@ Route::post('/balls/{id}', [AdminController::class, 'update']);
 
 Route::post('/lottery/{id}', [AdminController::class, 'update']); 
 
+Route::post('/verifie_gift_point/{id}', [AdminController::class, 'update']); 
+Route::post('/gift_point/{id}', [AdminController::class, 'update']); 
+
 Route::post('/gift_lottery/{id}', [AdminController::class, 'update']);
-
-
 
 Route::post('/awarded/{id}', [AdminController::class, 'update']); 

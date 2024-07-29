@@ -15,6 +15,7 @@ export default class RedrawUserData {
     }
 
     changeUserData(el, data) {
+        console.log(el, data);
         const wrFio = el.querySelector('.panel__user-fio');
         const secondName = el.querySelector('.panel__user-fio_second_name');
         const namePatronymic = el.querySelector('.panel__user-fio_name-patronymic');
@@ -32,7 +33,7 @@ export default class RedrawUserData {
 
         phone.textContent = data.phone;
         email.textContent = data.email;
-        console.log(data.index === null)
+ 
         address.dataset.index = data.index ? data.index : '';
         address.dataset.area = data.area ? data.area : '';
         address.dataset.district = data.district ? data.district : '';
@@ -42,10 +43,10 @@ export default class RedrawUserData {
         address.dataset.appartment = data.appartment ? data.appartment : '';
 
         address.textContent = `
-            ${data.index ? `${$data.index},` : ''} 
+            ${data.index ? `${data.index},` : ''} 
             ${data.area ? `${data.area} обл,` : ''} 
             ${data.district ? `${data.district} р-он,` : ''}
-            г. ${data.settlement}, 
+            г. ${data.settlement},  
             ул. ${data.street}, 
             д. ${data.house}
             ${data.appartment ? `, кв. ${data.appartment}` : ''}

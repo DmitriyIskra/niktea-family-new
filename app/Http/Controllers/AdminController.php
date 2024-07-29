@@ -50,6 +50,51 @@ class AdminController extends Controller
         //
     }
 
+    public function search(Request $request) {
+        // $users = User::search($request->search);
+        $users = DB::table('users')
+        ->whereFullText(['name', 'second_name', 'patronymic', 'phone', 'email', 'index', 'area', 'district', 'settlement', 'street', 'house', 'appartment'], $request->search)
+        ->get();
+        // dd($users);
+        if(!count($users)) {
+            return to_route('panel');
+        }
+
+        $users_id = [];
+
+        foreach($users as $u) {
+            $users_id[] = $u->id;
+        }
+
+        // отбираем из БД чеки только по актуальным пользователям
+        $cheques = [];
+        foreach($users_id as $u_id) {
+            $result = DB::table('cheques')->where('user_id', $u_id)->get()->toArray();
+
+            foreach($result as $item) {
+                $cheques[] = $item;
+            }
+        }
+
+        // составляем массив для передачи его на страницу
+        foreach($users as $item) {
+            $item->cheques = [];
+            $item->gifts_for_points = json_decode($item->gifts_for_points);
+            
+            foreach($cheques as $check) {
+                if($check->user_id === $item->id) {
+                    $item->cheques[] = $check;
+                }
+            }
+        }
+
+        // dd($users);
+        return view('admin-panel', [
+            'title' => 'panel',
+            'data' => $users,
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      */
@@ -127,6 +172,65 @@ class AdminController extends Controller
             
             return response()->json(['ressponse' => $result]);
         }
+        
+        // верификация приза за баллы
+        if($request->action === 'verifie_gift_point') {
+            $data = $request->data;
+            $data['id'] = (int)$data['id'];
+            
+            $gifts = User::query()->where('id', $id)->first('gifts_for_points')->gifts_for_points;
+
+            $gifts = json_decode($gifts);
+            
+            foreach($gifts as $item) {
+                if($item->id === $data['id'] && $item->name === $data['name']) {
+                    $item->verified = $item->verified ? 0 : 1;
+                }
+            }
+
+            $result = User::query()->where('id', $id)->update(['gifts_for_points' => json_encode($gifts)]);
+            $gifts = User::query()->where('id', $id)->first('gifts_for_points')->gifts_for_points;
+            $gifts = json_decode($gifts);
+
+            $gift = null;
+
+            foreach($gifts as $item) {
+                if($item->id === $data['id'] && $item->name === $data['name']) {
+                    $gift = $item;
+                }
+            }
+            
+            return response()->json(['response' => $gift]);
+        }
+
+        // добавление приза за баллы
+        if($request->action === 'gift_point') {
+            $gifts = User::query()->where('id', $id)->first('gifts_for_points')->gifts_for_points;
+
+            // для чистки
+            // $is_changed = User::query()->where('id', $id)->update(['gifts_for_points' => NULL]);
+            // если еще пусто (null)
+            if(!$gifts) {
+                $gifts = [];
+                $gifts[] = $request->data;
+      
+                $is_changed = User::query()->where('id', $id)->update(['gifts_for_points' => json_encode($gifts)]);
+                
+            } else {
+                $gifts = json_decode($gifts);
+                array_unshift($gifts, $request->data);
+                
+                $is_changed = User::query()->where('id', $id)->update(['gifts_for_points' => json_encode($gifts)]);
+            }
+
+            $gifts = User::query()->where('id', $id)->first('gifts_for_points')->gifts_for_points;
+
+            $gifts = json_decode($gifts);
+            $gifts = $gifts[0];
+
+            return response()->json(['is_changed' => $is_changed, 'gift' => $gifts]);
+        }
+        
 
         // редактирование приза по лотерее
         if($request->action === 'gift_lottery') {

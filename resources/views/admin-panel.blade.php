@@ -15,7 +15,10 @@
         <div class="panel">
 
             <div class="panel__wr-search-logout">
-                <input class="panel__search" placeholder="Поиск">
+                <form class="panel__search" action="/search" method="POST">
+                    @csrf
+                    <input name="search" placeholder="Поиск">
+                </form>
                 <a class="panel__logout" type="button" href="/logout">Выход</a>
             </div>
 
@@ -79,7 +82,7 @@
                                     <li class="panel__user-cheques-item">
                                         <div class="panel__user-cheques-content">
                                             <div
-                                                class="panel__circle-verified {{ $cheque->verified ? 'panel__circle-verified_green' : 'panel__circle-verified_gray' }}"
+                                                class="panel__circle-verified panel__circle-verified_cheque {{ $cheque->verified ? 'panel__circle-verified_green' : 'panel__circle-verified_gray' }}"
                                                 data-verified="{{ $cheque->verified }}"
                                                 data-id="{{ $cheque->id }}"
                                              ></div>
@@ -103,11 +106,11 @@
                                 <div class="panel__checkmark panel__checkmark_lottery{{ $item->lottery ? ' panel__checkmark_yes' : '' }}"></div>
                             </div>
 
-                            <div class="panel__user-item-content panel__user-wr-gifts-points">
+                            <div class="panel__user-item-content panel__user-wr-gifts-points" data-is_active="0">
                                 <div class="panel__wr-add-gift-points">
                                     {{-- panel__form-gift-points_active --}}
                                     <form class="panel__form-gift-points" name="form-gifts-points">
-                                        <input type="text" name="gift-points">
+                                        <input type="text" name="gift_points">
                                         <input type="submit"  hidden>
                                     </form>
 
@@ -117,7 +120,10 @@
                                     @if ($item->gifts_for_points)    
                                         @foreach ($item->gifts_for_points as $gift)
                                             <li class="panel__user-gifts-points-item">
-                                                <div class="panel__circle-verified {{ $gift->verified ? 'panel__circle-verified_green' : 'panel__circle-verified_gray' }}"></div>
+                                                <div 
+                                                    class="panel__circle-verified panel__circle-verified_gift-p{{ $gift->verified ? ' panel__circle-verified_green' : '' }}"
+                                                    data-gift_id="{{ $gift->id }}"
+                                                ></div>
                                                 <div class="panel__user-gifts-points-name">{{ $gift->name }}</div>
                                             </li>
                                         @endforeach

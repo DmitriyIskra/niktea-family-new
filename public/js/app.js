@@ -39,7 +39,7 @@ import RedrawUserData from "./admin/RedrawUserData.js";
 import RedrawUserGiftsPoints from "./admin/RedrawUserGiftsPoints.js";
 import RedrawUserId from "./admin/RedrawUserId.js";
 import RedrawUserLottery from "./admin/RedrawUserLottery.js";
-import PatternAdminUsers from "./admin/patternAdminUsers.js";
+import PatternSearchUsers from "./admin/PatternSearchUsers.js";
 import RerenderAllUsers from "./admin/RerenderAllUsers.js";
 
 // loader
@@ -134,10 +134,10 @@ window.addEventListener('load', () => {
             lottery : new RedrawUserLottery(),
         }
         
-        const pattern = new PatternAdminUsers();
+        const pattern = new PatternSearchUsers();
         const rerender = new RerenderAllUsers(pattern);
         
-        const controll = new ControllAdmin(panel, api, redraws,rerender);
+        const controll = new ControllAdmin(panel, api, redraws, rerender);
         controll.init();
     }
 })

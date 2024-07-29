@@ -155,6 +155,60 @@ export default class ApiAdmin {
             }
         }
 
+        // верификация подарков по баллам
+        if(params === 'verifie_gift_point') {
+            try {
+                this.loader.show();
+
+                const response = await fetch(`/verifie_gift_point/${user_id}`, {
+                    method : "POST",
+                    headers : {
+                        "X-CSRF-Token" : this.token,
+                        "Content-Type" : "application/json",
+                    },
+                    body : JSON.stringify({
+                        action : 'verifie_gift_point',
+                        data,
+                    })
+                })
+
+                const result = await response.json();
+                this.loader.hide();
+                return result.response;
+            } catch (error) {
+                this.loader.hide();
+                throw new Error("Запрос на добавление приза за баллы завершился ошибкой")
+            }
+        }
+
+        // добавление подарка по баллам
+        if(params === 'gift_point') {
+            try {
+                this.loader.show();
+
+                const response = await fetch(`/gift_point/${user_id}`, {
+                    method : "POST",
+                    headers : {
+                        "X-CSRF-Token" : this.token,
+                        "Content-Type" : "application/json",
+                    },
+                    body : JSON.stringify({
+                        action : 'gift_point',
+                        data,
+                    })
+                })
+
+                const result = await response.json();
+
+                this.loader.hide();
+
+                return result;
+            } catch (error) {
+                this.loader.hide();
+                throw new Error("Запрос на добавление приза за баллы завершился ошибкой")
+            }
+        }
+
         // получил ли подарок по лотерее
         if(params === 'awarded') {
             try {
@@ -243,7 +297,6 @@ export default class ApiAdmin {
 
         if(params === 'cheque') {
             try {
-                console.log('delete cheque', params, user_id, cheque_id)
                 this.loader.show();
 
                 const response = await fetch(`/delete/${params}/${cheque_id}`, {

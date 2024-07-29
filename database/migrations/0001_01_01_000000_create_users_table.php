@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -14,7 +15,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('user_active')->default(true);
-            $table->string('name'); 
+            $table->string('name');
             $table->string('second_name');
             $table->string('patronymic');
             $table->integer('balls')->default(0);
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->string('street');
             $table->string('house');
             $table->string('appartment')->nullable();
+            
 
             $table->json('gifts_for_points')->nullable();
             $table->string('gift_for_lottery')->nullable();
@@ -57,6 +59,21 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        
+        DB::statement('ALTER TABLE users ADD FULLTEXT users_fulltext (
+            `name`, 
+            second_name, 
+            patronymic,
+            phone,
+            email,
+            `index`,
+            area,
+            district,
+            settlement,
+            street,
+            house,
+            appartment
+            )');
     }
 
     /**

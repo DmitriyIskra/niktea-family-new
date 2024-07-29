@@ -4,7 +4,6 @@ export default class RedrawUserCheques {
     }
 
     changeVerified(el, result) {
-        console.log(el, result)
         el.dataset.verified = result;
 
         el.classList.toggle('panel__circle-verified_green');

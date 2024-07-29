@@ -41,6 +41,8 @@ class User extends Authenticatable
         'password',
     ];
 
+
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -63,5 +65,32 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public static function search($query)
+    {
+        return self::whereRaw("MATCH(`name`, second_name, patronymic, phone, email, `index`, area, district, settlement, street, house, appartment) AGAINST(? IN NATURAL LANGUAGE MODE)", [$query])
+        ->latest()    
+        ->get([
+                "id",
+                "user_active",
+                "name",
+                "second_name",
+                "patronymic",
+                "balls",
+                "lottery",
+                "phone",
+                "email",
+                "index",
+                "area",
+                "district",
+                "settlement",
+                "street",
+                "house",
+                "appartment",
+                "gifts_for_points",
+                "gift_for_lottery",
+                "awarded",
+            ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -41,8 +42,10 @@ class PagesController extends Controller
         return view('trainings');
     }
 
-    public function admin_panel()
+    public function admin_panel(Request $request)
     {
+        // $res = User::search('Киевская');
+        // dd($request->all());
         $users = DB::table('users')
             ->where('admin', '!==', '1')
             ->latest()
@@ -69,8 +72,8 @@ class PagesController extends Controller
                     "awarded",
                 ]
             );
-    
-        $cheques = DB::table('cheques')->where('user_id','!=', true)->latest()->get();
+        
+        $cheques = DB::table('cheques')->where('user_id','!=', 1)->latest()->get();
        
         // перебираем пользователь и добавляем соответствующие чеки
         // в users нет админа, поэтому перебирая чеки не может быть выборки чека админа

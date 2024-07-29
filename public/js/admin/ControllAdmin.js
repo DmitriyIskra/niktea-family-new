@@ -21,6 +21,7 @@ export default class ControllAdmin {
         this.click = this.click.bind(this);
         this.handlerBalls = this.handlerBalls.bind(this);
         this.handlerGiftLottery = this.handlerGiftLottery.bind(this);
+        this.handlerGiftPoints = this.handlerGiftPoints.bind(this);
     }
 
     init() {
@@ -138,12 +139,12 @@ export default class ControllAdmin {
         // -----------======== ЧЕКИ
 
         /**верификация чека*/
-        if(target = e.target.closest('.panel__circle-verified')) {
+        if(target = e.target.closest('.panel__circle-verified_cheque')) {
             const chequeId = target.dataset.id;
             (async () => {
                 const result = await this.api.update('verified_cheque', chequeId, null);
 
-                const target = e.target.closest('.panel__circle-verified') 
+                const target = e.target.closest('.panel__circle-verified_cheque') 
                 this.cheques.changeVerified(target, result);
                 this.clearDataUser();
             })()
@@ -202,6 +203,50 @@ export default class ControllAdmin {
                 this.clearDataUser();
             })()
         }
+
+        // ----------============== СПИСОК ПОДАРКОВ ПО БАЛЛАМ
+
+        // добавление подарков за баллы
+        if(e.target.closest('.panel__user-item-edit_gift-p')
+        && !e.target.closest('input')) {
+            const target = e.target.closest('.panel__user-wr-gifts-points');
+            const is_active = +target.dataset.is_active;
+            const form = target.querySelector('form');
+
+            this.getUserIdandIs_Active(target);
+
+            // форма не активна 
+            if(!is_active) {
+                // если какая то форма уже была открыта
+                if(this.giftsPoints.activeForm) {
+                    this.giftsPoints.activeForm.removeEventListener('submit', this.handlerGiftLottery, {once: true});
+                }
+                
+                this.giftsPoints.openForm(target, form);
+            };
+            // если предыдущая или актуальная форма активна - закрываем 
+            if(is_active) this.giftsPoints.closeForm();
+            
+            form.addEventListener('submit', this.handlerGiftPoints, {once: true});
+        }
+
+        // верификация подарков по баллам
+        if(e.target.closest('.panel__circle-verified_gift-p')) {
+            const target = e.target.closest('.panel__circle-verified_gift-p');
+            const name = target.nextElementSibling.textContent;
+            const id = target.dataset.gift_id;
+            
+            this.getUserIdandIs_Active(target);
+
+            (async () => {
+                const result = await this.api.update('verifie_gift_point', {id, name}, this.activeUserID);
+                
+                this.giftsPoints.changeVerifie(result, target, null);
+
+                this.clearDataUser()
+            })()
+        }
+
 
         // -----------============ ПРИЗ ПО ЛОТЕРЕЕ
         if(e.target.closest('.panel__user-wr-gifts-lottery')
@@ -266,6 +311,30 @@ export default class ControllAdmin {
         if(result.is_changed) this.giftLottery.changeText(result.gift);
     
         this.giftLottery.closeForm();
+
+        this.clearDataUser();
+    }
+
+    async handlerGiftPoints(e) {
+        e.preventDefault();
+
+        // проверяем есть ли подарки, берем первый или не берем (null)
+        // определяем id
+        const value = e.target.gift_points.value;
+        const gifts = [...this.giftsPoints.activeList.children];
+        const verifie = gifts.length ? gifts[0].children[0] : null;
+        
+        const data = {
+            id : verifie ? +verifie.dataset.gift_id + 1 : 0,
+            verified : 0,
+            name : value,
+        }
+
+        const result = await this.api.update('gift_point', data, this.activeUserID);
+    
+        if(result.is_changed) this.giftsPoints.addGift(result.gift);
+    
+        this.giftsPoints.closeForm();
 
         this.clearDataUser();
     }
