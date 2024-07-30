@@ -1030,7 +1030,23 @@ text-transform: uppercase;
     line-height: normal;
 }
 
+.label-niktea {
+  position: fixed;
+  right: 0;
+  top: 10%;
 
+  width: 7.92vw;
+  height: 6.25vw;
+
+  background: no-repeat url(../img/icons/label-niktea.png);
+  background-size: 100% auto;
+  background-position: right center;
+  filter: drop-shadow(0px 0.21vw 0.31vw black);
+  border-top-left-radius: 42%;
+  border-bottom-left-radius: 42%;
+ 
+  cursor: pointer;
+}
 
 
 

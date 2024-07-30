@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cheque;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,48 +52,54 @@ class AdminController extends Controller
     }
 
     public function search(Request $request) {
-        // $users = User::search($request->search);
-        $users = DB::table('users')
-        ->whereFullText(['name', 'second_name', 'patronymic', 'phone', 'email', 'index', 'area', 'district', 'settlement', 'street', 'house', 'appartment'], $request->search)
-        ->get();
-        // dd($users);
-        if(!count($users)) {
-            return to_route('panel');
-        }
+        $is_auth = Auth::user();
 
-        $users_id = [];
-
-        foreach($users as $u) {
-            $users_id[] = $u->id;
-        }
-
-        // отбираем из БД чеки только по актуальным пользователям
-        $cheques = [];
-        foreach($users_id as $u_id) {
-            $result = DB::table('cheques')->where('user_id', $u_id)->get()->toArray();
-
-            foreach($result as $item) {
-                $cheques[] = $item;
+        if($is_auth && $is_auth->admin) {
+            $users = DB::table('users')
+            ->whereFullText(['name', 'second_name', 'patronymic', 'phone', 'email', 'index', 'area', 'district', 'settlement', 'street', 'house', 'appartment'], $request->search)
+            ->get();
+       
+            if(!count($users)) {
+                return to_route('panel');
             }
-        }
 
-        // составляем массив для передачи его на страницу
-        foreach($users as $item) {
-            $item->cheques = [];
-            $item->gifts_for_points = json_decode($item->gifts_for_points);
-            
-            foreach($cheques as $check) {
-                if($check->user_id === $item->id) {
-                    $item->cheques[] = $check;
+            $users_id = [];
+
+            foreach($users as $u) {
+                $users_id[] = $u->id;
+            }
+
+            // отбираем из БД чеки только по актуальным пользователям
+            $cheques = [];
+            foreach($users_id as $u_id) {
+                $result = DB::table('cheques')->where('user_id', $u_id)->get()->toArray();
+
+                foreach($result as $item) {
+                    $cheques[] = $item;
                 }
             }
-        }
 
-        // dd($users);
-        return view('admin-panel', [
-            'title' => 'panel',
-            'data' => $users,
-        ]);
+            // составляем массив для передачи его на страницу
+            foreach($users as $item) {
+                $item->cheques = [];
+                $item->gifts_for_points = json_decode($item->gifts_for_points);
+                
+                foreach($cheques as $check) {
+                    if($check->user_id === $item->id) {
+                        $item->cheques[] = $check;
+                    }
+                }
+            }
+
+            // dd($users);
+            return view('admin-panel', [
+                'title' => 'panel',
+                'data' => $users,
+            ]);
+        } else {
+            return to_route('welcome');
+        }
+        
     }
 
     /**

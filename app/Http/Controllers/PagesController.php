@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -44,9 +45,10 @@ class PagesController extends Controller
 
     public function admin_panel(Request $request)
     {
-        // $res = User::search('Киевская');
-        // dd($request->all());
-        $users = DB::table('users')
+        $is_auth = Auth::user();
+
+        if($is_auth && $is_auth->admin) {
+            $users = DB::table('users')
             ->where('admin', '!==', '1')
             ->latest()
             ->get(
@@ -73,27 +75,37 @@ class PagesController extends Controller
                 ]
             );
         
-        $cheques = DB::table('cheques')->where('user_id','!=', 1)->latest()->get();
-       
-        // перебираем пользователь и добавляем соответствующие чеки
-        // в users нет админа, поэтому перебирая чеки не может быть выборки чека админа
-        // так сравниваем user_id чека c id пользователя item
-        foreach($users as $item) {
-            $item->cheques = [];
-            $item->gifts_for_points = json_decode($item->gifts_for_points);
-            
-            foreach($cheques as $check) {
-                if($check->user_id === $item->id) {
-                    $item->cheques[] = $check;
+            $cheques = DB::table('cheques')->where('user_id','!=', 1)->latest()->get();
+        
+            // перебираем пользователь и добавляем соответствующие чеки
+            // в users нет админа, поэтому перебирая чеки не может быть выборки чека админа
+            // так сравниваем user_id чека c id пользователя item
+            foreach($users as $item) {
+                $item->cheques = [];
+                $item->gifts_for_points = json_decode($item->gifts_for_points);
+                
+                foreach($cheques as $check) {
+                    if($check->user_id === $item->id) {
+                        $check->created_at = Carbon::parse($check->created_at)->format('Дата: d-m-Y')
+                            .'   '
+                            .Carbon::parse($check->created_at)->format('время: H:i ');
+                        $item->cheques[] = $check;
+                    }
                 }
             }
-        }
 
+            return view('admin-panel', [
+                'title' => 'panel',
+                'data' => $users,
+            ]);
+        } else {
+            return to_route('welcome');
+        }
         
-      
-        return view('admin-panel', [
-            'title' => 'panel',
-            'data' => $users,
-        ]);
+    } 
+
+    public function page_not_found() 
+    {
+        return view('404');
     }
 }

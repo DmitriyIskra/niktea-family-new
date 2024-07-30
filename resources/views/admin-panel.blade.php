@@ -86,7 +86,9 @@
                                                 data-verified="{{ $cheque->verified }}"
                                                 data-id="{{ $cheque->id }}"
                                              ></div>
-                                            <div class="panel__user-cheques-link">{{ $cheque->path }}</div>
+                                            <a href={{ $cheque->path }} class="panel__user-cheques-link" target="_blank">
+                                                {{ $cheque->created_at }}
+                                            </a>
                                             <div class="panel__user-cheques-basket" data-id="{{ $cheque->id }}"></div>
                                         </div>
                                     </li>

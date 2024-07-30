@@ -82,7 +82,7 @@
         padding-left: 0.5vw;
 
         font-family: var(--ffSegoe);
-        font-size: 0.83vw;
+        font-size: 0.83vw; 
         font-style: normal;
         font-weight: 400;
 
@@ -305,8 +305,10 @@
 }
 
 .panel__user-cheques-content {
-    display: flex;
-    gap: 0.52vw;
+    display: grid;
+    width: 100%;
+    grid-template-columns: min-content 1fr min-content;
+    column-gap: 0.52vw;
  
     align-items: center;
 }
@@ -332,6 +334,7 @@
     font-style: normal;
     font-weight: 400;
     word-break: break-all;
+    text-decoration: none;
 
     color: #424242;
 }

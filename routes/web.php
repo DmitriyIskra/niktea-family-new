@@ -23,6 +23,8 @@ Route::post('/upload_cheque_from_account', [UserController::class, 'upload_chequ
 
 Route::post('/send_email_exchange', [UserController::class, 'send_email_exchange']);
 
+
+
 // АДМИН
 
 Route::post('/search', [AdminController::class, 'search']);
@@ -43,3 +45,9 @@ Route::post('/gift_point/{id}', [AdminController::class, 'update']);
 Route::post('/gift_lottery/{id}', [AdminController::class, 'update']);
 
 Route::post('/awarded/{id}', [AdminController::class, 'update']); 
+
+
+
+
+
+Route::fallback([PagesController::class, 'page_not_found']);

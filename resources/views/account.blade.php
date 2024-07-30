@@ -613,9 +613,14 @@
     </div>
 </main>
 
+<div class="blocking">
+    
+</div>
+
 @include('template_parts.footer')
 @include('template_parts.copyright')
 @include('template_parts.loader')
+@include('template_parts.label-niktea')
 <!-- событие на кнопку выход -->
 <script>
     // logout()

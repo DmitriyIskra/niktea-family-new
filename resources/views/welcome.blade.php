@@ -796,6 +796,7 @@
 @include('template_parts.footer')
 @include('template_parts.copyright')
 @include('template_parts.loader')
+@include('template_parts.label-niktea')
 <script>
     EasySlides('.slider_circle_10', {
         'autoplay': false,

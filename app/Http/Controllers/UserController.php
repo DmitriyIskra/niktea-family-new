@@ -78,8 +78,8 @@ class UserController extends Controller
 
             Mail::to($request->email)
                 ->send(new SendMailUserRegister('Niktea family', $request->email, $pass));
-
-            Mail::to('dmitriyiskra@mail.ru')
+                
+            Mail::to('yesokolova@alephtrade.com')
                 ->send(new SendMailRegister_admin('Niktea family', [
                     'user_id' => $dataUser->id,
                     'user_second_name' => $dataUser->second_name,
@@ -162,16 +162,20 @@ class UserController extends Controller
             $files = $request->file('file');
 
             foreach($files as $item) {  
-                $name = $item->getClientOriginalName(); 
-                $path = $item->storeAs($user->id, $name, 's3');
-                Cheque::query()->create([
-                    'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
-                    'name' => $name,
-                    'user_id' => $user->id,
-                ]);
+                $hash = $item->hashName();
+                $type = $item->getMimeType();
+                if(str_contains($type, 'image')) {
+                    $path = $item->storeAs($user->id, $hash, 's3');
+                    Cheque::query()->create([
+                        'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
+                        'name' => $hash,
+                        'user_id' => $user->id,
+                    ]);
+                }
+                
             }
 
-            Mail::to('dmitriyiskra@mail.ru')
+            Mail::to('yesokolova@alephtrade.com')
                 ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
                     'user_id' => $user->id,
                     'user_second_name' => $user->second_name,
@@ -208,7 +212,7 @@ class UserController extends Controller
         try {
             $user = Auth::user();
             // yesokolova@alephtrade.com
-            Mail::to('dmitriyiskra@mail.ru')
+            Mail::to('yesokolova@alephtrade.com')
                 ->send(new SendMailExchenge_admin('Niktea family, обмен подарков', [
                     'user_id' => $user->id,
                     'user_second_name' => $user->second_name,
