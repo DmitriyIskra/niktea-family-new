@@ -116,6 +116,8 @@
 @include('template_parts.footer')
 @include('template_parts.copyright')
 @include('template_parts.label-niktea')
+@include('template_parts.loader')
+@include('template_parts.modal-user-blocked')
 </body>
 </html>
 

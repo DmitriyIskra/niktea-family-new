@@ -613,9 +613,6 @@
     </div>
 </main>
 
-<div class="blocking">
-    
-</div>
 
 @include('template_parts.footer')
 @include('template_parts.copyright')

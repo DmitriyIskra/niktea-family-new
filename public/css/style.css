@@ -157,8 +157,9 @@ body[data-variant=error-page] {
 .header-wrapper__main-page .navbar__wrap {
   position: absolute;
   top: 1%;
-  left: 0;
-  transform: translateX(46.7%);
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navbar-toggler {
@@ -237,7 +238,8 @@ transition: filter 0.3s ease;
 .logo-mobile--wrap {
   position: absolute;
   top: 13px;
-  right: 45%;
+  left: 50%;
+  translate: -25% 0;
 }
   
 .account-logo-mobile {
@@ -1048,6 +1050,85 @@ text-transform: uppercase;
   cursor: pointer;
 }
 
+/* START ПОП-АП ПОЛЬЗОВАТЕЛЬ ЗАБЛОКИРОВАН */
+
+.user-blocked__window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  display: none;
+
+  width: 18.23vw;
+  height: 15.63vw;
+
+  border-radius: 1.56vw;
+  background: no-repeat url('../img/leafs-pop-up-info-acc.webp') , no-repeat linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+  background-size: 123%;
+  background-position: center;
+  box-shadow: 0px 0px 1.04vw 0.42vw #FFF;
+
+  translate: -50% -50%;
+  
+  z-index: 10000;
+}
+
+.user-blocked__window_active {
+  display: block;
+}
+
+.user-blocked__content {
+  margin-top: 3.70vw;
+}
+
+.user-blocked__content-icon {
+  width: 4.69vw;
+  height: 4.69vw;
+  margin: 0 auto;
+
+  background: no-repeat url('../img/icons/icon-user-blocked.png');
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.user-blocked__content-wr-text {
+  display: flex;
+  width: 100%;
+  margin-top: 0.72vw;
+  gap: 0.5vw;
+
+  flex-direction: column;
+}
+
+.user-blocked__content-text {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 0;
+
+  font-family: "Blogger Sans";
+  font-size: 0.83vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+
+  color: #fff;
+}
+
+.user-blocked__close {
+  position: absolute;
+  top: 6.2%;
+  right: 6.2%;
+
+  width: 1.56vw;
+  height: 1.56vw;
+
+  cursor: pointer;
+}
+
+/* END ПОП-АП ПОЛЬЗОВАТЕЛЬ ЗАБЛОКИРОВАН */
+
+
 
 
 @media (max-width: 1280px) {
@@ -1505,3 +1586,54 @@ div.invalid-feedback--code {
     width: 25.6vw;
   }
 }
+
+
+/* модалка что пользователь заблокирован */
+@media(max-width: 996px) {
+  .user-blocked__window {
+      width: 72.4%;
+      min-height: 77.33vw;
+
+      border-radius: 8vw;
+      background-size: 123% 123%;
+  }
+}
+
+@media(max-width: 996px) {
+  .user-blocked__content {
+      margin-top: 12.77vw;
+  }
+}
+
+@media(max-width: 996px) {
+  .user-blocked__close {
+      top: 9.2%;
+      right: 7.2%;
+
+      height: 8vw;
+      width: 8vw;
+  }
+}
+
+@media(max-width: 996px) {
+  .user-blocked__content-icon {
+      width: 25.07vw;
+      height: 25.07vw;
+  }
+}
+
+@media(max-width: 996px) {
+  .user-blocked__content-text {
+      margin-top: 12vw;
+
+      font-size: 4.27vw;
+  }
+}
+
+@media(max-width: 996px) {
+  .label-niktea {
+    width: 11.92vw;
+    height: 9vw;
+  }
+}
+

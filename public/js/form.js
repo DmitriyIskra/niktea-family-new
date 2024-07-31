@@ -9,6 +9,15 @@ function authorize() {
         const password = formSignIn.querySelector('[name="password"]') //получаем поле age
         const wrong_data = formSignIn.querySelector('.login-form_wrong-data') // поле для показа правильно ли введены данные
 
+        const modal_blocked = document.querySelector('.user-blocked__window');
+        if(modal_blocked) {
+          const close_button = modal_blocked.querySelector('.user-blocked__close');
+
+          close_button.addEventListener('click', () => {
+            modal_blocked.classList.remove('user-blocked__window_active');
+          }, {once : true})
+        }
+
         let validateEmail = null;
 
         if(email.value) {
@@ -60,7 +69,15 @@ function authorize() {
           // пускаем работу формы дальше
           const json = await response.json();
           controllLoader.hide();
-          json.result ? event.target.submit() : wrong_data.textContent = 'Введён неверный логин или пароль';
+          
+          if(json.availability && json.is_active) {
+            event.target.submit();
+          } else if(json.availability && !+json.is_active) {
+            wrong_data.textContent = '';
+            modal_blocked.classList.add('user-blocked__window_active');
+          } else {
+            wrong_data.textContent = 'Введён неверный логин или пароль';
+          }
         } catch(e) {
           console.log(e);
         }
@@ -68,7 +85,7 @@ function authorize() {
     }
 }
 
-
+// РЕГИСТРАЦИЯ
 function registration() {
     // форма регистрации
     const formSignIn = document.getElementById('registerprovider');

@@ -22,11 +22,17 @@ class PagesController extends Controller
         // ПУСКАТЬ ТОЛЬКО В СЛУЧАЕ АУТЕНТИФИКАЦИИ
         $user = Auth::user();
         // dd(Auth::user());
-        if($user && !$user->admin) {
+        if($user && !$user->admin && $user->user_active) {
             return view('account', [
                 'data' => $user,
             ]);
-        } else if($user && $user->admin) {
+        } else if($user && !$user->admin && !$user->user_active) {
+            Auth::logout(); 
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return to_route('welcome');
+        }else if($user && $user->admin) {
             return to_route('panel');
         } else {
             return to_route('welcome');

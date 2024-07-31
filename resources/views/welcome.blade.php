@@ -20,16 +20,7 @@
                 <div class="slider-hm__slides">
                     <ul class="slider-hm__slides-list">
                         <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="winner" class="src">
-                        </li>
-                        <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="winner" class="src">
-                        </li>
-                        <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="winner" class="src">
-                        </li>
-                        <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="winner" class="src">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-desc-1.webp" alt="winner" class="src">
                         </li>
                     </ul>
                 </div>
@@ -55,10 +46,7 @@
                 <div class="swiper swiper__main-header">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img class="swiper-slide-img" src="./img/content/banner-winners-mobile-1.webp" alt="winner">
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="swiper-slide-img" src="./img/content/banner-winners-mobile-2.webp" alt="winner">
+                            <img class="swiper-slide-img" src="./img/content/banner-mobile-1.webp" alt="winner">
                         </div>
                     </div>
                 </div>
@@ -792,11 +780,11 @@
 </main>
 
 
-
 @include('template_parts.footer')
 @include('template_parts.copyright')
 @include('template_parts.loader')
 @include('template_parts.label-niktea')
+@include('template_parts.modal-user-blocked')
 <script>
     EasySlides('.slider_circle_10', {
         'autoplay': false,

@@ -12,9 +12,11 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use PhpParser\Node\Stmt\TryCatch;
+
 
 class UserController extends Controller
 {
@@ -136,10 +138,20 @@ class UserController extends Controller
         ]);
 
         $attr = Auth::attempt($validate);
+        // если прошел валидацию, проверяем не заблокирован ли он
+        if($attr) {
 
-        return response()->json(['result' => $attr]);
+            $is_active = DB::table('users')->where('email', $request->email)->first('user_active')->user_active;
+
+            // если пользователь прошел проверку
+            return response()->json(['availability' => $attr, 'is_active' => $is_active]);
+        }
+
+        // если пользователь не прошел проверку
+        return response()->json(['availability' => $attr]);
     }
 
+    // Проверка почты при регистрации, есть ли уже такая
     public function check_email(Request $request)
     {
         $email = $request->email;

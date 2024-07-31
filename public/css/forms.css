@@ -616,7 +616,7 @@ order: 1;
 
 /* START ИНФОРМАЦИОННЫЙ ПОП-АП В ЛИЧНОМ КАБИНЕТЕ */
 
-.api-res__wrapper {
+.api-res__wrapper { 
     position: fixed;
     top: 0;
     right: 0;
@@ -1144,31 +1144,5 @@ order: 1;
     }
 }
 
-@media(max-width: 996px) {
-    
-}
 
-@media(max-width: 996px) {
-    
-}
-
-@media(max-width: 996px) {
-    
-}
-
-@media(max-width: 996px) {
-    
-}
-
-@media(max-width: 996px) {
-    
-}
-
-@media(max-width: 996px) {
-    
-}
-
-@media(max-width: 996px) {
-    
-}
 
