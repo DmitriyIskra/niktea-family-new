@@ -12,7 +12,9 @@
 
 <header>
     <div class="header-wrapper header-wrapper__main-page">
-        @include('template_parts.header_menu') 
+        @include('template_parts.header_menu')
+         
+        
         <div class="header-wrapper__main-page--img">
 
             <div class="slider-hm">
@@ -46,14 +48,14 @@
                 <div class="swiper swiper__main-header">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img class="swiper-slide-img" src="./img/content/banner-mobile-1.webp" alt="winner">
+                            <img class="swiper-slide-img" src="{{asset('img/content/banner-mobile-1.webp')}}" alt="winner">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="header__main-page--wr-img_bottom">
-                <img class="header__main-page--img_bottom" src="./img/content/header-bg-flower_bottom.png" alt="">
+                <img class="header__main-page--img_bottom" src="{{asset('img/content/header-bg-flower_bottom.png')}}" alt="">
             </div>
         </div>
     </div>

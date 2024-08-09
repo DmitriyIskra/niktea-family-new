@@ -1,0 +1,138 @@
+.nav-out * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: initial;
+    font-size: initial;
+    font-weight: initial;
+
+    text-decoration: none;
+
+    list-style-type: none;
+    color: initial;
+}
+
+.nav-out {
+    position: relative;
+}
+  
+.nav-out__wrapper { /*hover*/
+    position: absolute;
+    top: 0;
+    left: 1.2vw;
+
+    width: max-content;
+
+    translate: 0 -1.25vw;
+}
+
+.nav-out__title {
+    display: block;
+
+    color: rgba(0, 118, 83, 1);
+    
+    transition: all 0.2s linear;
+}
+
+.nav-out__title:hover {
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff;
+}
+
+.nav-out__title span:first-child {
+    font-family: 'Arsenal';
+    font-size: 1.46vw;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    color: inherit;
+}
+
+.nav-out__title span:last-child {
+    font-family: 'Snell Roundhand';
+    font-size: 1.77vw;
+    font-weight: 700;
+
+    color: inherit;
+}
+  
+.nav-out__wr-nav {
+    height: 0;
+    padding-left: 0.36vw;
+
+    filter: drop-shadow(7px 4px 6px rgba(0, 0, 0, 0.25));
+
+    transition: opacity 0.3s linear;
+
+    opacity: 0;
+    overflow: hidden;
+}
+
+.nav-out__wrapper:hover .nav-out__wr-nav {
+    height: 100%;
+
+    opacity: 1;
+}
+
+.nav-out__triangle {
+    height: 0.99vw;
+    width: 0.89vw;
+
+    border-top: 0.5vw solid transparent; /*9.5px*/
+    border-right: 0.44vw solid transparent; /*8.5px*/
+    border-bottom: 0.5vw solid #118F88; /*9.5px*/
+    border-left: 0.44vw solid #118F88; /*9.5px*/
+}
+
+.nav-out__list {
+    width: max-content;
+    padding-top: 0.63vw;
+    padding-right: 0.36vw;
+    padding-bottom: 1.30vw;
+    padding-left: 0.36vw;
+
+    background: #118F88;
+    border-radius: 0px 1.56vw 1.56vw 1.56vw;
+}
+
+.nav-out__item {
+    border-bottom: 1px solid rgba(161, 243, 222, 0.3);
+}
+
+.nav-out__line-anim {
+    height: 1px;
+    width: 0%;
+    margin: 0 auto;
+
+    background-color: rgba(210, 253, 251, 0.4);
+
+    transition: width 0.12s linear;
+
+    translate: 0 1px;
+}
+
+.nav-out__item:hover .nav-out__line-anim {
+    width: 100%;
+}
+
+.nav-out__item a {
+    display: inline-block;
+    width: 100%;
+    padding-top: 0.42vw;
+    padding-right: 0.94vw;
+    padding-bottom: 0.05vw;
+    padding-left: 0.73vw;
+
+    font-family: 'Arsenal';
+    font-size: 0.63vw;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+
+    color: #FFF;
+}
+
+.nav-out__item a:hover {
+    filter: drop-shadow(0 0 0.26vw #fff);
+    text-shadow: 0 0 0.26vw black;
+}

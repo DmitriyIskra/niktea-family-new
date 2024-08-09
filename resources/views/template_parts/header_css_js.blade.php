@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="{{ asset("css/slider-header-main.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/chequebook.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/modal-more-detailed-bonuses.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/nav-out-site.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/admin.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/copyright.css?v=").time()}}">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
