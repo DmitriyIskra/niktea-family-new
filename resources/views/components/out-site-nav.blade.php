@@ -13,7 +13,7 @@
             <ul class="nav-out__list">
                 @foreach ($nav_points as $item)
                     <li class="nav-out__item">
-                        <a href="{{$item['link']}}" title="{{$item['title']}} Niktea Family">{{$item['title']}}</a>
+                        <a href="{{$item['link']}}" title="{{$item['title']}} Niktea Family" target="_blank">{{$item['title']}}</a>
                         <div class="nav-out__line-anim"></div>
                     </li>    
                 @endforeach
