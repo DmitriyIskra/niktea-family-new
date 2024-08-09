@@ -81,7 +81,7 @@ class UserController extends Controller
             Mail::to($request->email)
                 ->send(new SendMailUserRegister('Niktea family', $request->email, $pass));
                 
-            Mail::to('yesokolova@alephtrade.com')
+            Mail::to('family@nikteaworld.com')
                 ->send(new SendMailRegister_admin('Niktea family', [
                     'user_id' => $dataUser->id,
                     'user_second_name' => $dataUser->second_name,
@@ -187,7 +187,7 @@ class UserController extends Controller
                 
             }
 
-            Mail::to('yesokolova@alephtrade.com')
+            Mail::to('family@nikteaworld.com')
                 ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
                     'user_id' => $user->id,
                     'user_second_name' => $user->second_name,
@@ -223,8 +223,8 @@ class UserController extends Controller
     public function send_email_exchange(Request $request) {
         try {
             $user = Auth::user();
-            // yesokolova@alephtrade.com
-            Mail::to('yesokolova@alephtrade.com')
+            // family@nikteaworld.com
+            Mail::to('family@nikteaworld.com')
                 ->send(new SendMailExchenge_admin('Niktea family, обмен подарков', [
                     'user_id' => $user->id,
                     'user_second_name' => $user->second_name,

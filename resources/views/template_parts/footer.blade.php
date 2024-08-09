@@ -35,7 +35,7 @@
                             </a>
                         </div>
                         <div>
-                            <a class="footer__link footer__messengers-link" href="mailto:yesokolova@alephtrade.com">
+                            <a class="footer__link footer__messengers-link" href="mailto:family@nikteaworld.com">
                                 <img class="footer__link--img" src="img/icons/mail-icon.svg" alt="Logo">
                             </a>
                         </div>
