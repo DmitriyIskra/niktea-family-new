@@ -174,30 +174,37 @@ class UserController extends Controller
             $files = $request->file('file');
 
             foreach($files as $item) {  
-                $hash = $item->hashName();
+                // собирать имя и mime.type
+                // отправлять отсюда 
+                // получать буду не имя, а код 
+                // кажется отправлять, указывать только имя без расширения (не точно, читать инструкцию)
+                // в базу сохранять собранную ссылку, из собранного имени и https://storage.yandexcloud.net/nikteapromo2023/
+                $hash = $item->hashName(); // хеш с mime type, пример: хеш.png
                 $type = $item->getMimeType();
                 if(str_contains($type, 'image')) {
-                    $path = $item->storeAs($user->id, $hash, 's3');
-                    Cheque::query()->create([
-                        'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
-                        'name' => $hash,
-                        'user_id' => $user->id,
-                    ]);
+                    $path = $item->storeAs($user->id, $hash."/0", 's3');
+
+                    return response()->json(['result' => $path]);
+                    // $path = $item->storeAs($user->id, $hash, 's3');
+                    // Cheque::query()->create([
+                    //     'path' => "https://storage.yandexcloud.net/nikteapromo2023/$path",
+                    //     'name' => $hash,
+                    //     'user_id' => $user->id,
+                    // ]);
                 }
-                
             }
 
-            Mail::to('family@nikteaworld.com')
-                ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
-                    'user_id' => $user->id,
-                    'user_second_name' => $user->second_name,
-                    'user_name' => $user->name,
-                    'user_patronymic' => $user->patronymic,
-                    'user_phone' => $user->phone,
-                    'user_email' => $user->email,
-                ]));
+            // Mail::to('family@nikteaworld.com')
+            //     ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
+            //         'user_id' => $user->id,
+            //         'user_second_name' => $user->second_name,
+            //         'user_name' => $user->name,
+            //         'user_patronymic' => $user->patronymic,
+            //         'user_phone' => $user->phone,
+            //         'user_email' => $user->email,
+            //     ]));
 
-            return response()->json(['result' => true]);
+            // return response()->json(['result' => true]);
         } catch (Exception $e) {
             return response()->json(['result' => false]);
         }
