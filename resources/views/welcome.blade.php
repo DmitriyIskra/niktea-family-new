@@ -390,7 +390,7 @@
                         </li>
                         <li class="more-detailed__content-item">
                             <div class="more-detailed__wr-title">
-                                <h2 class="more-detailed__title">Серебрянный уровень</h2>
+                                <h2 class="more-detailed__title">Серебряный уровень</h2>
                             </div>
                             <ul class="more-detailed__bonus-prog-list">
                                 <li class="more-detailed__bonus-prog-item">

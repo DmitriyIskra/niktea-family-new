@@ -70,21 +70,10 @@ export default class ControllAccNewCheque extends ModalInfo {
         if(result) super.openModalСhequeSuccess();
         if(!result) super.openModalFailSend();
 
-        const response = await fetch('https://s3.alephtrade.com/upload/niktea/sefsefsef.jpg/0', {
-                method : "POST",
-                headers : {
-                    "content-Type" : "multipart/form-data",
-                    "auth" : "6dbccf8ef722f87e9fd20129b958d5f3b07fbab9ebe39252b666e55e15afa6db31cf2cbca5d67d942180982314386b5f46080c1a64a3c3f552086f30feb1fbdc"
-                },
-                body : data
-            })
-
-            const json = await response.json();
-            console.log(json)
-
-        // const cheques = await this.api.read();
+        const cheques = await this.api.read();
         
-        // Обновляем альбом с чеками
+        // Обновляем альбом с чеками (update метод принадлежащий классу
+        // RedrawСhequesbook в директории chequebook)
         if(cheques) this.update(cheques);
     }
 
@@ -107,6 +96,7 @@ export default class ControllAccNewCheque extends ModalInfo {
         this.saveFiles(files);
     }
     
+    // Сохраняет файлы перед отправкой
     saveFiles(files) {
         
         const val = this.validation(files);

@@ -8,12 +8,14 @@ use App\Mail\SendMailRegister_admin;
 use App\Mail\SendMailUserRegister;
 use App\Models\Cheque;
 use App\Models\User;
-
+use CURLFile;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use PhpParser\Node\Stmt\TryCatch;
 
@@ -64,6 +66,7 @@ class UserController extends Controller
             $user_id = $dataUser->id;
             
             foreach($files as $item) {  
+                // dd($item);
                 $name = $item->getClientOriginalName();     
                 $path = $item->storeAs($user_id, $name, 's3');
                 Cheque::query()->create([
@@ -174,37 +177,74 @@ class UserController extends Controller
             $files = $request->file('file');
 
             foreach($files as $item) {  
-                // собирать имя и mime.type
-                // отправлять отсюда 
-                // получать буду не имя, а код 
-                // кажется отправлять, указывать только имя без расширения (не точно, читать инструкцию)
-                // в базу сохранять собранную ссылку, из собранного имени и https://storage.yandexcloud.net/nikteapromo2023/
+
                 $hash = $item->hashName(); // хеш с mime type, пример: хеш.png
+                
+                $tmp_path = $item->getPathname();
                 $type = $item->getMimeType();
+                $new_file_name = $user->email.'_'.$hash;
+                
                 if(str_contains($type, 'image')) {
-                    $path = $item->storeAs($user->id, $hash."/0", 's3');
+                    $s3Client_settings = [
+                        "key" => env('SECRET_ACCESS_KEY'),
+                        "url_post" => 'https://s3.alephtrade.com',
+                        "method" => '/upload',
+                        "bucket_alias" => '/nikteafamily',
+                        "resize" => '/0',
+                    ];
 
-                    return response()->json(['result' => $path]);
-                    // $path = $item->storeAs($user->id, $hash, 's3');
-                    // Cheque::query()->create([
-                    //     'path' => "https://storage.yandexcloud.net/nikteapromo2023/$path",
-                    //     'name' => $hash,
-                    //     'user_id' => $user->id,
-                    // ]);
-                }
-            }
+                    $curl = curl_init();
+                    $boundary =  uniqid();
+                    $delimiter = '-------------' . $boundary;
+                    $data = '';
+                    $data .= "--" . $delimiter . "\r\n" . 'Content-Disposition: form-data; name=file; filename="' . $new_file_name . '"' . "\r\n\r\n" . file_get_contents($tmp_path) . "\r\n";
 
-            // Mail::to('family@nikteaworld.com')
-            //     ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
-            //         'user_id' => $user->id,
-            //         'user_second_name' => $user->second_name,
-            //         'user_name' => $user->name,
-            //         'user_patronymic' => $user->patronymic,
-            //         'user_phone' => $user->phone,
-            //         'user_email' => $user->email,
-            //     ]));
+                    $data .= "--" . $delimiter . "--\r\n";    //print_r($data);
 
-            // return response()->json(['result' => true]);
+                    $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$new_file_name.$s3Client_settings["resize"];
+                    $headers = [
+                        "auth: ".$s3Client_settings["key"],
+                        'Content-Type: multipart/form-data; boundary=' . $delimiter,
+                        'Content-Length: ' . strlen($data)
+                    ];
+
+                    
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => $url_request,
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS  => $data,
+                        CURLOPT_HTTPHEADER => $headers,
+                    ));    
+                    $res = curl_exec($curl);
+                    curl_close($curl);
+                  
+                    $path_for_db = "https://storage.yandexcloud.net/nikteafamily/$new_file_name";
+                 
+                    Cheque::query()->create([
+                        'path' => $path_for_db,
+                        'name' => $hash,
+                        'user_id' => $user->id,
+                    ]);
+
+                } // END IF
+
+            } // END FOREACH
+
+            Mail::to('family@nikteaworld.com')
+                ->send(new SendMailNewCheque_admin('Добавлен новый чек', [
+                    'user_id' => $user->id,
+                    'user_second_name' => $user->second_name,
+                    'user_name' => $user->name,
+                    'user_patronymic' => $user->patronymic,
+                    'user_phone' => $user->phone,
+                    'user_email' => $user->email,
+                ]));
+            return response()->json(['result' => true]);
         } catch (Exception $e) {
             return response()->json(['result' => false]);
         }

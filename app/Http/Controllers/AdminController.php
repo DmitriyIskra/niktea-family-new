@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -262,22 +263,83 @@ class AdminController extends Controller
      */
     public function destroy(string $action, string $id)
     {
+        // удаление из s3
+        $s3Client_settings = [
+            "key" => env('SECRET_ACCESS_KEY'),
+            "url_post" => 'https://s3.alephtrade.com',
+            "method" => '/delete',
+            "bucket_alias" => '/nikteafamily',
+        ];
+        
         if($action === 'user') {
+            // получили email пользователя
+            $email_user = User::query()->where('id', $id)->first('email')->email;
+            // удалили пользователя и автоматически все связанные с ним чеки
             $result = User::query()->where('id', $id)->delete();
+            
+            $cheques = Cheque::query()->where('user_id', $id)->get();
+            
+            foreach($cheques as $item)
+            {
+                $name_file = $item->name;
+                $name_s3 = $email_user.'_'.$name_file;
+                $curl = curl_init();
+            
+                $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$name_s3;
+                
+                $headers = [
+                    "auth: ".$s3Client_settings["key"],
+                ];
+                
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => $url_request,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_CUSTOMREQUEST => 'DELETE',
+                    CURLOPT_HTTPHEADER => $headers,
+                ));    
+                $res = curl_exec($curl);
+                curl_close($curl);
 
-            Storage::disk('s3')->deleteDirectory($id);
+                Log::info($res);
+            }
+            // Storage::disk('s3')->deleteDirectory($id);
 
             return response()->json(['response' => $result]);
         }
 
         if($action === 'cheque') {
-            $name_file = Cheque::query()->find($id, 'name')->name;
-            $id_user = Cheque::query()->find($id, 'user_id')->user_id;
+            $data_file = Cheque::query()->where('id', $id)->first(['name', 'user_id']);
+            $email_user = User::query()->where('id', $data_file->user_id)->first('email')->email;
 
             $result = Cheque::query()->where('id', $id)->delete();
 
-            Storage::disk('s3')->delete($id_user.'/'.$name_file);
-
+            $name_s3 = "{$email_user}_{$data_file->name}";
+           
+            $curl = curl_init();
+            
+            $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$name_s3;
+            
+            $headers = [
+                "auth: ".$s3Client_settings["key"],
+            ];
+            
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $url_request,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_CUSTOMREQUEST => 'DELETE',
+                CURLOPT_HTTPHEADER => $headers,
+            ));    
+            $res = curl_exec($curl);
+            curl_close($curl);
+            Log::info($res);
             return response()->json(['response' => $result]);
         }
     }

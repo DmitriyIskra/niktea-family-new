@@ -9,7 +9,7 @@ export default class ApiAdmin {
     }
 
     read() {
-
+ 
     }
 
     async update(params, data, user_id) {

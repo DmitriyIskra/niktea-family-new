@@ -221,7 +221,7 @@
                         </ul>
 
                         <div class="exchange__wr-level-title">
-                            <h2 class="exchange__level-title">Серебрянный уровень</h2>
+                            <h2 class="exchange__level-title">Серебряный уровень</h2>
                         </div>
                         <ul class="exchange__extraction-list">
                             <li class="exchange__extraction-item exchange__extraction-item_first">

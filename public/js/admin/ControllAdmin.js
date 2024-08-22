@@ -136,7 +136,7 @@ export default class ControllAdmin {
             })()
         }
 
-        // -----------======== ЧЕКИ
+        // -----------======== ЧЕКИ 
 
         /**верификация чека*/
         if(target = e.target.closest('.panel__circle-verified_cheque')) {
