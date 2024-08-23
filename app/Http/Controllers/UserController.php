@@ -114,7 +114,7 @@ class UserController extends Controller
                     $res = curl_exec($curl);
                     curl_close($curl);
                   
-                    Log::info($res);
+                
 
                     $path_for_db = "https://storage.yandexcloud.net/nikteafamily/$new_file_name";
                  

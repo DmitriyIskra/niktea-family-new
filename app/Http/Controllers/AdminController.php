@@ -273,15 +273,15 @@ class AdminController extends Controller
         
         if($action === 'user') {
             // удалили пользователя и автоматически все связанные с ним чеки
-            Log::info('ID user: '.$id);
+
             $cheques = Cheque::query()->where('user_id', $id)->get();
-            Log::info('Чеки: '.$cheques,['контекст' => $cheques]);
+
             $result = User::query()->where('id', $id)->delete();
             foreach($cheques as $item)
             {
-                Log::info('Зашли в цикл');
+
                 $name_file = $item->name;
-                Log::info('Имя удаляемого файла: '.$name_file);
+
            
                 $curl = curl_init();
             
@@ -304,7 +304,6 @@ class AdminController extends Controller
                 $res = curl_exec($curl);
                 curl_close($curl);
 
-                Log::info('Пользователь удален с чеком: '.$name_file."\r\n".'status: '.$res);
             }
             // Storage::disk('s3')->deleteDirectory($id);
 
@@ -336,7 +335,7 @@ class AdminController extends Controller
             ));    
             $res = curl_exec($curl);
             curl_close($curl);
-            Log::info('Удален чек: '.$data_file->name."\r\n".'message: '.$res);
+
             return response()->json(['response' => $result]);
         }
     }
