@@ -296,6 +296,8 @@
 
     align-items: center;
     justify-content: center;
+
+    z-index: 10;
 }
 
 .up-cheque__back-wr-preview_active {

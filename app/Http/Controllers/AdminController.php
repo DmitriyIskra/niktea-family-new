@@ -272,20 +272,20 @@ class AdminController extends Controller
         ];
         
         if($action === 'user') {
-            // получили email пользователя
-            $email_user = User::query()->where('id', $id)->first('email')->email;
             // удалили пользователя и автоматически все связанные с ним чеки
-            $result = User::query()->where('id', $id)->delete();
-            
+            Log::info('ID user: '.$id);
             $cheques = Cheque::query()->where('user_id', $id)->get();
-            
+            Log::info('Чеки: '.$cheques,['контекст' => $cheques]);
+            $result = User::query()->where('id', $id)->delete();
             foreach($cheques as $item)
             {
+                Log::info('Зашли в цикл');
                 $name_file = $item->name;
-                $name_s3 = $email_user.'_'.$name_file;
+                Log::info('Имя удаляемого файла: '.$name_file);
+           
                 $curl = curl_init();
             
-                $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$name_s3;
+                $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$name_file;
                 
                 $headers = [
                     "auth: ".$s3Client_settings["key"],
@@ -304,7 +304,7 @@ class AdminController extends Controller
                 $res = curl_exec($curl);
                 curl_close($curl);
 
-                Log::info($res);
+                Log::info('Пользователь удален с чеком: '.$name_file."\r\n".'status: '.$res);
             }
             // Storage::disk('s3')->deleteDirectory($id);
 
@@ -313,15 +313,12 @@ class AdminController extends Controller
 
         if($action === 'cheque') {
             $data_file = Cheque::query()->where('id', $id)->first(['name', 'user_id']);
-            $email_user = User::query()->where('id', $data_file->user_id)->first('email')->email;
 
             $result = Cheque::query()->where('id', $id)->delete();
-
-            $name_s3 = "{$email_user}_{$data_file->name}";
            
             $curl = curl_init();
             
-            $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$name_s3;
+            $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$data_file->name;
             
             $headers = [
                 "auth: ".$s3Client_settings["key"],
@@ -339,7 +336,7 @@ class AdminController extends Controller
             ));    
             $res = curl_exec($curl);
             curl_close($curl);
-            Log::info($res);
+            Log::info('Удален чек: '.$data_file->name."\r\n".'message: '.$res);
             return response()->json(['response' => $result]);
         }
     }

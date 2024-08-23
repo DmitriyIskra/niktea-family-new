@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 use PhpParser\Node\Stmt\TryCatch;
 
 
+
 class UserController extends Controller
 {
     /**
@@ -64,16 +65,69 @@ class UserController extends Controller
             ]);
             
             $user_id = $dataUser->id;
+            $user_email = $dataUser->email;
             
             foreach($files as $item) {  
-                // dd($item);
-                $name = $item->getClientOriginalName();     
-                $path = $item->storeAs($user_id, $name, 's3');
-                Cheque::query()->create([
-                    'path' => "https://storage.yandexcloud.net/test-laravel-2/$path",
-                    'name' => $name,
-                    'user_id' => $user_id,
-                ]);
+                // dd($item);  
+                $hash = $item->hashName(); // хеш с mime type, пример: хеш.png
+                
+                $tmp_path = $item->getPathname();
+                $type = $item->getMimeType();
+                $new_file_name = $user_email.'_'.$hash;
+                
+                if(str_contains($type, 'image')) {
+                    $s3Client_settings = [
+                        "key" => env('SECRET_ACCESS_KEY'),
+                        "url_post" => 'https://s3.alephtrade.com',
+                        "method" => '/upload',
+                        "bucket_alias" => '/nikteafamily',
+                        "resize" => '/0',
+                    ];
+
+                    $curl = curl_init();
+                    $boundary =  uniqid();
+                    $delimiter = '-------------' . $boundary;
+                    $data = '';
+                    $data .= "--" . $delimiter . "\r\n" . 'Content-Disposition: form-data; name=file; filename="' . $new_file_name . '"' . "\r\n\r\n" . file_get_contents($tmp_path) . "\r\n";
+
+                    $data .= "--" . $delimiter . "--\r\n";    //print_r($data);
+
+                    $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$new_file_name.$s3Client_settings["resize"];
+                    $headers = [
+                        "auth: ".$s3Client_settings["key"],
+                        'Content-Type: multipart/form-data; boundary=' . $delimiter,
+                        'Content-Length: ' . strlen($data)
+                    ];
+
+                    
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => $url_request,
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10, 
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS  => $data,
+                        CURLOPT_HTTPHEADER => $headers,
+                    ));    
+                    $res = curl_exec($curl);
+                    curl_close($curl);
+                  
+                    Log::info($res);
+
+                    $path_for_db = "https://storage.yandexcloud.net/nikteafamily/$new_file_name";
+                 
+                    // $path = $item->storeAs($user_id, $name, 's3');
+                    Cheque::query()->create([
+                        'path' => $path_for_db,
+                        'name' => $new_file_name,
+                        'user_id' => $user_id,
+                    ]);
+
+                }
+
+
             }
 
             
@@ -99,7 +153,7 @@ class UserController extends Controller
         } catch ( Exception $e ) {
             return redirect('/');
         }
-    }
+    } // END store
 
     public function login(Request $request)
     {
@@ -213,7 +267,7 @@ class UserController extends Controller
                         CURLOPT_URL => $url_request,
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => '',
-                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_MAXREDIRS => 10, 
                         CURLOPT_TIMEOUT => 0,
                         CURLOPT_FOLLOWLOCATION => true,
                         CURLOPT_CUSTOMREQUEST => 'POST',
@@ -227,7 +281,7 @@ class UserController extends Controller
                  
                     Cheque::query()->create([
                         'path' => $path_for_db,
-                        'name' => $hash,
+                        'name' => $new_file_name,
                         'user_id' => $user->id,
                     ]);
 
