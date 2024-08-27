@@ -30,7 +30,7 @@ import PatternChequesbook from "./chequebook/patternChequesbook.js";
 
 // ADMIN
 import ControllAdmin from "./admin/ControllAdmin.js";
-import ApiAdmin from "./admin/apiAdmin.js";
+import ApiAdmin from "./admin/ApiAdmin.js";
 import RedrawGiftLottery from "./admin/RedrawGiftLottery.js";
 import RedrawUserAwardedLottery from "./admin/RedrawUserAwardedLottery.js";
 import RedrawUserBalls from "./admin/RedrawUserBalls.js";
@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
     let controllLoader;
     if(loader) controllLoader = new ControllLoader(loader);
-    window.controllLoader = controllLoader;
+    // window.controllLoader = controllLoader;
     // Слайдер для HEADER
     const sliderHead = document.querySelector('.slider-hm');
 
@@ -118,7 +118,7 @@ window.addEventListener('load', () => {
         
         if(!sessionStorage?.lottery) sessionStorage.lottery = true;
     }
-
+ 
     const panel = document.querySelector('.panel');
     if(panel) {
         const api = new ApiAdmin(controllLoader);

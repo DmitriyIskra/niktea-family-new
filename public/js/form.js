@@ -53,10 +53,10 @@ function authorize() {
 
           return;
         }
-
+        
         try {
           const form_data = new FormData(event.target);
-          controllLoader.show();
+          __controllLoader('show');
           const response = await fetch('/check-user', {
             method: "POST",
               headers: {
@@ -68,7 +68,7 @@ function authorize() {
           // проверяем правильность данных, при правильно 
           // пускаем работу формы дальше
           const json = await response.json();
-          controllLoader.hide();
+          __controllLoader('hide');
           
           if(json.availability && json.is_active) {
             event.target.submit();
@@ -368,8 +368,26 @@ function registration() {
             return;
           }
 
-          controllLoader.show();
+          __controllLoader('show');
     }
+}
+
+
+
+function registerLoader(loader) {
+  if(loader) {
+    function __loader(state) {
+      if(state === 'show') {
+        loader.classList.add('loader__cover_active');
+      }
+  
+      if(state === 'hide') {
+        loader.classList.remove('loader__cover_active');
+      }
+    }
+
+    return __loader;
+  }
 }
 
 
@@ -385,7 +403,10 @@ function controllMobileMenu() {
   })
 }
 
+let __controllLoader;
 function registerEvents() {
+  const loader = document.querySelector('.loader');
+  __controllLoader = registerLoader(loader);
   authorize();
   registration();
   controllMobileMenu();

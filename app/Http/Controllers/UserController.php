@@ -250,9 +250,9 @@ class UserController extends Controller
                     $curl = curl_init();
                     $boundary =  uniqid();
                     $delimiter = '-------------' . $boundary;
+                    
                     $data = '';
                     $data .= "--" . $delimiter . "\r\n" . 'Content-Disposition: form-data; name=file; filename="' . $new_file_name . '"' . "\r\n\r\n" . file_get_contents($tmp_path) . "\r\n";
-
                     $data .= "--" . $delimiter . "--\r\n";    //print_r($data);
 
                     $url_request = $s3Client_settings["url_post"].$s3Client_settings["method"].$s3Client_settings["bucket_alias"].'/'.$new_file_name.$s3Client_settings["resize"];

@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="{{ asset("css/catalog.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/search.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/recept.css?v=").time()}}">
-<link rel="stylesheet" href="{{ asset("css/forms.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/forms.css?v=").time()}}" defer>
 <link rel="stylesheet" href="{{ asset("css/style.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/loader.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/slider-header-main.css?v=").time()}}">

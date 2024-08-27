@@ -11,4 +11,4 @@ export default class ControllLoader {
     hide() {
         this.loader.classList.remove('loader__cover_active');
     }
-}
+} 

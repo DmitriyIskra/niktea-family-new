@@ -44,7 +44,6 @@ export default class RedrawSlHeaderMain {
         [...this.slides].forEach(item => item.style.width = `${100 / this.showSlides}%`);
 
         if(this.amountSlides <= this.showSlides) {
-            console.log('work')
             this.next.style.display = 'none';
             this.prev.style.display = 'none';
 
