@@ -92,7 +92,7 @@ class AdminController extends Controller
                 }
             }
 
-            // dd($users);
+            // dd($users); 
             return view('admin-panel', [
                 'title' => 'panel',
                 'data' => $users,

@@ -4,7 +4,7 @@
         <div class="user-blocked__content-icon"></div>
         <div class="user-blocked__content-wr-text">
             <p class="user-blocked__content-text">Данная учетная запись <br> заблокирована.</p>                
-            <p class="user-blocked__content-text">Для связи с менеджером напишите: <br> <a href="mailto:family@nikteaworld.com"></a></p>                              
+            <p class="user-blocked__content-text">Для связи с менеджером напишите: <br> <a href="mailto:family@nikteaworld.com">family@nikteaworld.com</a></p>                              
         </div>
     </div> 
     <div class="user-blocked__close">
