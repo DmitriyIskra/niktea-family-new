@@ -2,7 +2,7 @@ export default class RedrawMoreDetailed {
     constructor(element) {
         this.element = element;
 
-        this.popUp = this.element.querySelector('.more-detailed__modal');
+        this.popUp = this.element.querySelector('.more-detailed__wr-modal');
         
         this.tabs = [
             this.element.querySelector('[data-type="bonus-prog"]'),
@@ -24,4 +24,4 @@ export default class RedrawMoreDetailed {
         this.tabs.forEach(item => item.classList.toggle('more-detailed__tabs_active'));
         this.windowsInfo.forEach(item => item.classList.toggle('more-detailed__wr-content_active'));
     }
-}
+} 

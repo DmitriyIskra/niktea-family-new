@@ -1,9 +1,9 @@
 <div class="nav-out">
     
-    <div class="nav-out__wrapper">
+    <div class="nav-out__wrapper"> 
 
         <div class="nav-out__wr-title">
-            <a class="nav-out__title" href="https://nikteaworld.com/">
+            <a class="nav-out__title" href="https://nikteaworld.com/" target="_blank">
                 <span>niktea </span><span>Collection</span>
             </a>
         </div>
@@ -17,7 +17,7 @@
                         <div class="nav-out__line-anim"></div>
                     </li>    
                 @endforeach
-            </ul>
+            </ul> 
         </div>
 
     </div>

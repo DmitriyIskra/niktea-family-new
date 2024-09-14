@@ -1185,11 +1185,6 @@ text-transform: uppercase;
   .header__button a {
     font-size: 18px;
   }
-
-  .header__item_outsite {
-    display: block;
-  }
-
 }
 
 @media (max-width: 996px) {
@@ -1476,6 +1471,10 @@ text-transform: uppercase;
 
   .codeSlider .swiper-wrapper {
     width: 200px;
+  }
+
+  .header__item_outsite {
+    display: block;
   }
 
 }

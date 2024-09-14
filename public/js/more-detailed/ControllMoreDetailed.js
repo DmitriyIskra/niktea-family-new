@@ -21,7 +21,7 @@ export default class ControllMoreDetailed {
                 left: 100,
                 behavior: "smooth",
             });
-            this.d.showClosePopUp();
+            this.d.showClosePopUp(); 
         }
         
         // закрыть pop-up
@@ -42,17 +42,33 @@ export default class ControllMoreDetailed {
 
             // определяем десктоп или мобилка отменяем стандартное
             // поведение чтоб не прокручивалось и эмулируем клик
+
             const toAccountMobile = document.querySelector('.account-logo-mobile');
+
             if(getComputedStyle(toAccountMobile).display !== 'block') {
+                // DESCTOP
                 const toAccountDesctop = document.querySelector('#lkbuttonpc');
+
                 toAccountDesctop.addEventListener('click', (e) => e.preventDefault(),
                  {once : true});
+                console.dir(toAccountDesctop.pathname)
+                if(toAccountDesctop.pathname === '/account') {
+                    location.href = '/account';
+                    return;
+                }
 
                 toAccountDesctop.click();
                 return;
             }
+
+            // MOBILE
             toAccountMobile.addEventListener('click', (e) => e.preventDefault(),
              {once : true});
+
+             if(toAccountMobile.pathname === '/account') {
+                location.href = '/account';
+                return;
+            }
 
             toAccountMobile.click();
         }

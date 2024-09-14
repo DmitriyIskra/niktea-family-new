@@ -53,12 +53,29 @@
     cursor: pointer;
 }
 
+.more-detailed__wr-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    z-index: 500;
+}
+
+.more-detailed__modal_active {
+    display: block;
+}
+
 .more-detailed__modal {
     position: absolute;
     top: 2%;
     left: 50%;
 
-    display: none;
     width: 76.46vw;
     padding-top: 1.56vw;
     padding-bottom: 3.85vw;
@@ -67,10 +84,6 @@
     background: #535D60;
 
     transform: translateX(-50%);
-}
-
-.more-detailed__modal_active {
-    display: block;
 }
 
 .more-detailed__wr-close {

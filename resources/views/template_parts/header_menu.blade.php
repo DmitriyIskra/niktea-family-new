@@ -7,25 +7,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-navq header__list">
-            <li class='header__item'>
+            {{-- <li class='header__item'>
                 <a href="/trainings" class='header__link'>Наши тренинги</a> 
-            </li>
+            </li> --}}
             <li class="header__item">
                 <a href="/rules" class="header__link">Правила акции</a>
+            </li>
+            <li class="header__item">
+                <a href="#" class="header__link header__link-prizes">Подарки</a>
             </li>
             <li class="nav-item header__logo d-none d-lg-block">
                 <a href="/">
                     <img class="header__logo--img" src="{{ asset('img/icons/logo-new.svg') }}" alt="logo">
                 </a>
             </li> 
-            <li class="header__item">
-                <a href="#" class="header__link header__link-prizes">Подарки</a>
-            </li>
             <li class='header__item header__item_account' data-bs-target={{ Auth::check() ? '' : '#exampleModalToggle' }} data-bs-toggle='modal'>
                 <a href={{ Auth::check() ? '/account' : '#0' }} id="lkbuttonpc" class='header__link'>Личный кабинет</a>
             </li>
             <li class='header__item header__item_account header__item_outsite'>
-                <a href="https://nikteaworld.com/" class='header__link'>Домашняя страница Niktea Collection</a>
+                <a href="https://nikteaworld.com/" class='header__link' target="_blank">Домашняя страница Niktea Collection</a>
             </li>
             <li class="close-mobile-menu">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
@@ -36,7 +36,6 @@
             <li class="header__item_dop-nav">
                 <x-out-site-nav />
             </li>
-            
         </ul>
     </div>
 
