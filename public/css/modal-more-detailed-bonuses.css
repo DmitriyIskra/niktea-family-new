@@ -61,7 +61,7 @@
     left: 0;
 
     display: none;
-
+ 
     background: rgba(0, 0, 0, 0.3);
 
     z-index: 500;
@@ -214,7 +214,8 @@
     color: #FFF500;
 }
 
-.more-detailed__bonus-prog-desc {
+.more-detailed__bonus-prog-desc, 
+.more-detailed__bonus-prog-desc a {
     font-family: 'Arsenal';
     font-size: 1.88vw;
     font-weight: 400;

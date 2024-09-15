@@ -73,7 +73,8 @@ window.addEventListener('load', () => {
     // Больше о подарках на главной
     const moreDetailed = document.querySelector('.more-detailed');
     if(moreDetailed) {
-        const redraw = new RedrawMoreDetailed(moreDetailed);
+        const buttonMenuGifts = document.querySelector('.header__link.header__link-prizes')
+        const redraw = new RedrawMoreDetailed(moreDetailed, buttonMenuGifts);
         const controll = new ControllMoreDetailed(redraw);
         controll.init();
     }

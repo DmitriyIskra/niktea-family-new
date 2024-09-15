@@ -11,14 +11,16 @@ export default class ControllMoreDetailed {
 
     registerEvents() {
         this.d.element.addEventListener('click', this.click);
+        this.d.buttonMenuGifts.addEventListener('click', this.click);
     }
 
     click(e) {
         // открыть pop-up
-        if(e.target.closest('.more-detailed__button-back-modal-on')) {
+        if(e.target.closest('.more-detailed__button-back-modal-on') ||
+        e.target.closest('.header__link.header__link-prizes')) {
             scrollTo({
-                top: 100,
-                left: 100,
+                top: 0,
+                left: 0,
                 behavior: "smooth",
             });
             this.d.showClosePopUp(); 

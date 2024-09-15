@@ -344,7 +344,7 @@
                                             <p class="more-detailed__bonus-prog-text">
                                                 <span class="more-detailed__bonus-prog-amount-balls">30 баллов - </span>
                                                 <span class="more-detailed__bonus-prog-desc">
-                                                    Тренинг по чаю 
+                                                    <a href="/trainings" title="тренинг по чаю">Тренинг по чаю</a> 
                                                 </span>
                                                 <span class="more-detailed__bonus-prog-desc-dop">(<span class="more-detailed__bonus-prog-desc-dop-color">От любителя до профессионала</span>)</span>
                                             </p>
