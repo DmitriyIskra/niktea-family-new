@@ -2,7 +2,6 @@ export default class RedrawMoreDetailed {
     constructor(element, buttonMenuGifts) {
         this.element = element;
         this.buttonMenuGifts = buttonMenuGifts;
-        console.log(this.buttonMenuGifts)
 
         this.popUp = this.element.querySelector('.more-detailed__wr-modal');
         

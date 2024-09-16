@@ -14,7 +14,9 @@ class PagesController extends Controller
 
     public function welcomePage()
     {
-        return view('welcome');
+        return view('welcome', [
+            'index_page' => true,
+        ]);
     }
 
     public function accountPage(Request $request)

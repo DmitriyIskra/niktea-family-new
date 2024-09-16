@@ -140,10 +140,10 @@
 
             </div>
 
-            <div class="trainings-page__wr-nearest-date">
-                <div class="trainings-page__nearest-date">
+            <div class="trainings-page__wr-proposal">
+                <div class="trainings-page__proposal">
                     <p>
-                        Ближайшая дата проведения: ____
+                        Копите баллы и обменивайте их на тренинг
                     </p>
                 </div>
             </div>

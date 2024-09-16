@@ -63,7 +63,7 @@
 
 .trainings-page__description p {
     font-family: 'Arsenal';
-    font-size: 1.67vw;
+    font-size: 1.25vw;
     font-weight: 400;
 
     color: #fff;
@@ -122,10 +122,10 @@
     margin-top: 1.7vw;
 }
 
-.course-plan__wrapper-card {
+.course-plan__wrapper-card { 
     width: 100%;
     padding-top: 1.09vw;
-    padding-bottom: 1vw;
+    padding-bottom: 2vw;
 
     border-radius: 1.56vw;
     background:
@@ -161,8 +161,8 @@
 .course-plan__card-item::before {
     content: "";
 
-    width: 1.04vw;
-    height: 1.04vw;
+    width: 0.5vw;
+    height: 0.5vw;
     margin-top: 0.85vw;
 
     border-radius: 50%;
@@ -173,7 +173,7 @@
 
 .course-plan__card-item p {
     font-family: 'Arsenal';
-    font-size: 1.67vw;
+    font-size: 1.25vw;
     font-weight: 400;
 
     color: #fff;
@@ -210,13 +210,13 @@
     margin-top: 3.39vw;
 }
 
-.trainings-page__wr-nearest-date {
+.trainings-page__wr-proposal {
     margin-top: 3.75vw;
 }
 
-.trainings-page__nearest-date {
+.trainings-page__proposal {
     display: flex;
-    width: 25.05vw;
+    width: 33.05vw;
     height: 5.31vw;
     margin: 0 auto;
 
@@ -228,7 +228,7 @@
     align-items: center;
 }
 
-.trainings-page__nearest-date p {
+.trainings-page__proposal p {
     width: 100%;
     margin-bottom: 0;
 
@@ -399,13 +399,13 @@
 }
 
 @media(max-width: 996px) {
-    .trainings-page__wr-nearest-date {
+    .trainings-page__wr-proposal {
         margin-top: 14.93vw;
     }
 }
 
 @media(max-width: 996px) {
-    .trainings-page__nearest-date {
+    .trainings-page__proposal {
         width: 89.3vw;
         height: 31.47vw;
 
@@ -415,8 +415,8 @@
 }
 
 @media(max-width: 996px) {
-    .trainings-page__nearest-date p {
-        width: 87%;
+    .trainings-page__proposal p {
+        width: 79%;
         margin: 0 auto;
 
         font-size: 5.33vw;

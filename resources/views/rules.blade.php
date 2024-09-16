@@ -23,14 +23,14 @@
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Правила проведения акции </a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="#0">Правила Niktea Family</a></li>
         </ul>
     </div>
 
     <div class="rules__container">
         <div class="rules__item-card">
             <div class="rules__head">
-                <h1>Бонусная программа</h1>
+                <h1>Правила Niktea Family</h1>
             </div>
 
             <section class="rules">
@@ -57,9 +57,9 @@
             </section>
         </div>
 
-        <div class="rules__item-card rules__item-card_second">
+        {{-- <div class="rules__item-card rules__item-card_second">
             <div class="rules__head">
-                <h1>Правила участия в розыгрыше</h1>
+                <h2>Правила участия в розыгрыше</h2>
             </div>
 
             <section class="rules">
@@ -84,22 +84,22 @@
                 </div>
 
             </section>
-        </div>
+        </div> --}}
 
     </div>
 
     <div class="rules-docs">
         <div class="docs_links__wrap">
             <p>
-                <span>Правила участия</span>
-                <span>в бонусной программе</span>
+                <span>Скачать правила</span>
+                {{-- <span>в бонусной программе</span> --}}
             </p>
             <div class="docs__wr-icon">
                 <img src="img/pdf-icon.webp" alt="Document1">
             </div>
-            <a class="docs__link__icon" href="привила_проведения_промо_акции_Niktea.pdf" target="_blank" rel="nofollow"></a>
+            <a class="docs__link__icon" href="Правила Niktea Family.pdf" target="_blank" rel="nofollow"></a>
         </div>
-        <div class="docs_links__wrap">
+        {{-- <div class="docs_links__wrap">
             <p>
                 <span>Правила участия</span> 
                 <span>в розыгрыше</span>   
@@ -108,14 +108,14 @@
                 <img src="img/pdf-icon.webp" alt="Document1">
             </div>
             <a class="docs__link__icon" href="привила_проведения_промо_акции_Niktea.pdf" target="_blank"  rel="nofollow"></a>
-        </div>
+        </div> --}}
     </div>
 
 </main>
 
 @include('template_parts.footer')
 @include('template_parts.copyright')
-@include('template_parts.label-niktea')
+@include('template_parts.label-niktea') 
 @include('template_parts.loader')
 @include('template_parts.modal-user-blocked')
 </body>

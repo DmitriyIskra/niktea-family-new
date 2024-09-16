@@ -23,7 +23,7 @@
 .rules__main {
     padding-bottom: 26vw; 
 }
-
+ 
 .rules__container {
     display: flex;      
     margin-top: 65px;
@@ -227,7 +227,7 @@
       }
 
       .rules__head h1{
-        width: 93%;
+        width: 63%;
         margin: 0 auto;
 
         font-size: 48px;

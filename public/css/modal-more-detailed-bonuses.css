@@ -223,6 +223,12 @@
     color: #fff;
 }
 
+.more-detailed__bonus-prog-desc a:hover {
+    filter: drop-shadow(0 0 0.1vw rgba(255, 255, 255, 1));
+    
+    transition: filter 0.15s linear;
+}
+
 .more-detailed__bonus-prog-desc-dop {
     font-family: 'Arsenal';
     font-size: 1.88vw;
