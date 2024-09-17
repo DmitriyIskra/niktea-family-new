@@ -97,7 +97,7 @@ body[data-variant=error-page] {
 .links-partner__wrapper { 
   display: flex;
   width: 100%;
-  margin-bottom: 4.30vw;
+  margin-bottom: 2vw;
 
   flex-direction: column;
   align-items: center;
@@ -885,7 +885,7 @@ ul.breadcrumbs__item li+li:before {
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 6.3%;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   text-align: center;
 }
 
@@ -931,8 +931,8 @@ line-height: normal;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 96px;
+  margin-top: 42px;
+  margin-bottom: 34px;
 }
 
 .rules__item {
@@ -976,7 +976,7 @@ line-height: normal;
 }
 
 .rules__item--text {
-  margin-top: 28px;
+  margin-top: 7px;
   text-align: center;
 }
 
@@ -985,14 +985,14 @@ line-height: normal;
 .recepies__button {
   position: relative;
   font-family: 'Arsenal';  
-  font-size: 20px;
+  font-size: 1.04vw;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
   text-transform: uppercase;    
   border-radius: 50px;      
-  width: 300px;
-  height: 60px;
+  width: 15.63vw;
+  height: 3.13vw;
   border: none;      
   background: #53A894;
   color: #FFF;
@@ -1036,7 +1036,7 @@ text-transform: uppercase;
 
 .main__slider {
   /* min-height: 1000px; */
-  margin-top: 175px;
+  margin-top: 83px;
 }
 
 

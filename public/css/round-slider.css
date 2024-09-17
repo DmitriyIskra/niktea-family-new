@@ -76,8 +76,8 @@
 .slider_circle_10 {
     position: relative;
 
-    width: 55vw;
-    height: 53.2vw;
+    width: 47vw;
+    height: 45.2vw;
     margin: 0 auto;
 
     transform: translateY(-5vw);
@@ -492,7 +492,7 @@
 .active-slide__description {
         width: fit-content;
         height: 80px;
-        margin-top: 3vw;
+        margin-top: 1.8vw;
         margin-left: auto;
         margin-right: auto;
 

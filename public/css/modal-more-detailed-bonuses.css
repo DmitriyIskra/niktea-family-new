@@ -12,6 +12,12 @@
     list-style-type: none;
 }
 
+.more-detailed {
+    position: relative;
+    margin-top: -9vw;
+    z-index: 200;  
+}
+
 .more-detailed__wr-button {
     display: flex;
     margin: 0 auto;
@@ -230,7 +236,7 @@
 }
 
 .more-detailed__bonus-prog-desc-dop {
-    font-family: 'Arsenal';
+    font-family: 'Arsenal'; 
     font-size: 1.88vw;
     font-weight: 400;
 

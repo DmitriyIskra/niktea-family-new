@@ -56,7 +56,7 @@
     height: 100vh;
 
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .panel__wr-search-logout {
