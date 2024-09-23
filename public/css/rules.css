@@ -3,7 +3,6 @@
     position: relative;
 
     display: flex;
-    width: 100%;
     padding-left: 140px;
     padding-right: 140px;
 
@@ -20,11 +19,11 @@
     aspect-ratio: 1288/706;
 }
 
-.rules__main {
+.rules-prog__main {
     padding-bottom: 26vw; 
 }
  
-.rules__container {
+.rules-prog__container {
     display: flex;      
     margin-top: 65px;
     gap: 5vw;
@@ -33,46 +32,7 @@
     align-items: center;
 }
 
-
-
-.rules {
-    max-width: 1350px;
-    /* width: 100%; */
-    margin-left: 150px;
-    margin-right: 150px;
-}
-
-.rules-article {
-
-    margin: auto;
-
-}
-
-.rules-body h2 {
-    color: #FFF;
-    text-align: center;
-    font-family: Arsenal;
-    text-transform: capitalize;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-top: 35px;
-    margin-bottom: 35px;
-}
-
-.rules-body--text {
-  color: #FFF;
-    font-family: Arsenal;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-}
-
-
-.rules__head {
+.rules-prog__head {
     margin-bottom: 56px;
     color: #FFF;
     font-size: 150px;    
@@ -80,7 +40,7 @@
     line-height: normal;
 }
 
-.rules__head h1{  
+.rules-prog__head h1{  
     font-family: 'Snell Roundhand';
     font-size: 3.65vw;
     font-style: normal;
@@ -92,6 +52,118 @@
     color: #FFF;
     
     margin: 0;
+}
+
+.rules-prog__item-card {
+    width: 100%;
+}
+
+.rules {
+    width: 59%;
+    margin: 0 auto;
+}
+
+.rules-article * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-size: initial;
+    text-transform: initial;
+
+    color: initial;
+    list-style-type: none;
+}
+
+.rules-article {
+    margin: auto;
+    padding-bottom: 5.6vw;
+    padding-top: 2.6vw;
+}
+
+.rules-prog__title {
+    margin-top: 1.82vw;
+    margin-bottom: 1.30vw;
+    
+    font-family: Arsenal;
+    font-size: 1.67vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align: center;
+    
+    color: #FEF85C;
+}
+
+.rules-prog__list {
+    display: flex;
+    gap: 2.08vw;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.rules-prog__item-wr-title {
+    width: fit-content;
+    padding: 0 0.55vw 0.45vw;
+    margin: 0 auto;
+
+    border-bottom: 2px solid #fff;
+}
+
+.rules-prog__item-title {
+    width: max-content;
+
+    font-family: Arsenal;
+    font-size: 1.25vw;
+    font-weight: 700;
+
+    color: #FFF;
+}
+
+.rules-prog__item-wr-content {
+    margin-top: 1vw;
+}
+
+.rules-prog__annotation {
+    font-family: Arsenal;
+    font-size: 0.83vw;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    
+    color: #FFF;
+}
+
+.rules-prog__text-content {
+    font-family: Arsenal;
+    font-size: 1.04vw;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    
+    color: #FFF;
+}
+
+.rules-prog__content-list {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.rules-prog__content-item::before {
+    content: "-";
+
+    display: inline-block;
+    margin-right: 0.7vw;
+
+    vertical-align: middle;
+}
+
+.rules-prog__text-content_color {
+    color: #FEF85C;
 }
 
 .rules-docs {
@@ -148,14 +220,8 @@
     object-position: center;
 }
 
-@media (max-width: 1280px) {
-    .rules-body--text{
-        font-size: 18px;
-    }
-}
-
 @media (max-width: 991px) {
-    .rules__head h1{
+    .rules-prog__head h1{
         font-size: 40px !important;
         line-height: initial;
     }
@@ -163,13 +229,13 @@
 
 @media (max-width: 540px) {
 
-    .rules__container {
+    .rules-prog__container {
         padding-top: 25%;
         margin-top: 0px;
         margin-bottom: 0;
     }
     
-    .rules__item-card_second {
+    .rules-prog__item-card_second {
         margin-top: 15vw;
     }
 
@@ -222,11 +288,11 @@
         margin-top: 60px;
       }
 
-      .rules__head {
+      .rules-prog__head {
         margin-bottom: 44px;
       }
 
-      .rules__head h1{
+      .rules-prog__head h1{
         width: 63%;
         margin: 0 auto;
 
@@ -237,14 +303,6 @@
         font-size: 14px;
         margin-top: 10px;
         margin-bottom: 24px;
-    }
-
-    .rules-body--text {        
-        font-family: Arsenal;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
     }
 
 

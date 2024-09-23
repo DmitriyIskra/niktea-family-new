@@ -17,11 +17,14 @@
                 <a href="#" class="header__link header__link-prizes">Подарки</a>
             </li>
             <li class="nav-item header__logo d-none d-lg-block">
-                <a href="@if (isset($index_page) && $index_page)
-                    #0
-                @else
-                    /
-                @endif">
+                <a 
+                    @if (isset($index_page) && $index_page)
+                        href="#0" style="cursor: default"
+                    @else
+                        href="/"
+                    @endif
+                    
+                >
                     <img class="header__logo--img" src="{{ asset('img/icons/logo-new.svg') }}" alt="logo">
                 </a>
             </li> 
