@@ -24,7 +24,7 @@
 .trainings-page__title {
     font-family: 'Snell Roundhand';
     font-weight: 600;
-    font-size: 3.65vw;
+    font-size: 2.60vw;
     font-style: normal;
     text-align: center;
 
@@ -32,14 +32,11 @@
 }
 
 .trainings-page__wr-title p {
-    position: absolute;
-    bottom: -30%;
-    right: 0;
-
     font-family: 'Arsenal';
     font-size: 1.88vw;
     font-style: normal;
     font-weight: 700;
+    text-align: center;
 
     color: #fff;
 }
