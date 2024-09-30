@@ -23,7 +23,7 @@
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="#0">Правила Niktea Family</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="#0">Правила проведения акции</a></li>
         </ul>
     </div>
 
