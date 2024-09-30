@@ -7,30 +7,13 @@ export default class ControllMoreDetailed {
 
     init() {
         this.registerEvents();
-    }
+    } 
 
     registerEvents() {
         this.d.element.addEventListener('click', this.click);
-        this.d.buttonMenuGifts.addEventListener('click', this.click);
     }
 
-    click(e) {
-        // открыть pop-up
-        if(e.target.closest('.more-detailed__button-back-modal-on') ||
-        e.target.closest('.header__link.header__link-prizes')) {
-            scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-            });
-            this.d.showClosePopUp(); 
-        }
-        
-        // закрыть pop-up
-        if(e.target.closest('.more-detailed__close')) {
-            this.d.showClosePopUp();
-        }
-        
+    click(e) {        
         // переключаем окна с информацией о подарках и табы
         if(e.target.closest('.more-detailed__tabs-item')) {
             this.d.changeWindowInfo();
@@ -39,8 +22,6 @@ export default class ControllMoreDetailed {
         // переход в личный кабинет или открытие модалки входа 
         if(e.target.closest('.more-detailed__to-account')) {
             e.preventDefault();
-
-            this.d.showClosePopUp();
 
             // определяем десктоп или мобилка отменяем стандартное
             // поведение чтоб не прокручивалось и эмулируем клик

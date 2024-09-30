@@ -4,8 +4,6 @@
 }
 
 
-
-
 body {        
     height: 100%;
     background-color: #00BD8D;
@@ -1043,6 +1041,53 @@ text-transform: uppercase;
 }
 
 
+
+/* START КНОПКА НА СТРАНИЦУ С ПОДАРКАМИ */
+.wr-link-to-gifts {
+  position: relative;
+
+  display: flex;
+  margin-top: -9vw;
+  
+  justify-content: center;
+
+  z-index: 200;
+}
+
+.wr-link-to-gifts > a {
+  display: flex;
+  width: 15.63vw;
+  height: 3.13vw;
+
+  font-family: 'Arsenal';
+  font-size: 1.04vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #FFF;
+  border-radius: 2.60vw;
+  border: 0.10vw solid transparent;
+  background: linear-gradient(180deg, #61A29B, #61A29B) padding-box,
+              linear-gradient(180deg, #00BD8D, #00392D) border-box;
+
+  transition: all 0.25s linear;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.wr-link-to-gifts > a:hover {
+  box-shadow: 0 0 1vw #fff;
+}
+
+/* END КНОПКА НА СТРАНИЦУ С ПОДАРКАМИ */
+
+
+
+
 .priz-mobile {
   display: none;
 }
@@ -1642,7 +1687,7 @@ div.invalid-feedback--code {
 
 
 @media(max-width: 992px) {
-  .loader__wrapper-image {
+  .loader__wrapper-image { 
     height: 25.6vw;
     width: 25.6vw;
   }

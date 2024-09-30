@@ -14,7 +14,7 @@
                 <a href="/rules" class="header__link">Правила акции</a>
             </li>
             <li class="header__item">
-                <a href="#" class="header__link header__link-prizes">Подарки</a>
+                <a href="/gifts" class="header__link header__link-prizes">Подарки</a>
             </li>
             <li class="nav-item header__logo d-none d-lg-block">
                 <a 

@@ -1,9 +1,6 @@
 export default class RedrawMoreDetailed {
-    constructor(element, buttonMenuGifts) {
+    constructor(element) {
         this.element = element;
-        this.buttonMenuGifts = buttonMenuGifts;
-
-        this.popUp = this.element.querySelector('.more-detailed__wr-modal');
         
         this.tabs = [
             this.element.querySelector('[data-type="bonus-prog"]'),
@@ -13,11 +10,6 @@ export default class RedrawMoreDetailed {
             this.element.querySelector('.more-detailed__wr-content-bonus-prog'),
             this.element.querySelector('.more-detailed__wr-content-lottery'),
         ]
-    }
-
-    // активируем или скрываем весь POP-UP
-    showClosePopUp() {
-        this.popUp.classList.toggle('more-detailed__modal_active');
     }
 
     // переключаем табы и меняем таблицы с бонусами

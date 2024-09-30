@@ -51,6 +51,11 @@ class PagesController extends Controller
         return view('trainings');
     }
 
+    public function giftsPage() 
+    {
+        return view('gifts');
+    } 
+
     public function admin_panel(Request $request)
     {
         $is_auth = Auth::user();
@@ -116,4 +121,5 @@ class PagesController extends Controller
     {
         return view('404');
     }
+    
 }
