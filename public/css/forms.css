@@ -147,7 +147,7 @@
     margin-bottom: 20px;
 
     font-family: 'Arsenal';
-    font-size: 1.46vw;
+    font-size: 20px;
     font-style: normal;
     font-weight: 200;
     line-height: normal;
@@ -190,7 +190,7 @@
     order: 2;      
     box-sizing: border-box;
     width: 80%;
-    height: 2.6vw;    
+    height: 50px;    
     border-radius: 50px;
     padding-left: 16px; 
     margin-bottom: 10px;       
@@ -209,7 +209,7 @@
     padding-right: 16px;
     padding-bottom: 5px;
     width: 300px;
-    height: 60px;    
+    height: 60px;
     margin-top: 65px;
 }
 
@@ -328,8 +328,8 @@
 
 .file-upload__back {
     display: flex;
-    width: 15.63vw;
-    height: 3.13vw;
+    width: 300px;
+    height: 60px;
     padding: 0.10vw;
 
     background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
@@ -346,7 +346,7 @@
     width: 100%;
 
     font-family: 'Arsenal';
-    font-size: 1.46vw;
+    font-size: 20px;
     font-style: normal;
     font-weight: 200;
     text-transform: uppercase;
@@ -396,7 +396,7 @@ text-transform: uppercase;
 .registry-form__list {
     display: flex;
     width: 80%;
-    margin-top: 0.75vw;
+    margin-top: 15px;
     margin-bottom: 0;
     padding: 0;
     gap: 0.1vw;
@@ -418,7 +418,7 @@ text-transform: uppercase;
     padding-left: 1.04vw;
 
     font-family: 'Arsenal';
-    font-size: 0.68vw;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     text-transform: uppercase;
@@ -427,7 +427,7 @@ text-transform: uppercase;
 }
 
 .registry-form__address-wr-input {
-    height: 2.60vw;
+    height: 50px;
 }
 
 .registry-form__address-wr-input input {
@@ -519,7 +519,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 }
 
 .file-upload__registry {
-    margin-top: 1.6vw;
+    margin-top: 19px;
 }
 
 .input__group .reg-label {
@@ -947,7 +947,7 @@ order: 1;
         width: 100%;
         height: auto;
 
-        font-size: 4.27vw;
+        font-size: 16px;
 
         border-radius: 13.33vw;
     }
@@ -1046,7 +1046,7 @@ order: 1;
 
 @media(max-width: 996px) {
     .file-upload__back {
-        height: 13.33vw;
+        height: 50px;
         width: 90%;
         padding: 0.53vw;
 
