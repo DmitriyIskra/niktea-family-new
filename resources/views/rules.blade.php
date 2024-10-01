@@ -46,10 +46,48 @@
                                 </div>
 
                                 <div class="rules-prog__item-wr-content">
-                                    <div class="rules-prog__annotation">(в акции участвуют порционный чай в пирамидках и пакетированный чай на чашку)</div>
+                                    <div class="rules-prog__annotation">(в акции участвуют 
+                                        <a 
+                                            class="rules-prog__link" 
+                                            href="https://nikteaworld.com/catalog-pyramid.html" 
+                                            title="Чай в пирамидках Niktea" 
+                                            target="_blank" 
+                                            rel="nofollow"
+                                        >порционный чай в пирамидках</a>
+                                         и 
+                                         <a 
+                                            class="rules-prog__link" 
+                                            href="https://nikteaworld.com/catalog-dellipack-per-cup.html" 
+                                            title="Чай пакетированный Niktea" 
+                                            target="_blank" 
+                                            rel="nofollow"
+                                         >пакетированный чай на чашку.</a>
+                                         )
+                                    </div>
                                     <p class="rules-prog__text-content">
-                                        Чай Вы можете купить на сайте нашего официального интернет-магазина Oasis MSK,
-                                        а также у наших партнеров: Ozon, Vprok, в магазинах Окей, Гипер Глобус, Перекресток и других.
+                                        Чай Вы можете купить на сайте нашего официального интернет-магазина 
+                                        <a 
+                                            class="rules-prog__link" 
+                                            href="https://oasis-msk.ru/Paketirovannyj-tea-niktea-c-28_109_126.html" 
+                                            title="Oasis" 
+                                            target="_blank" 
+                                            rel="nofollow"
+                                        >Oasis-msk.ru</a>,
+                                        а также у наших партнеров: 
+                                        <a 
+                                            class="rules-prog__link" 
+                                            href="https://www.ozon.ru/seller/alef-treyd-msk-6503/produkty-pitaniya-9200/niktea-34988836/?miniapp=seller_6503&opened=brand" 
+                                            title="Ozon" 
+                                            target="_blank" 
+                                            rel="nofollow"
+                                        >Ozon</a>, 
+                                        <a 
+                                            class="rules-prog__link" 
+                                            href="https://www.vprok.ru/catalog/search?text=Niktea" 
+                                            title="Vprok" 
+                                            target="_blank" 
+                                            rel="nofollow"
+                                        >Vprok</a>, в магазинах Окей, Гипер Глобус, Перекресток и других.
                                     </p>
                                 </div>
                             </li>
@@ -64,9 +102,9 @@
                                         <li class="rules-prog__content-item rules-prog__text-content">Тип файла: JPEG, PNG, JPG, BMP;</li>
                                         <li class="rules-prog__content-item rules-prog__text-content">Размер не более 5 Мб;</li>
                                         <li class="rules-prog__content-item rules-prog__text-content">Размер по большей стороне до 2048px;</li>
-                                        <li class="rules-prog__content-item rules-prog__text-content">Чеки от покупки должны быть технически качественными (читаемыми). Не допускаются изображения, не являющиеся фотографиями</li>
+                                        <li class="rules-prog__content-item rules-prog__text-content">Чеки от покупки должны быть технически качественными (читаемыми). <span class="rules-prog__text-content_color">Не допускаются</span> изображения, не являющиеся фотографиями</li>
                                     </ol>
-                                    <div class="rules-prog__annotation">(оттиски, картинки, компьютерная графика, фотомонтаж).</div>
+                                    <div class="rules-prog__annotation">(QR-коды, оттиски, картинки, компьютерная графика, фотомонтаж).</div>
                                 </div>
                             </li>
                             <li class="rules-prog__item">

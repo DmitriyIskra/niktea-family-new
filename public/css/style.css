@@ -1110,6 +1110,10 @@ text-transform: uppercase;
   object-position: center;
 }
 
+.main-slide__img-french-slide {
+  object-position: 75% 50% !important;
+}
+
 .priz__item__text {
     margin-bottom: 10px;
     color: #FFF;
@@ -1625,6 +1629,11 @@ text-transform: uppercase;
   object-fit: contain;
   object-position: center;
   scale: 0.8;
+}
+
+.main-slide__img-french {
+  object-position: 76% 50% !important;
+  transform: scale(0.96);
 }
 
 .priz__item__text {

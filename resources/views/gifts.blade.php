@@ -219,6 +219,9 @@
         </div>
 
         <div class="more-detailed__wr-content more-detailed__wr-content-lottery ">
+            <div class="more-detailed__content-lottery-annotation">
+                <p>Обменяв баллы на подарки, Вы сможете участвовать в розыгрыше призов</p>
+            </div>
             <ul class="more-detailed__content-list more-detailed__content-lottery">
                 <li class="more-detailed__content-item">
                     <div class="more-detailed__wr-title">

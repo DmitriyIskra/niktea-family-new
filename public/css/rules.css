@@ -33,7 +33,7 @@
 }
 
 .rules-prog__head {
-    margin-bottom: 56px;
+    margin-bottom: 25px;
     color: #FFF;
     font-size: 150px;    
     font-weight: 500;
@@ -103,7 +103,7 @@
     flex-direction: column;
     align-items: center;
 }
-
+ 
 .rules-prog__item-wr-title {
     width: fit-content;
     padding: 0 0.55vw 0.45vw;
@@ -136,6 +136,24 @@
     color: #FFF;
 }
 
+.rules-prog__link {
+    font-family: Arsenal;
+    font-weight: 400;
+    text-decoration: underline;
+    white-space: nowrap;
+    
+    color: #fff;
+}
+
+.rules-prog__link:hover {
+    filter: drop-shadow(0 0 0.1vw rgba(255, 255, 255, 1));
+    transition: filter 0.15s linear;
+}
+
+.rules-prog__annotation > .rules-prog__link {
+    font-size: 0.83vw;
+}
+
 .rules-prog__text-content {
     font-family: Arsenal;
     font-size: 1.04vw;
@@ -144,6 +162,10 @@
     text-align: center;
     
     color: #FFF;
+}
+
+.rules-prog__text-content > .rules-prog__link {
+    font-size: 1.04vw;
 }
 
 .rules-prog__content-list {
@@ -160,6 +182,10 @@
     margin-right: 0.7vw;
 
     vertical-align: middle;
+}
+
+.rules-prog__content-item span {
+    font-size: 1.04vw;
 }
 
 .rules-prog__text-content_color {
@@ -330,10 +356,26 @@
 
     .rules-prog__annotation {
         font-size: 2.67vw;
+
+        > .rules-prog__link {
+            font-size: 2.67vw;
+        }
     }
 
     .rules-prog__text-content {
         font-size: 3.47vw;
+
+        > .rules-prog__link {
+            font-size: 3.47vw;
+        }
+
+        > span {
+            font-size: 3.47vw;
+        }
+    }
+
+    .rules-prog__content-item {
+
     }
 
     .docs_links__wrap {

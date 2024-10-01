@@ -112,10 +112,10 @@
 
         <div class="links-partner__wrapper">
             <p class="links-partner__text">
-                В акции участвуют порционный чай в <a class="links-partner__link" href="https://nikteaworld.com/catalog-pyramid.html" title="Чай в пирамидках Niktea" target="_blank">пирамидках</a> и <a class="links-partner__link" href="https://nikteaworld.com/catalog-dellipack-per-cup.html" title="Чай пакетированный Niktea" target="_blank">пакетированный</a> чай на чашку. 
+                В акции участвуют <a class="links-partner__link" href="https://nikteaworld.com/catalog-pyramid.html" title="Чай в пирамидках Niktea" target="_blank" rel="nofollow">порционный чай в пирамидках</a> и <a class="links-partner__link" href="https://nikteaworld.com/catalog-dellipack-per-cup.html" title="Чай пакетированный Niktea" target="_blank">пакетированный чай на чашку.</a>  
             </p>
             <p class="links-partner__text">
-                Чай Вы можете купить на сайте нашего официального интернет-магазина <a class="links-partner__link" href=" https://oasis-msk.ru/Paketirovannyj-tea-niktea-c-28_109_126.html" title="Oasis" target="_blank" rel="nofollow">Oasis MSK</a>, <br> а также у наших партнеров: <a class="links-partner__link" href="https://www.ozon.ru/seller/alef-treyd-msk-6503/produkty-pitaniya-9200/niktea-34988836/?miniapp=seller_6503&opened=brand" title="Ozon" target="_blank" rel="nofollow">Ozon</a>, <a class="links-partner__link" href="https://www.vprok.ru/catalog/search?text=Niktea" title="Vprok" target="_blank" rel="nofollow">Vprok</a>, в магазинах Окей, Гипер Глобус, Перекресток и других.
+                Чай Вы можете купить на сайте нашего официального интернет-магазина <a class="links-partner__link" href=" https://oasis-msk.ru/Paketirovannyj-tea-niktea-c-28_109_126.html" title="Oasis" target="_blank" rel="nofollow">Oasis-msk.ru</a>, <br> а также у наших партнеров: <a class="links-partner__link" href="https://www.ozon.ru/seller/alef-treyd-msk-6503/produkty-pitaniya-9200/niktea-34988836/?miniapp=seller_6503&opened=brand" title="Ozon" target="_blank" rel="nofollow">Ozon</a>, <a class="links-partner__link" href="https://www.vprok.ru/catalog/search?text=Niktea" title="Vprok" target="_blank" rel="nofollow">Vprok</a>, в магазинах Окей, Гипер Глобус, Перекресток и других.
             </p>
         </div>
 
@@ -178,7 +178,7 @@
                                         <span>Френч-пресс, 1 л</span>
                                     </span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/bonuses-for-balls/bonus-94-balls.webp" alt="niktea24">
+                                        <img class="main-slide__img main-slide__img-french-slide" src="img/content/bonuses-for-balls/bonus-94-balls.webp" alt="niktea24">
                                     </div>
                                 </div>
 
@@ -345,7 +345,7 @@
 
             <div class="priz__item">
                 <div class="priz__item-wr-image">
-                    <img class="priz__item__img" src="img/content/bonuses-for-balls/bonus-94-balls.webp" alt="iphone">
+                    <img class="priz__item__img main-slide__img-french" src="img/content/bonuses-for-balls/bonus-94-balls.webp" alt="iphone">
                 </div>
                 <div class="priz__item__text">
                     <span class="priz-mobile-balls">94 баллов -</span>

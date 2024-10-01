@@ -145,6 +145,11 @@
     color: #fff;
 }
 
+.more-detailed__bonus-prog-desc a {
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
 .more-detailed__bonus-prog-desc a:hover {
     filter: drop-shadow(0 0 0.1vw rgba(255, 255, 255, 1));
     
@@ -216,6 +221,28 @@
     justify-content: center;
 }
 
+.more-detailed__content-lottery-annotation {
+    display: grid;
+    height: 7.24vw;
+
+    border-radius: 2.60vw;
+    background: #494694;
+    box-shadow: .26vw .78vw 1.04vw rgba(0, 0, 0, 0.32);
+
+    place-items: center;
+    user-select: none;
+}
+
+.more-detailed__content-lottery-annotation p {
+    font-family: 'Arsenal';
+    font-size: 1.46vw;
+
+    color: #fff;
+}
+
+.more-detailed__content-lottery {
+    margin-top: 2.66vw;
+}
 
 .more-detailed__lottery-list {
     padding-left: 2.19vw;
@@ -404,6 +431,23 @@
     }
 }
 
+@media (max-width: 996px) {
+    .more-detailed__content-lottery-annotation {
+        height: 21.24vw;
+    
+        border-radius: 3.6vw;
+        box-shadow: .26vw .78vw 1.04vw rgba(0, 0, 0, 0.32);
+    }
+    
+    .more-detailed__content-lottery-annotation p {
+        font-size: 3.73vw;
+        text-align: center;
+    } 
+    
+    .more-detailed__content-lottery {
+        margin-top: 2.66vw;
+    }
+}
 
 @media (max-width: 996px) {
     .more-detailed__lottery-item {
