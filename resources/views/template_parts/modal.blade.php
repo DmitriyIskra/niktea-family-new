@@ -48,14 +48,14 @@
                                >
                         <label for="promoCode" class="reg-label">Укажите почту, набранную при регистрации</label>
                         <div class="invalid-feedback">
-                            Заполните пожалуйста данное поле
+                            Заполните, пожалуйста, данное поле
                         </div>
                     </div>
 
                     <div class="input__group">
                         <input class="registry__input--field form-control" type="password" name="password"
                                id="promoCode" >
-                        <label for="promoCode" class="reg-label">Введите пожалуйста код из E-mail</label>
+                        <label for="promoCode" class="reg-label">Введите, пожалуйста, код из E-mail</label>
                         <div class="invalid-feedback">
                             Вы указали неверный код или вышло время ожидания
                         </div>
@@ -202,7 +202,7 @@
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
                         <label class="form-check-label" for="invalidCheck">
                 <span>
-                  Я прочитал и согласен с <a href="#">Правилами Акции и Пользовательским соглашением</a>,
+                  Я прочитал(а) и согласен(на) с <a href="#">Правилами Акции и Пользовательским соглашением</a>,
                   согласен на обработку персональных данных
                 </span>
                             <span>

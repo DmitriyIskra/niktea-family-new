@@ -237,7 +237,7 @@
                                 <div class="slide__container">
                                     <span class="slide__description">
                                         <span class="slide__balls">364 баллов - </span>
-                                        <span> Термокружка HT500 or</span>
+                                        <span> Термокружка HT500</span>
                                     </span>
                                     <div class="slide-img--wrap">
                                         <img class="main-slide__img" src="img/content/bonuses-for-balls/bonus-364-balls.webp" alt="fan-priz">
@@ -387,7 +387,7 @@
 
             <div class="priz__item">
                 <div class="priz__item-wr-image">
-                    <img class="priz__item__img" src="img/content/bonuses-for-balls/bonus-57-balls.webp" alt="fan-mobile">
+                    <img class="priz__item__img priz__item__img-teapot" src="img/content/bonuses-for-balls/bonus-57-balls.webp" alt="fan-mobile">
                 </div>
                 <div class="priz__item__text">
                     <span class="priz-mobile-balls">57 баллов -</span>

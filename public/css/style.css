@@ -1106,7 +1106,7 @@ text-transform: uppercase;
   height: 100%;
   width: 100%;
 
-  object-fit: contain;
+  object-fit: contain; 
   object-position: center;
 }
 
@@ -1634,6 +1634,10 @@ text-transform: uppercase;
 .main-slide__img-french {
   object-position: 76% 50% !important;
   transform: scale(0.96);
+}
+
+.priz__item__img-teapot {
+  transform: translateX(-6%);
 }
 
 .priz__item__text {
