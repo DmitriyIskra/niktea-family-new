@@ -25,7 +25,7 @@
                     @endif
                     
                 >
-                    <img class="header__logo--img" src="{{ asset('img/icons/logo-new.svg') }}" alt="logo">
+                    <img class="header__logo--img header__logo--img-desctop" src="{{ asset('img/icons/logo-new.svg') }}" alt="logo">
                 </a>
             </li> 
             <li class='header__item header__item_account' data-bs-target={{ Auth::check() ? '' : '#exampleModalToggle' }} data-bs-toggle='modal'>
@@ -48,7 +48,7 @@
 
 </nav> 
 <a class="navbar-brand d-lg-none logo-mobile--wrap" href="/">
-    <img src="{{ asset('img/icons/logo-mobile.svg') }}" alt="logo-mobile">
+    <img src="{{ asset('img/icons/logo-header-new-mobile.svg') }}" alt="logo-mobile">
 </a>
 <a href={{ Auth::check() ? '/account' : '#0' }} class="navbar-brand d-lg-none account-logo-mobile" id="mobileaccountbutton" data-bs-target={{ Auth::check() ? '' : '#exampleModalToggle' }} data-bs-toggle='modal'>
 </a>

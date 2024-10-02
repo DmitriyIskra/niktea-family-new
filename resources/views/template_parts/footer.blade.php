@@ -19,7 +19,8 @@
 
             <div class="footer__column logo-col">
                 <a href="/" class="footer__logo">
-                    <img class="footer__logo--img" src="img/icons/logo-footer.png" alt="Logo">
+                    <img class="footer__logo--img footer__logo--img-desctop" src="img/icons/logo-footer.png" alt="Logo">
+                    <img class="footer__logo--img footer__logo--img-mobile" src="img/icons/logo-footer-mobile.png" alt="Logo">
                 </a>
 
                 <div class="footer__wrapper-messengers">
