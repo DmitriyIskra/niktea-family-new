@@ -584,7 +584,7 @@
         api-res__no-enough - Для этого заказа у Вас не хватает баллов.
         api-res__success - Ваш запрос успешно отправлен. Менеджер с Вами свяжется.
         api-res__fail-send - Проблема с соединением, попробуйте еще.
-        api-res__cheque-success - Ваш чек успешно добавлен. Время проверки чека до 3 дней.
+        api-res__cheque-success - Ваш чек успешно добавлен. Время проверки чека до 7 дней.
     -->
     <div class="api-res__wrapper">
         <div class="api-res__window">
@@ -595,7 +595,7 @@
                     <p class="api-res__content-text api-res__content-text_no-enough">Для этого заказа у Вас не хватает баллов.</p>                
                     <p class="api-res__content-text api-res__content-text_success">Ваш запрос успешно отправлен. Менеджер с Вами свяжется.</p>                
                     <p class="api-res__content-text api-res__content-text_fail-send">Проблема с соединением, попробуйте еще.</p>                
-                    <p class="api-res__content-text api-res__content-text_cheque-success">Ваш чек успешно добавлен. <br> <span class="api-res__content-text_color">Время проверки чека до 3 дней.</span></p>                
+                    <p class="api-res__content-text api-res__content-text_cheque-success">Ваш чек успешно добавлен. <br> <span class="api-res__content-text_color">Время проверки чека до 7 дней.</span></p>                
                 </div>
                 <div class="api-res__content-wr-button">
                     <div class="api-res__content-button-back">

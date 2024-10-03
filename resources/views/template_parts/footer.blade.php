@@ -26,7 +26,7 @@
                 <div class="footer__wrapper-messengers">
                     <div class="footer__item--icons">
                         <div>
-                            <a class="footer__link footer__messengers-link" href="https://t.me/NikteaPromo2023" >
+                            <a class="footer__link footer__messengers-link" href="https://t.me/+79037988598" >
                                 <img class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo">
                             </a>
                         </div>

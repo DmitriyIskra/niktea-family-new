@@ -90,6 +90,12 @@ body[data-variant=error-page] {
   z-index: -10;  
 }
 
+
+#exampleModalToggle, #enterAccount, #registryForm {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+
 /* НАЧАЛО ССЫЛКА НА ПАРТНЕРОВ */
 
 .links-partner__wrapper { 

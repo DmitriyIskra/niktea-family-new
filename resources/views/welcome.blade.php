@@ -301,11 +301,7 @@
             </div>
 
         </section>
-
-
-        <div class="wr-link-to-gifts">
-            <a href="/gifts">подробнее о подарках</a>
-        </div>         
+       
 
 
         <div class="priz-mobile">
@@ -457,6 +453,12 @@
 
 
         </div>
+
+
+        <div class="wr-link-to-gifts">
+            <a href="/gifts">подробнее</a>
+        </div>  
+
 
     </div>
 
