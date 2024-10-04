@@ -237,6 +237,7 @@ class UserController extends Controller
                 $tmp_path = $item->getPathname();
                 $type = $item->getMimeType();
                 $new_file_name = $user->email.'_'.$hash;
+                Log::info($new_file_name);
                 
                 if(str_contains($type, 'image')) {
                     $s3Client_settings = [
@@ -275,8 +276,10 @@ class UserController extends Controller
                         CURLOPT_HTTPHEADER => $headers,
                     ));    
                     $res = curl_exec($curl);
+                    
                     curl_close($curl);
-                  
+                    Log::info('upload-file-from-acc', ['' => $res]);
+                    
                     $path_for_db = "https://storage.yandexcloud.net/nikteafamily/$new_file_name";
                  
                     Cheque::query()->create([
