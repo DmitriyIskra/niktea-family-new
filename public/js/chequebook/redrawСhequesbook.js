@@ -17,7 +17,7 @@ export default class RedrawСhequesbook {
 
         this.update = this.update.bind(this);
 
-        this.activePag = null;
+        this.activePag = null; 
         this.textPag = 1;
         this.indexPag = 0;
         this.leftPag = null;
@@ -60,8 +60,10 @@ export default class RedrawСhequesbook {
 
         this.renderPagination(length);
 
-
-        if(length <= 3) {
+        if(length <= 1) {
+            this.paginationList.style.visibility = 'hidden';
+        }
+        else if(length > 1 && length <= 3) {
             this.arrowPrev.style.visibility = 'hidden';
             this.arrowNext.style.visibility = 'hidden';
         } else {

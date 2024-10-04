@@ -588,7 +588,7 @@
     -->
     <div class="api-res__wrapper">
         <div class="api-res__window">
-            <div class="api-res__content">
+            <div class="api-res__content"> 
                 <div class="api-res__content-icon"></div>
                 <div class="api-res__content-wr-text">
                     <p class="api-res__content-text api-res__content-text_lottery">После обмена баллов <br> Вы стали участником розыгрыша!</p>                

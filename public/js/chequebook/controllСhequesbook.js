@@ -11,7 +11,7 @@ export default class ControllСhequesbook {
         if(arr) this.d.init(arr);
 
         this.registerEvents(); 
-    }
+    } 
 
     registerEvents() { 
         this.d.book.addEventListener('click', this.click);

@@ -14,7 +14,7 @@ export default class PatternChequesbook {
             li.append(img);
     
             return li;
-        })
+        }) 
 
         return elements;
     }

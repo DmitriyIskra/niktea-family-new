@@ -1,7 +1,7 @@
 .user-account__container {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 40%;
+    margin-bottom: 42rem;
     padding-left: 1.8rem;
     padding-right: 1.8rem;
     margin-top: 110px;
@@ -1145,7 +1145,7 @@ h1 {
         margin-left: auto;
         margin-right: auto;
         margin-top: 35px;
-        margin-bottom: 400px;
+        margin-bottom: 361px;
         padding-left: 34px;
         padding-right: 34px;
         margin-top: 35px;
@@ -1239,7 +1239,7 @@ h1 {
     .user-data__data-numbers div {
         width: 49.37%;
     }
-
+ 
     .file-upload__label {
         display: flex;
         width: 100%;
