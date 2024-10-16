@@ -234,7 +234,7 @@
                             </div>
                             <div class="more-detailed__lottery-wr-text">
                                 <p class="more-detailed__lottery-text">
-                                    Часы HUAWEI WATCH GT 4,  46мм. (набор)  
+                                    Часы HUAWEI WATCH GT 4,  46мм.
                                 </p>
                                 <p class="more-detailed__lottery-text">
                                     Часы Apple Watch SE, 44мм.  

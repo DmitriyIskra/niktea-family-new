@@ -3,12 +3,12 @@
     position: relative;
 
     display: flex;
-    padding-left: 140px;
-    padding-right: 140px;
+    padding-left: 14.5%;
+    padding-right: 14.5%;
 
     border-radius: 30px;       
     background: no-repeat url(../img/rules-card-leafs.webp), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
-    background-size: 112% auto, 100%;    
+    background-size: 107% auto, 100%;    
     background-position:center;
     
     box-shadow: 0px 0px 20px 8px #FFF;
@@ -282,7 +282,7 @@
         
         border-radius: 30px;       
         background: no-repeat url('../img/icons/rules-bg-mobile.svg'), no-repeat linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
-        background-size: 116%;    
+        background-size: 119% auto, auto;   
         background-position-x:center;
         background-position-y:center;
         box-shadow: 0px 0px 20px 8px #FFF;
@@ -372,10 +372,6 @@
         > span {
             font-size: 3.47vw;
         }
-    }
-
-    .rules-prog__content-item {
-
     }
 
     .docs_links__wrap {
